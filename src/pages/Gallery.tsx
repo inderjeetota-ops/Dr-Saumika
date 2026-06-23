@@ -3,10 +3,7 @@ import { motion } from 'motion/react';
 
 const gallerySections = [
   "Ptosis Correction",
-  "Eyelid Tumour Reconstruction",
-  "Artificial Eye Rehabilitation",
-  "Thyroid Eye Disease",
-  "Socket Reconstruction"
+  "Artificial Eye Rehabilitation"
 ];
 
 export default function Gallery() {
@@ -39,9 +36,11 @@ export default function Gallery() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {/* Before Image Placeholder */}
                 <div className="bg-navy/5 p-4 flex flex-col">
-                  <div className="aspect-[4/3] bg-navy/10 flex items-center justify-center overflow-hidden">
+                  <div className="aspect-[3/2] sm:aspect-video bg-navy/10 flex items-center justify-center overflow-hidden">
                     {idx === 0 ? (
                       <img src="/ptosis-before.jpg" alt="Ptosis Before" className="w-full h-full object-cover" />
+                    ) : idx === 1 ? (
+                      <img src="/Artificial-Eye-Rehabilitation-before.jpg" alt="Artificial Eye Rehabilitation Before" className="w-full h-full object-cover" />
                     ) : (
                       <span className="text-navy/40 font-bold uppercase tracking-widest text-center px-4">[Clinical Photo Here]</span>
                     )}
@@ -53,10 +52,12 @@ export default function Gallery() {
 
                 {/* After Image Placeholder */}
                 <div className="bg-navy/5 p-4 flex flex-col">
-                  <div className="aspect-[4/3] bg-navy/10 flex items-center justify-center overflow-hidden relative">
+                  <div className="aspect-[3/2] sm:aspect-video bg-navy/10 flex items-center justify-center overflow-hidden relative">
                     <span className="absolute inset-0 border-4 border-gold/50 pointer-events-none z-10"></span>
                     {idx === 0 ? (
                       <img src="/ptosis-after.jpg" alt="Ptosis After" className="w-full h-full object-cover" />
+                    ) : idx === 1 ? (
+                      <img src="/Artificial-Eye-Rehabilitation-after.jpg" alt="Artificial Eye Rehabilitation After" className="w-full h-full object-cover" />
                     ) : (
                       <span className="text-navy/40 font-bold uppercase tracking-widest">[Clinical Photo Here]</span>
                     )}
@@ -70,8 +71,8 @@ export default function Gallery() {
           ))}
         </div>
         
-        <div className="mt-24 text-center p-8 bg-navy text-ivory">
-           <p className="text-lg text-ivory-dark/80 italic font-light max-w-2xl mx-auto">
+        <div className="mt-16 text-center py-4 px-8 bg-navy text-ivory">
+           <p className="text-base text-ivory/80 italic font-light max-w-2xl mx-auto">
              Note: These images are shared with patient consent. Results may vary depending on individual clinical conditions.
            </p>
         </div>
