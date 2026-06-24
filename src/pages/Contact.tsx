@@ -3,6 +3,26 @@ import { motion } from 'motion/react';
 import { MapPin, Phone, Mail, MessageCircle, Send } from 'lucide-react';
 
 export default function Contact() {
+  const [phoneError, setPhoneError] = React.useState("");
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const formData = new FormData(e.currentTarget);
+    const phoneValue = formData.get("phone") as string;
+    
+    // Remove spaces and hyphens
+    const cleanPhone = phoneValue.replace(/[\s-]/g, '');
+    
+    // Regex for optional country code (+ or just numbers, max 3 digits) followed by exactly 10 digits
+    const valid = /^(\+?\d{1,3})?\d{10}$/.test(cleanPhone);
+    
+    if (!valid) {
+      e.preventDefault();
+      setPhoneError("Please enter a complete 10-digit phone number.");
+    } else {
+      setPhoneError("");
+    }
+  };
+
   return (
     <div className="py-20 px-4 sm:px-6 lg:px-8 bg-ivory">
       <div className="max-w-7xl mx-auto">
@@ -88,12 +108,18 @@ export default function Contact() {
             className="lg:col-span-3 bg-navy p-8 md:p-10 h-full flex flex-col"
           >
             <h2 className="text-2xl font-bold text-gold mb-8">Request an Appointment</h2>
-            <form className="flex-1 flex flex-col space-y-6" onSubmit={(e) => e.preventDefault()}>
+            <form className="flex-1 flex flex-col space-y-6" action="https://api.web3forms.com/submit" method="POST" onSubmit={handleSubmit}>
+              <input type="hidden" name="access_key" value="5318569a-ea1c-494f-a43b-bd4d8cc2d639" />
+              <input type="hidden" name="subject" value="New Appointment Request - Dr. Saumika" />
+              <input type="hidden" name="from_name" value="Website Contact Form" />
+              
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-ivory/80 uppercase tracking-wider mb-2">Full Name</label>
                   <input 
                     type="text" 
+                    name="name"
+                    required
                     className="w-full bg-ivory/5 border border-ivory/20 px-4 py-3 text-ivory focus:outline-none focus:border-gold transition-colors"
                     placeholder="Sachin Kumar"
                   />
@@ -102,20 +128,29 @@ export default function Contact() {
                   <label className="block text-sm font-medium text-ivory/80 uppercase tracking-wider mb-2">Phone Number</label>
                   <input 
                     type="tel" 
-                    className="w-full bg-ivory/5 border border-ivory/20 px-4 py-3 text-ivory focus:outline-none focus:border-gold transition-colors"
+                    name="phone"
+                    required
+                    className={`w-full bg-ivory/5 border ${phoneError ? 'border-red-500' : 'border-ivory/20'} px-4 py-3 text-ivory focus:outline-none focus:border-gold transition-colors`}
                     placeholder="+91"
                   />
+                  {phoneError && (
+                    <p className="text-red-400 text-sm mt-2">{phoneError}</p>
+                  )}
                 </div>
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-ivory/80 uppercase tracking-wider mb-2">Message (Optional)</label>
                 <textarea 
+                  name="message"
                   rows={4}
                   className="w-full bg-ivory/5 border border-ivory/20 px-4 py-3 text-ivory focus:outline-none focus:border-gold transition-colors"
                   placeholder="Tell us briefly about your condition..."
                 ></textarea>
               </div>
+
+              {/* Honeypot Spam Protection */}
+              <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
 
               <button 
                 type="submit"
