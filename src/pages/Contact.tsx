@@ -123,7 +123,7 @@ export default function Contact() {
                     name="name"
                     required
                     className="w-full bg-ivory/5 border border-ivory/20 px-4 py-3 text-ivory focus:outline-none focus:border-gold transition-colors"
-                    placeholder="Sachin Kumar"
+                    placeholder="Name"
                   />
                 </div>
                 <div>
