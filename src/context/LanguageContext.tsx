@@ -1,0 +1,186 @@
+import React, { createContext, useContext, useState, ReactNode } from 'react';
+
+type Language = 'en' | 'hi';
+
+interface LanguageContextType {
+  language: Language;
+  setLanguage: (lang: Language) => void;
+  t: (key: string) => string;
+}
+
+const translations = {
+  en: {
+    // Navbar
+    'nav.home': 'Home',
+    'nav.conditions': 'Conditions Treated',
+    'nav.gallery': 'Gallery',
+    'nav.contact': 'Contact',
+    'nav.bookNow': 'Book Now',
+    
+    // Home - Hero
+    'home.specialist': 'Specialist Eyecare',
+    'home.drName': 'Dr. Saumika\nSingh',
+    'home.subtitle': 'Oculoplasty, Orbit & Ocular Oncology Surgeon',
+    'home.eyelid': 'Eyelid Disorders',
+    'home.lacrimal': 'Lacrimal Disorders',
+    'home.orbital': 'Orbital Diseases',
+    'home.oncology': 'Ocular Surface & Periocular Oncology',
+    'home.artificial': 'Artificial Eye & Socket Rehabilitation',
+    'home.aesthetics': 'Periocular Aesthetics',
+    'home.bookConsultation': 'Book Consultation',
+    'home.callNow': 'Call Now',
+    
+    // Home - Commitment
+    'home.commitmentTitle': 'Commitment to Excellence',
+    'home.commitmentDesc': 'Dr. Saumika Singh is a fellowship-trained Oculoplasty, Orbit & Ocular Oncology Surgeon with expertise in the management of eyelid disorders, lacrimal diseases, orbital pathology, ocular surface and periocular tumours, socket reconstruction, and periocular aesthetics.',
+    'home.location': 'Alyantra Medicity, Lucknow',
+    
+    // Home - Why Oculoplasty
+    'home.whyTitle': 'Why Oculoplasty?',
+    'home.whyDesc': 'Specialized and delicate care for the structures surrounding the eye. If you experience these symptoms, an Oculoplasty expert provides the precise treatment required.',
+    'home.drooping': 'Drooping Eyelids',
+    'home.droopingDesc': 'Ptosis correction to restore visual field and appearance.',
+    'home.watering': 'Watering Eyes',
+    'home.wateringDesc': 'Advanced solutions for lacrimal duct blockages.',
+    'home.artificialTitle': 'Artificial Eye',
+    'home.artificialDesc': 'Custom socket reconstruction and prosthetic fitting.',
+    'home.thyroid': 'Thyroid Eye Disease',
+    'home.thyroidDesc': 'Comprehensive management of TED symptoms.',
+    'home.tumours': 'Eyelid & Ocular Tumours',
+    'home.tumoursDesc': 'Expert oncology care with reconstructive surgery.',
+    'home.botox': 'Botox & Aesthetics',
+    'home.botoxDesc': 'Safe, effective periocular aesthetic enhancements.',
+    'home.viewAll': 'View All Conditions Treated →',
+
+    // Conditions
+    'cond.title': 'Conditions Treated',
+    'cond.desc': 'We provide comprehensive diagnostic, medical, and surgical care for a wide range of oculofacial conditions.',
+    
+    // Gallery
+    'gallery.title': 'Clinical Outcomes',
+    'gallery.desc': 'View before and after transformations demonstrating functional and aesthetic results.',
+    'gallery.photoGallery': 'Photo Gallery',
+    'gallery.note': 'Note: These images are shared with patient consent. Results may vary depending on individual clinical conditions.',
+
+    // Contact
+    'contact.title': 'Contact & Appointments',
+    'contact.desc': 'Schedule your consultation today. We are here to provide expert care for your eyes.',
+    'contact.addressTitle': 'Address',
+    'contact.address': 'Alyantra Medicity\nLucknow, Uttar Pradesh',
+    'contact.phoneTitle': 'Phone',
+    'contact.phone': '+91 7460088838',
+    'contact.emailTitle': 'Email',
+    'contact.email': 'contact@drsaumika.in',
+    'contact.hoursTitle': 'Consultation Hours',
+    'contact.hours': 'Monday - Saturday: 10:00 AM - 6:00 PM\nSunday: Closed',
+    'contact.reqAppt': 'Request an Appointment',
+    'contact.formName': 'Full Name',
+    'contact.formPhone': 'Phone Number',
+    'contact.formMessage': 'Message (Optional)',
+    'contact.formSubmit': 'Submit Request',
+    'contact.phoneError': 'Please enter a complete 10-digit phone number.',
+
+    // Footer
+    'footer.quickLinks': 'Quick Links',
+    'footer.contactInfo': 'Contact Info',
+  },
+  hi: {
+    // Navbar
+    'nav.home': 'मुख्य पृष्ठ',
+    'nav.conditions': 'उपचार की जाने वाली स्थितियाँ',
+    'nav.gallery': 'गैलरी',
+    'nav.contact': 'संपर्क करें',
+    'nav.bookNow': 'अपॉइंटमेंट बुक करें',
+    
+    // Home - Hero
+    'home.specialist': 'विशेषज्ञ नेत्र देखभाल',
+    'home.drName': 'डॉ. सौमिका\nसिंह',
+    'home.subtitle': 'ओकुलोप्लास्टी, ऑर्बिट और ओकुलर ऑन्कोलॉजी सर्जन',
+    'home.eyelid': 'पलकों के रोग (Eyelid Disorders)',
+    'home.lacrimal': 'आंसू नलिका के रोग (Lacrimal Disorders)',
+    'home.orbital': 'ऑर्बिटल रोग (Orbital Diseases)',
+    'home.oncology': 'ओकुलर सरफेस और पेरिओकुलर ऑन्कोलॉजी',
+    'home.artificial': 'कृत्रिम आंख और सॉकेट पुनर्वास',
+    'home.aesthetics': 'पेरिओकुलर सौंदर्यशास्त्र (Aesthetics)',
+    'home.bookConsultation': 'परामर्श बुक करें',
+    'home.callNow': 'अभी कॉल करें',
+    
+    // Home - Commitment
+    'home.commitmentTitle': 'उत्कृष्टता के प्रति प्रतिबद्धता',
+    'home.commitmentDesc': 'डॉ. सौमिका सिंह एक फेलोशिप-प्रशिक्षित ओकुलोप्लास्टी, ऑर्बिट और ओकुलर ऑन्कोलॉजी सर्जन हैं, जिन्हें पलकों के विकारों, लैक्रिमल बीमारियों, ऑर्बिटल पैथोलॉजी, ओकुलर सतह और पेरिओकुलर ट्यूमर, सॉकेट पुनर्निर्माण और पेरिओकुलर सौंदर्यशास्त्र के प्रबंधन में विशेषज्ञता प्राप्त है।',
+    'home.location': 'अलियंत्रा मेडिसिटी, लखनऊ',
+    
+    // Home - Why Oculoplasty
+    'home.whyTitle': 'ओकुलोप्लास्टी क्यों?',
+    'home.whyDesc': 'आंख के आसपास की संरचनाओं के लिए विशेष और नाजुक देखभाल। यदि आप इन लक्षणों का अनुभव करते हैं, तो एक ओकुलोप्लास्टी विशेषज्ञ सटीक उपचार प्रदान करता है।',
+    'home.drooping': 'झुकी हुई पलकें',
+    'home.droopingDesc': 'दृश्य क्षेत्र और रूप-रंग को बहाल करने के लिए टोसिस (Ptosis) सुधार।',
+    'home.watering': 'आंखों से पानी आना',
+    'home.wateringDesc': 'लैक्रिमल डक्ट (आंसू नलिका) रुकावटों के लिए उन्नत समाधान।',
+    'home.artificialTitle': 'कृत्रिम आंख',
+    'home.artificialDesc': 'कस्टम सॉकेट पुनर्निर्माण और कृत्रिम आंख (प्रोस्थेटिक) फिटिंग।',
+    'home.thyroid': 'थायरॉइड नेत्र रोग',
+    'home.thyroidDesc': 'टीईडी (TED) लक्षणों का व्यापक प्रबंधन।',
+    'home.tumours': 'पलक और ओकुलर ट्यूमर',
+    'home.tumoursDesc': 'पुनर्निर्माण सर्जरी के साथ विशेषज्ञ ऑन्कोलॉजी देखभाल।',
+    'home.botox': 'बोटॉक्स और एस्थेटिक्स',
+    'home.botoxDesc': 'सुरक्षित, प्रभावी पेरिओकुलर सौंदर्य वृद्धि।',
+    'home.viewAll': 'सभी उपचारित स्थितियां देखें →',
+
+    // Conditions
+    'cond.title': 'उपचार की जाने वाली स्थितियाँ',
+    'cond.desc': 'हम ओकुलोफेशियल स्थितियों की एक विस्तृत श्रृंखला के लिए व्यापक नैदानिक, चिकित्सा और शल्य चिकित्सा देखभाल प्रदान करते हैं।',
+    
+    // Gallery
+    'gallery.title': 'नैदानिक परिणाम',
+    'gallery.desc': 'कार्यात्मक और सौंदर्य संबंधी परिणाम दर्शाने वाले पहले और बाद के बदलाव देखें।',
+    'gallery.photoGallery': 'फोटो गैलरी',
+    'gallery.note': 'नोट: ये छवियां रोगी की सहमति से साझा की जाती हैं। परिणाम व्यक्तिगत नैदानिक स्थितियों के आधार पर भिन्न हो सकते हैं।',
+
+    // Contact
+    'contact.title': 'संपर्क और अपॉइंटमेंट',
+    'contact.desc': 'आज ही अपना परामर्श निर्धारित करें। हम आपकी आंखों के लिए विशेषज्ञ देखभाल प्रदान करने के लिए यहां हैं।',
+    'contact.addressTitle': 'पता',
+    'contact.address': 'अलियंत्रा मेडिसिटी\nलखनऊ, उत्तर प्रदेश',
+    'contact.phoneTitle': 'फ़ोन',
+    'contact.phone': '+91 7460088838',
+    'contact.emailTitle': 'ईमेल',
+    'contact.email': 'contact@drsaumika.in',
+    'contact.hoursTitle': 'परामर्श का समय',
+    'contact.hours': 'सोमवार - शनिवार: सुबह 10:00 - शाम 6:00\nरविवार: बंद',
+    'contact.reqAppt': 'अपॉइंटमेंट का अनुरोध करें',
+    'contact.formName': 'पूरा नाम',
+    'contact.formPhone': 'फ़ोन नंबर',
+    'contact.formMessage': 'संदेश (वैकल्पिक)',
+    'contact.formSubmit': 'अनुरोध भेजें',
+    'contact.phoneError': 'कृपया पूरा 10-अंकों का फ़ोन नंबर दर्ज करें।',
+
+    // Footer
+    'footer.quickLinks': 'त्वरित लिंक',
+    'footer.contactInfo': 'संपर्क जानकारी',
+  }
+};
+
+const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+
+export const LanguageProvider = ({ children }: { children: ReactNode }) => {
+  const [language, setLanguage] = useState<Language>('en');
+
+  const t = (key: string): string => {
+    return translations[language][key as keyof typeof translations['en']] || key;
+  };
+
+  return (
+    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+      {children}
+    </LanguageContext.Provider>
+  );
+};
+
+export const useLanguage = () => {
+  const context = useContext(LanguageContext);
+  if (context === undefined) {
+    throw new Error('useLanguage must be used within a LanguageProvider');
+  }
+  return context;
+};

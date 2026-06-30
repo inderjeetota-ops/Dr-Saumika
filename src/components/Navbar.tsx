@@ -3,17 +3,19 @@ import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { cn } from '../lib/utils';
 import { AnimatePresence, motion } from 'motion/react';
-
-const navLinks = [
-  { name: 'Home', path: '#home' },
-  { name: 'Conditions Treated', path: '#conditions' },
-  { name: 'Gallery', path: '#gallery' },
-  { name: 'Contact', path: '#contact' },
-];
+import { useLanguage } from '../context/LanguageContext';
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('#home');
+  const { language, setLanguage, t } = useLanguage();
+
+  const navLinks = [
+    { name: t('nav.home'), path: '#home' },
+    { name: t('nav.conditions'), path: '#conditions' },
+    { name: t('nav.gallery'), path: '#gallery' },
+    { name: t('nav.contact'), path: '#contact' },
+  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -65,6 +67,32 @@ export function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-gold/20 bg-ivory/90 backdrop-blur-md">
+      {/* Top Bar for Language */}
+      <div className="bg-navy py-1.5 border-b border-gold/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-end">
+          <div className="flex bg-ivory/10 rounded-sm p-0.5">
+            <button
+              onClick={() => setLanguage('en')}
+              className={cn(
+                "px-3 py-1 text-xs font-bold transition-colors rounded-sm",
+                language === 'en' ? "bg-ivory text-navy" : "text-ivory/70 hover:text-ivory"
+              )}
+            >
+              English
+            </button>
+            <button
+              onClick={() => setLanguage('hi')}
+              className={cn(
+                "px-3 py-1 text-xs font-bold transition-colors rounded-sm",
+                language === 'hi' ? "bg-ivory text-navy" : "text-ivory/70 hover:text-ivory"
+              )}
+            >
+              हिंदी
+            </button>
+          </div>
+        </div>
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex-shrink-0 flex items-center mr-4">
@@ -90,17 +118,18 @@ export function Navbar() {
                 {link.name}
               </a>
             ))}
+
             <a 
               href="/#contact" 
               onClick={(e) => handleLinkClick(e, '#contact')}
               className="px-4 py-2 lg:px-5 lg:py-2.5 bg-navy text-ivory text-xs lg:text-sm uppercase tracking-wide font-medium whitespace-nowrap hover:bg-navy-light transition-colors"
             >
-              Book Now
+              {t('nav.bookNow')}
             </a>
           </div>
 
           {/* Mobile Nav Button */}
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden flex items-center gap-4">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-navy hover:text-gold focus:outline-none"
@@ -142,7 +171,7 @@ export function Navbar() {
                   onClick={(e) => handleLinkClick(e, '#contact')}
                   className="block w-full text-center px-5 py-3 bg-navy text-ivory font-medium uppercase tracking-wide hover:bg-navy-light transition-colors"
                 >
-                  Book Now
+                  {t('nav.bookNow')}
                 </a>
               </div>
             </div>

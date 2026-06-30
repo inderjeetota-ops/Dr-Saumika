@@ -1,9 +1,11 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { MapPin, Phone, Mail, MessageCircle, Send } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Contact() {
   const [phoneError, setPhoneError] = React.useState("");
+  const { t } = useLanguage();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     const formData = new FormData(e.currentTarget);
@@ -17,7 +19,7 @@ export default function Contact() {
     
     if (!valid) {
       e.preventDefault();
-      setPhoneError("Please enter a complete 10-digit phone number.");
+      setPhoneError(t('contact.phoneError'));
     } else {
       setPhoneError("");
     }
@@ -34,7 +36,7 @@ export default function Contact() {
           <p className="text-gold font-bold tracking-widest uppercase text-sm mb-4">
             Get In Touch
           </p>
-          <h1 className="text-4xl md:text-5xl font-bold text-navy mb-6">Contact & Appointments</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-navy mb-6">{t('contact.title')}</h1>
           <div className="w-24 h-1 bg-gold mx-auto"></div>
         </motion.div>
 
@@ -54,24 +56,24 @@ export default function Contact() {
                 <div className="flex items-start">
                   <MapPin className="h-6 w-6 text-gold mr-4 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-bold text-navy text-lg">Location</h3>
-                    <p className="text-navy/70 mt-1">Associated with Alyantra Medicity,<br />Lucknow</p>
+                    <h3 className="font-bold text-navy text-lg">{t('contact.addressTitle')}</h3>
+                    <p className="text-navy/70 mt-1 whitespace-pre-line">{t('contact.address')}</p>
                   </div>
                 </div>
 
                 <div className="flex items-start">
                   <Phone className="h-6 w-6 text-gold mr-4 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-bold text-navy text-lg">Phone</h3>
-                    <a href="tel:+917460088838" className="text-navy/70 mt-1 hover:text-gold block transition-colors">+91 7460088838</a>
+                    <h3 className="font-bold text-navy text-lg">{t('contact.phoneTitle')}</h3>
+                    <a href="tel:+917460088838" className="text-navy/70 mt-1 hover:text-gold block transition-colors">{t('contact.phone')}</a>
                   </div>
                 </div>
 
                 <div className="flex items-start">
                   <Mail className="h-6 w-6 text-gold mr-4 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-bold text-navy text-lg">Email</h3>
-                    <a href="mailto:contact@drsaumika.in" className="text-navy/70 mt-1 hover:text-gold block transition-colors">contact@drsaumika.in</a>
+                    <h3 className="font-bold text-navy text-lg">{t('contact.emailTitle')}</h3>
+                    <a href="mailto:contact@drsaumika.in" className="text-navy/70 mt-1 hover:text-gold block transition-colors">{t('contact.email')}</a>
                   </div>
                 </div>
               </div>
@@ -107,7 +109,7 @@ export default function Contact() {
             transition={{ delay: 0.4 }}
             className="lg:col-span-3 bg-navy p-8 md:p-10 h-full flex flex-col"
           >
-            <h2 className="text-2xl font-bold text-gold mb-8">Request an Appointment</h2>
+            <h2 className="text-2xl font-bold text-gold mb-8">{t('contact.reqAppt')}</h2>
             <form className="flex-1 flex flex-col space-y-6" action="https://api.web3forms.com/submit" method="POST" onSubmit={handleSubmit}>
               <input type="hidden" name="access_key" value="5318569a-ea1c-494f-a43b-bd4d8cc2d639" />
               <input type="hidden" name="subject" value="New Appointment Request - Dr. Saumika" />
@@ -115,7 +117,7 @@ export default function Contact() {
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-ivory/80 uppercase tracking-wider mb-2">Full Name</label>
+                  <label className="block text-sm font-medium text-ivory/80 uppercase tracking-wider mb-2">{t('contact.formName')}</label>
                   <input 
                     type="text" 
                     name="name"
@@ -125,7 +127,7 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-ivory/80 uppercase tracking-wider mb-2">Phone Number</label>
+                  <label className="block text-sm font-medium text-ivory/80 uppercase tracking-wider mb-2">{t('contact.formPhone')}</label>
                   <input 
                     type="tel" 
                     name="phone"
@@ -140,7 +142,7 @@ export default function Contact() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-ivory/80 uppercase tracking-wider mb-2">Message (Optional)</label>
+                <label className="block text-sm font-medium text-ivory/80 uppercase tracking-wider mb-2">{t('contact.formMessage')}</label>
                 <textarea 
                   name="message"
                   rows={4}
@@ -156,7 +158,7 @@ export default function Contact() {
                 type="submit"
                 className="mt-auto w-full flex items-center justify-center px-8 py-4 bg-gold text-navy font-bold uppercase tracking-wider hover:bg-gold-light transition-colors"
               >
-                <span>Submit Request</span>
+                <span>{t('contact.formSubmit')}</span>
                 <Send className="ml-3 h-5 w-5" />
               </button>
             </form>
