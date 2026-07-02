@@ -123,7 +123,7 @@ export default function Contact() {
                     name="name"
                     required
                     className="w-full bg-ivory/5 border border-ivory/20 px-4 py-3 text-ivory focus:outline-none focus:border-gold transition-colors"
-                    placeholder="Name"
+                    placeholder={t('contact.formNamePlaceholder')}
                   />
                 </div>
                 <div>
@@ -147,7 +147,7 @@ export default function Contact() {
                   name="message"
                   rows={4}
                   className="w-full bg-ivory/5 border border-ivory/20 px-4 py-3 text-ivory focus:outline-none focus:border-gold transition-colors"
-                  placeholder="Tell us briefly about your condition..."
+                  placeholder={t('contact.formMessagePlaceholder')}
                 ></textarea>
               </div>
 

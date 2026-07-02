@@ -79,6 +79,8 @@ const translations = {
     'contact.formMessage': 'Message (Optional)',
     'contact.formSubmit': 'Submit Request',
     'contact.phoneError': 'Please enter a complete 10-digit phone number.',
+    'contact.formNamePlaceholder': 'Name',
+    'contact.formMessagePlaceholder': 'Tell us briefly about your condition...',
 
     // Footer
     'footer.quickLinks': 'Quick Links',
@@ -154,6 +156,8 @@ const translations = {
     'contact.formMessage': 'संदेश (वैकल्पिक)',
     'contact.formSubmit': 'अनुरोध भेजें',
     'contact.phoneError': 'कृपया पूरा 10-अंकों का फ़ोन नंबर दर्ज करें।',
+    'contact.formNamePlaceholder': 'नाम',
+    'contact.formMessagePlaceholder': 'अपनी स्थिति के बारे में संक्षेप में बताएं...',
 
     // Footer
     'footer.quickLinks': 'त्वरित लिंक',
