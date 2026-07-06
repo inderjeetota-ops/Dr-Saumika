@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { MapPin, Phone, Mail, MessageCircle, Send } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import SEO from '../components/SEO';
 
 export default function Contact() {
   const [phoneError, setPhoneError] = React.useState("");
@@ -27,6 +28,7 @@ export default function Contact() {
 
   return (
     <div className="py-20 px-4 sm:px-6 lg:px-8 bg-ivory">
+      <SEO title={t('contact.title')} description="Get in touch to schedule an appointment or consultation." />
       <div className="max-w-7xl mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}

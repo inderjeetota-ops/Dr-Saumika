@@ -26,9 +26,9 @@ export function Footer() {
             </h3>
             <div className="flex flex-row gap-4 sm:gap-6 justify-between items-start">
               <ul className="space-y-4 text-base sm:text-lg">
-                <li><a href="/#conditions" className="hover:text-gold transition-colors block">{t('nav.conditions')}</a></li>
-                <li><a href="/#gallery" className="hover:text-gold transition-colors block">{t('nav.gallery')}</a></li>
-                <li><a href="/#contact" className="hover:text-gold transition-colors block">{t('nav.contact')}</a></li>
+                <li><Link to="/#conditions" className="hover:text-gold transition-colors block">{t('nav.conditions')}</Link></li>
+                <li><Link to="/#gallery" className="hover:text-gold transition-colors block">{t('nav.gallery')}</Link></li>
+                <li><Link to="/#contact" className="hover:text-gold transition-colors block">{t('nav.contact')}</Link></li>
               </ul>
               <div className="bg-white p-2 rounded-lg flex-shrink-0">
                 <img src="/qr-code.png" alt="QR Code" className="w-20 h-20 lg:w-24 lg:h-24" />

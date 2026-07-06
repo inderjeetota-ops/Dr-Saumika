@@ -11,6 +11,7 @@ import Conditions from './pages/Conditions';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
 import ServiceDetail from './pages/ServiceDetail';
+import NotFound from './pages/NotFound';
 import { LanguageProvider } from './context/LanguageContext';
 
 function ScrollToTop() {
@@ -50,6 +51,7 @@ export default function App() {
             <Route path="gallery" element={<Gallery />} />
             <Route path="contact" element={<Contact />} />
             <Route path="services/:id" element={<ServiceDetail />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
       </BrowserRouter>

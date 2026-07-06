@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { useLanguage } from '../context/LanguageContext';
+import SEO from '../components/SEO';
 
 const conditionsList = {
   en: [
@@ -129,6 +130,7 @@ export default function Conditions() {
 
   return (
     <div className="py-20 px-4 sm:px-6 lg:px-8 bg-ivory">
+      <SEO title={t('cond.title')} description="Explore the various conditions treated by our oculoplasty specialists." />
       <div className="max-w-7xl mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}

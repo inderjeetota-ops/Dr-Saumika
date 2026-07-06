@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { cn } from '../lib/utils';
 import { AnimatePresence, motion } from 'motion/react';
@@ -9,6 +9,8 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('#home');
   const { language, setLanguage, t } = useLanguage();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const navLinks = [
     { name: t('nav.home'), path: '#home' },
@@ -18,6 +20,9 @@ export function Navbar() {
   ];
 
   useEffect(() => {
+    // Only set up intersection observer on the home page
+    if (location.pathname !== '/') return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -39,29 +44,31 @@ export function Navbar() {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [location.pathname, navLinks]);
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
-    const id = path.replace('#', '');
-    const element = document.getElementById(id);
+    e.preventDefault();
+    setIsOpen(false);
     
-    // If element exists (we are on home page), scroll manually
-    if (element) {
-      e.preventDefault();
-      setIsOpen(false);
-      
-      // Allow menu to close before scrolling
-      setTimeout(() => {
-        const offsetPosition = element.offsetTop - 80; // Account for navbar height
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth"
-        });
-        window.history.pushState(null, '', `/${path}`);
-      }, 150);
+    if (location.pathname !== '/') {
+      // If we are not on the home page, navigate to home with the hash
+      navigate(`/${path}`);
     } else {
-      // Allow natural navigation and close menu
-      setIsOpen(false);
+      // If on home page, scroll to element
+      const id = path.replace('#', '');
+      const element = document.getElementById(id);
+      
+      if (element) {
+        setTimeout(() => {
+          const offsetPosition = element.offsetTop - 80;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+          });
+          // Update URL without full page reload, using React Router
+          navigate(`/${path}`, { replace: true });
+        }, 150);
+      }
     }
   };
 
@@ -110,7 +117,7 @@ export function Navbar() {
                 onClick={(e) => handleLinkClick(e, link.path)}
                 className={cn(
                   "text-xs lg:text-sm uppercase tracking-wide font-medium transition-colors whitespace-nowrap hover:text-gold",
-                  activeSection === link.path
+                  activeSection === link.path && location.pathname === '/'
                     ? "text-gold border-b-2 border-gold pb-1"
                     : "text-navy"
                 )}
@@ -157,7 +164,7 @@ export function Navbar() {
                   onClick={(e) => handleLinkClick(e, link.path)}
                   className={cn(
                     "block px-3 py-3 rounded-md text-base font-medium transition-colors",
-                    activeSection === link.path
+                    activeSection === link.path && location.pathname === '/'
                       ? "text-gold bg-gold/5"
                       : "text-navy hover:text-gold hover:bg-gold/5"
                   )}

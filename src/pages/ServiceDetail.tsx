@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { motion } from 'motion/react';
 import { ArrowLeft, CheckCircle2 } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const serviceKeys: Record<string, { titleKey: string; descKey: string; features: string[] }> = {
   'drooping-eyelids': {
@@ -46,6 +47,7 @@ export default function ServiceDetail() {
   if (!service) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[60vh] text-center p-8">
+        <SEO title="Service Not Found" description="The requested service could not be found." />
         <h2 className="text-3xl font-bold text-navy mb-4">Service Not Found</h2>
         <Link to="/" className="text-gold font-bold hover:text-navy transition-colors">
           &larr; Back to Home
@@ -56,6 +58,10 @@ export default function ServiceDetail() {
 
   return (
     <div className="flex flex-col">
+      <SEO 
+        title={t(service.titleKey)} 
+        description={t(service.descKey)} 
+      />
       <div className="w-full max-w-[1200px] mx-auto p-4 md:p-8">
         <Link to="/" className="inline-flex items-center text-navy/60 hover:text-gold transition-colors mb-8 font-medium">
           <ArrowLeft className="w-4 h-4 mr-2" />

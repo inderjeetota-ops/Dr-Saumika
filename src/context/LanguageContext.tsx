@@ -210,6 +210,10 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [language, setLanguage] = useState<Language>('en');
 
+  React.useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
+
   const t = (key: string): string => {
     return translations[language][key as keyof typeof translations['en']] || key;
   };

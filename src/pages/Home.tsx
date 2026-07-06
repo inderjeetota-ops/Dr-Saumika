@@ -7,12 +7,17 @@ import { useLanguage } from '../context/LanguageContext';
 import Conditions from './Conditions';
 import Gallery from './Gallery';
 import Contact from './Contact';
+import SEO from '../components/SEO';
 
 export default function Home() {
   const { t } = useLanguage();
 
   return (
     <div className="flex flex-col">
+      <SEO 
+        title={t('home.drName')} 
+        description={t('home.subtitle')} 
+      />
       <div id="home" className="w-full max-w-[1200px] mx-auto p-4 md:p-8 grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
       {/* Hero Section */}
       <section className="bento-card lg:col-span-12 relative overflow-hidden">

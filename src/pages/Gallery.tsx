@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Image as ImageIcon } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import SEO from '../components/SEO';
 
 export default function Gallery() {
   const [isPhotoGalleryOpen, setIsPhotoGalleryOpen] = useState(false);
@@ -23,6 +24,7 @@ export default function Gallery() {
 
   return (
     <div className="py-20 px-4 sm:px-6 lg:px-8 bg-ivory">
+      <SEO title={t('gallery.title')} description="View clinical before and after photos of oculoplasty treatments and procedures." />
       <div className="max-w-7xl mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
