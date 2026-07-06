@@ -13,12 +13,12 @@ export default function Gallery() {
 
   // Placeholders for the general photo gallery
   const photoGalleryImages = [
-    { src: "", alt: "Gallery Image 1" },
-    { src: "", alt: "Gallery Image 2" },
-    { src: "", alt: "Gallery Image 3" },
-    { src: "", alt: "Gallery Image 4" },
-    { src: "", alt: "Gallery Image 5" },
-    { src: "", alt: "Gallery Image 6" },
+    { src: "/photo gallery 1.jpg", alt: "Gallery Image 1" },
+    { src: "/Photo gallery 2.jpg", alt: "Gallery Image 2" },
+    { src: "/Photo gallery 3.jpg", alt: "Gallery Image 3" },
+    { src: "/Photo gallery 4.jpg", alt: "Gallery Image 4" },
+    { src: "/Photo gallery 5.jpg", alt: "Gallery Image 5" },
+    { src: "/Photo gallery 6.jpg", alt: "Gallery Image 6" },
   ];
 
   return (

@@ -14,14 +14,26 @@ import ServiceDetail from './pages/ServiceDetail';
 import { LanguageProvider } from './context/LanguageContext';
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    // If not a hash link, scroll to top
-    if (!window.location.hash) {
+    if (hash) {
+      const id = hash.replace('#', '');
+      // Slight delay to ensure DOM is ready
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          const offsetPosition = element.offsetTop - 80; // Account for navbar height
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
+    } else {
       window.scrollTo(0, 0);
     }
-  }, [pathname]);
+  }, [pathname, hash]);
 
   return null;
 }

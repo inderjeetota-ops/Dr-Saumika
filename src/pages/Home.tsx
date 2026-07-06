@@ -60,9 +60,9 @@ export default function Home() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#contact" className="px-8 py-4 bg-navy text-ivory text-center font-bold uppercase tracking-wider hover:bg-navy-light transition-colors">
+              <Link to="/#contact" className="px-8 py-4 bg-navy text-ivory text-center font-bold uppercase tracking-wider hover:bg-navy-light transition-colors">
                 {t('home.bookConsultation')}
-              </a>
+              </Link>
               <a href="tel:+917460088838" className="px-8 py-4 border-2 border-navy text-navy text-center font-bold uppercase tracking-wider hover:bg-navy/5 transition-colors">
                 {t('home.callNow')}
               </a>
@@ -127,11 +127,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="mt-16 text-center">
-            <a href="#conditions" className="inline-flex items-center text-gold font-bold uppercase tracking-wider hover:text-navy transition-colors">
-              {t('home.viewAll')}
-            </a>
-          </div>
+
         </div>
       </section>
       </div>
