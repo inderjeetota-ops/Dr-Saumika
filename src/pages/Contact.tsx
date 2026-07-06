@@ -57,7 +57,7 @@ export default function Contact() {
                   <MapPin className="h-6 w-6 text-gold mr-4 mt-1 flex-shrink-0" />
                   <div>
                     <h3 className="font-bold text-navy text-lg">{t('contact.addressTitle')}</h3>
-                    <p className="text-navy/70 mt-1 whitespace-pre-line">{t('contact.address')}</p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Alyantra+Medicity,+Vibhuti+Khand,+Gomti+Nagar,+Lucknow,+Uttar+Pradesh" target="_blank" rel="noopener noreferrer" className="text-navy/70 mt-1 hover:text-gold block transition-colors whitespace-pre-line">{t('contact.address')}</a>
                   </div>
                 </div>
 

@@ -10,13 +10,17 @@ import Home from './pages/Home';
 import Conditions from './pages/Conditions';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
+import ServiceDetail from './pages/ServiceDetail';
 import { LanguageProvider } from './context/LanguageContext';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // If not a hash link, scroll to top
+    if (!window.location.hash) {
+      window.scrollTo(0, 0);
+    }
   }, [pathname]);
 
   return null;
@@ -33,6 +37,7 @@ export default function App() {
             <Route path="conditions" element={<Conditions />} />
             <Route path="gallery" element={<Gallery />} />
             <Route path="contact" element={<Contact />} />
+            <Route path="services/:id" element={<ServiceDetail />} />
           </Route>
         </Routes>
       </BrowserRouter>

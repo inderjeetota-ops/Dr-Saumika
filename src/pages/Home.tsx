@@ -101,12 +101,12 @@ export default function Home() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-12">
             {[
-              { icon: Eye, title: t('home.drooping'), desc: t('home.droopingDesc') },
-              { icon: Droplets, title: t('home.watering'), desc: t('home.wateringDesc') },
-              { icon: PlusCircle, title: t('home.artificialTitle'), desc: t('home.artificialDesc') },
-              { icon: Activity, title: t('home.thyroid'), desc: t('home.thyroidDesc') },
-              { icon: Shield, title: t('home.tumours'), desc: t('home.tumoursDesc') },
-              { icon: Sparkles, title: t('home.botox'), desc: t('home.botoxDesc') }
+              { icon: Eye, title: t('home.drooping'), desc: t('home.droopingDesc'), slug: 'drooping-eyelids' },
+              { icon: Droplets, title: t('home.watering'), desc: t('home.wateringDesc'), slug: 'watering-eyes' },
+              { icon: PlusCircle, title: t('home.artificialTitle'), desc: t('home.artificialDesc'), slug: 'artificial-eye' },
+              { icon: Activity, title: t('home.thyroid'), desc: t('home.thyroidDesc'), slug: 'thyroid-eye-disease' },
+              { icon: Shield, title: t('home.tumours'), desc: t('home.tumoursDesc'), slug: 'tumours' },
+              { icon: Sparkles, title: t('home.botox'), desc: t('home.botoxDesc'), slug: 'botox-aesthetics' }
             ].map((item, i) => (
               <motion.div 
                 key={i}
@@ -114,13 +114,15 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="flex flex-col items-center text-center p-6 border border-gold/10 hover:border-gold/40 transition-colors bg-white shadow-sm"
+                className="h-full"
               >
-                <item.icon className="h-10 w-10 text-gold mb-4 stroke-[1.5]" />
-                <h3 className="text-xl font-bold text-navy mb-2">{item.title}</h3>
-                <p className="text-sm text-navy/70 leading-relaxed">
-                  {item.desc}
-                </p>
+                <Link to={`/services/${item.slug}`} className="flex flex-col items-center text-center p-6 border border-gold/10 hover:border-gold/40 transition-all bg-white shadow-sm hover:shadow-md h-full">
+                  <item.icon className="h-10 w-10 text-gold mb-4 stroke-[1.5]" />
+                  <h3 className="text-xl font-bold text-navy mb-2">{item.title}</h3>
+                  <p className="text-sm text-navy/70 leading-relaxed">
+                    {item.desc}
+                  </p>
+                </Link>
               </motion.div>
             ))}
           </div>

@@ -43,9 +43,9 @@ export function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start">
                 <MapPin className="h-5 w-5 text-gold mr-3 flex-shrink-0 mt-1" />
-                <span className="text-ivory-dark/90 whitespace-pre-line">
+                <a href="https://www.google.com/maps/search/?api=1&query=Alyantra+Medicity,+Vibhuti+Khand,+Gomti+Nagar,+Lucknow,+Uttar+Pradesh" target="_blank" rel="noopener noreferrer" className="text-ivory-dark/90 whitespace-pre-line hover:text-gold transition-colors">
                   {t('contact.address')}
-                </span>
+                </a>
               </li>
               <li className="flex items-center">
                 <Phone className="h-5 w-5 text-gold mr-3 flex-shrink-0" />
