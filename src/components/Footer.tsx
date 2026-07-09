@@ -31,7 +31,7 @@ export function Footer() {
                 <li><Link to="/#contact" className="hover:text-gold transition-colors block">{t('nav.contact')}</Link></li>
               </ul>
               <div className="bg-white p-2 rounded-lg flex-shrink-0">
-                <img src="/qr-code.png" alt="QR Code" className="w-20 h-20 lg:w-24 lg:h-24" />
+                <img src="/qr-code.png" alt="QR Code" loading="lazy" className="w-20 h-20 lg:w-24 lg:h-24" />
               </div>
             </div>
           </div>
@@ -42,20 +42,20 @@ export function Footer() {
             </h3>
             <ul className="space-y-4">
               <li className="flex items-start">
-                <MapPin className="h-5 w-5 text-gold mr-3 flex-shrink-0 mt-1" />
-                <a href="https://www.google.com/maps/search/?api=1&query=Alyantra+Medicity,+Vibhuti+Khand,+Gomti+Nagar,+Lucknow,+Uttar+Pradesh" target="_blank" rel="noopener noreferrer" className="text-ivory-dark/90 whitespace-pre-line hover:text-gold transition-colors">
+                <MapPin className="h-5 w-5 text-gold mr-3 flex-shrink-0 mt-1" aria-hidden="true" />
+                <a href="https://www.google.com/maps/search/?api=1&query=Alyantra+Medicity,+Vibhuti+Khand,+Gomti+Nagar,+Lucknow,+Uttar+Pradesh" target="_blank" rel="noopener noreferrer" aria-label="View clinic location on Google Maps" className="text-ivory-dark/90 whitespace-pre-line hover:text-gold transition-colors">
                   {t('contact.address')}
                 </a>
               </li>
               <li className="flex items-center">
-                <Phone className="h-5 w-5 text-gold mr-3 flex-shrink-0" />
-                <a href="tel:+917460088838" className="hover:text-gold transition-colors">
+                <Phone className="h-5 w-5 text-gold mr-3 flex-shrink-0" aria-hidden="true" />
+                <a href="tel:+917460088838" aria-label="Call clinic at +91 74600 88838" className="hover:text-gold transition-colors">
                   {t('contact.phone')}
                 </a>
               </li>
               <li className="flex items-center">
-                <Mail className="h-5 w-5 text-gold mr-3 flex-shrink-0" />
-                <a href="mailto:contact@drsaumika.in" className="hover:text-gold transition-colors">
+                <Mail className="h-5 w-5 text-gold mr-3 flex-shrink-0" aria-hidden="true" />
+                <a href="mailto:contact@drsaumika.in" aria-label="Email clinic at contact@drsaumika.in" className="hover:text-gold transition-colors">
                   {t('contact.email')}
                 </a>
               </li>

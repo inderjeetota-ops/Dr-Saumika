@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Globe } from 'lucide-react';
 import { cn } from '../lib/utils';
 import { AnimatePresence, motion } from 'motion/react';
 import { useLanguage } from '../context/LanguageContext';
@@ -11,6 +11,8 @@ export function Navbar() {
   const { language, setLanguage, t } = useLanguage();
   const navigate = useNavigate();
   const location = useLocation();
+  const isScrollingRef = useRef(false);
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const navLinks = [
     { name: t('nav.home'), path: '#home' },
@@ -19,36 +21,66 @@ export function Navbar() {
     { name: t('nav.contact'), path: '#contact' },
   ];
 
-  useEffect(() => {
-    // Only set up intersection observer on the home page
+  // Robust function to calculate and update active section
+  const updateActiveSectionOnScroll = () => {
     if (location.pathname !== '/') return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(`#${entry.target.id}`);
-          }
-        });
-      },
-      {
-        rootMargin: '-20% 0px -60% 0px',
-      }
-    );
+    // 1. Bottom of page extreme check
+    const isAtBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 50;
+    if (isAtBottom) {
+      setActiveSection('#contact');
+      return;
+    }
 
-    navLinks.forEach((link) => {
-      const element = document.querySelector(link.path);
-      if (element) {
-        observer.observe(element);
-      }
-    });
+    // 2. Top of page extreme check
+    if (window.scrollY < 50) {
+      setActiveSection('#home');
+      return;
+    }
 
-    return () => observer.disconnect();
-  }, [location.pathname, navLinks]);
+    // 3. Middle sections check
+    const sections = ['home', 'conditions', 'gallery', 'contact'];
+    let currentSection = '#home';
+    for (const id of sections) {
+      const el = document.getElementById(id);
+      if (el) {
+        const rect = el.getBoundingClientRect();
+        // If the section top is above or near the active viewport trigger point (120px from top)
+        if (rect.top <= 120) {
+          currentSection = `#${id}`;
+        }
+      }
+    }
+    setActiveSection(currentSection);
+  };
+
+  // Synchronize active section state on initial load or path/hash updates
+  useEffect(() => {
+    if (location.pathname === '/') {
+      setActiveSection(location.hash || '#home');
+    }
+  }, [location.pathname, location.hash]);
+
+  // Handle manual scrolls with our high-precision spy
+  useEffect(() => {
+    const handleScroll = () => {
+      if (isScrollingRef.current) return;
+      updateActiveSectionOnScroll();
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    // Run initial check
+    updateActiveSectionOnScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [location.pathname]);
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
     e.preventDefault();
     setIsOpen(false);
+    setActiveSection(path);
+    
+    isScrollingRef.current = true;
     
     if (location.pathname !== '/') {
       // If we are not on the home page, navigate to home with the hash
@@ -59,43 +91,74 @@ export function Navbar() {
       const element = document.getElementById(id);
       
       if (element) {
-        setTimeout(() => {
-          const offsetPosition = element.offsetTop - 80;
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: "smooth"
-          });
-          // Update URL without full page reload, using React Router
-          navigate(`/${path}`, { replace: true });
-        }, 150);
+        const offsetPosition = Math.max(0, element.getBoundingClientRect().top + window.scrollY - 80);
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+        
+        // Update URL without full page reload, using React Router
+        navigate(`/${path}`, { replace: true });
+        
+        // Timeout to re-enable scroll spy and ensure the correct item is selected at the destination
+        if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
+        scrollTimeoutRef.current = setTimeout(() => {
+          isScrollingRef.current = false;
+          updateActiveSectionOnScroll();
+        }, 800);
+      } else {
+        isScrollingRef.current = false;
       }
     }
   };
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-gold/20 bg-ivory/90 backdrop-blur-md">
+    <nav className="sticky top-0 z-50 w-full border-b border-gold/10 bg-ivory/80 backdrop-blur-lg shadow-sm">
       {/* Top Bar for Language */}
-      <div className="bg-navy py-1.5 border-b border-gold/20">
+      <div className="bg-navy py-2 border-b border-gold/15">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-end">
-          <div className="flex bg-ivory/10 rounded-sm p-0.5">
-            <button
-              onClick={() => setLanguage('en')}
-              className={cn(
-                "px-3 py-1 text-xs font-bold transition-colors rounded-sm",
-                language === 'en' ? "bg-ivory text-navy" : "text-ivory/70 hover:text-ivory"
-              )}
-            >
-              English
-            </button>
-            <button
-              onClick={() => setLanguage('hi')}
-              className={cn(
-                "px-3 py-1 text-xs font-bold transition-colors rounded-sm",
-                language === 'hi' ? "bg-ivory text-navy" : "text-ivory/70 hover:text-ivory"
-              )}
-            >
-              हिंदी
-            </button>
+          <div className="flex items-center space-x-3">
+            <div className="flex items-center text-ivory/60 space-x-1.5">
+              <Globe className="w-3.5 h-3.5 text-gold/80" />
+              <span className="text-[10px] uppercase tracking-wider font-bold text-ivory/75">Language:</span>
+            </div>
+            <div className="relative flex bg-white/5 border border-white/10 rounded-full p-0.5 shadow-inner">
+              <button
+                onClick={() => setLanguage('en')}
+                aria-label="Switch language to English"
+                className={cn(
+                  "relative z-10 px-3.5 py-1 text-xs font-bold transition-colors duration-300 rounded-full focus:outline-none",
+                  language === 'en' ? "text-navy font-extrabold" : "text-ivory/70 hover:text-ivory"
+                )}
+              >
+                {language === 'en' && (
+                  <motion.span
+                    layoutId="active-language-indicator"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    className="absolute inset-0 bg-ivory rounded-full -z-10 shadow-sm"
+                  />
+                )}
+                <span className="relative z-10">English</span>
+              </button>
+              <button
+                onClick={() => setLanguage('hi')}
+                aria-label="Switch language to Hindi"
+                className={cn(
+                  "relative z-10 px-3.5 py-1 text-xs font-bold transition-colors duration-300 rounded-full focus:outline-none",
+                  language === 'hi' ? "text-navy font-extrabold" : "text-ivory/70 hover:text-ivory"
+                )}
+              >
+                {language === 'hi' && (
+                  <motion.span
+                    layoutId="active-language-indicator"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    className="absolute inset-0 bg-ivory rounded-full -z-10 shadow-sm"
+                  />
+                )}
+                <span className="relative z-10">हिंदी</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -116,7 +179,7 @@ export function Navbar() {
                 href={`/${link.path}`}
                 onClick={(e) => handleLinkClick(e, link.path)}
                 className={cn(
-                  "text-xs lg:text-sm uppercase tracking-wide font-medium transition-colors whitespace-nowrap hover:text-gold",
+                  "text-xs lg:text-sm uppercase tracking-wide font-medium transition-colors whitespace-nowrap hover:text-gold focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-ivory rounded-sm",
                   activeSection === link.path && location.pathname === '/'
                     ? "text-gold border-b-2 border-gold pb-1"
                     : "text-navy"
@@ -129,7 +192,7 @@ export function Navbar() {
             <a 
               href="/#contact" 
               onClick={(e) => handleLinkClick(e, '#contact')}
-              className="px-4 py-2 lg:px-5 lg:py-2.5 bg-navy text-ivory text-xs lg:text-sm uppercase tracking-wide font-medium whitespace-nowrap hover:bg-navy-light transition-colors"
+              className="px-4 py-2 lg:px-5 lg:py-2.5 bg-navy text-ivory text-xs lg:text-sm uppercase tracking-wide font-medium whitespace-nowrap hover:bg-navy-light transition-colors focus:outline-none focus:ring-2 focus:ring-navy focus:ring-offset-2 focus:ring-offset-ivory rounded-sm"
             >
               {t('nav.bookNow')}
             </a>
@@ -139,9 +202,12 @@ export function Navbar() {
           <div className="md:hidden flex items-center gap-4">
             <button
               onClick={() => setIsOpen(!isOpen)}
+              aria-expanded={isOpen}
+              aria-controls="mobile-menu"
+              aria-label={isOpen ? "Close menu" : "Open menu"}
               className="text-navy hover:text-gold focus:outline-none"
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isOpen ? <X className="h-6 w-6" aria-hidden="true" /> : <Menu className="h-6 w-6" aria-hidden="true" />}
             </button>
           </div>
         </div>
@@ -151,10 +217,11 @@ export function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            id="mobile-menu"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-t border-gold/20 bg-ivory"
+            className="md:hidden border-t border-gold/20 bg-ivory/95 backdrop-blur-lg shadow-inner"
           >
             <div className="px-4 pt-2 pb-6 space-y-1">
               {navLinks.map((link) => (

@@ -54,9 +54,9 @@ export default function Gallery() {
                 <div className="bg-navy/5 p-4 flex flex-col">
                   <div className="aspect-[3/2] sm:aspect-video bg-navy/10 flex items-center justify-center overflow-hidden">
                     {idx === 0 ? (
-                      <img src="/ptosis-before.jpg" alt="Ptosis Before" className="w-full h-full object-cover" />
+                      <img src="/ptosis-before.jpg" alt="Ptosis Before" loading="lazy" className="w-full h-full object-cover" />
                     ) : idx === 1 ? (
-                      <img src="/Artificial-Eye-Rehabilitation-before.jpg" alt="Artificial Eye Rehabilitation Before" className="w-full h-full object-cover" />
+                      <img src="/Artificial-Eye-Rehabilitation-before.jpg" alt="Artificial Eye Rehabilitation Before" loading="lazy" className="w-full h-full object-cover" />
                     ) : (
                       <span className="text-navy/40 font-bold uppercase tracking-widest text-center px-4">[Clinical Photo Here]</span>
                     )}
@@ -71,9 +71,9 @@ export default function Gallery() {
                   <div className="aspect-[3/2] sm:aspect-video bg-navy/10 flex items-center justify-center overflow-hidden relative">
                     <span className="absolute inset-0 border-4 border-gold/50 pointer-events-none z-10"></span>
                     {idx === 0 ? (
-                      <img src="/ptosis-after.jpg" alt="Ptosis After" className="w-full h-full object-cover" />
+                      <img src="/ptosis-after.jpg" alt="Ptosis After" loading="lazy" className="w-full h-full object-cover" />
                     ) : idx === 1 ? (
-                      <img src="/Artificial-Eye-Rehabilitation-after.jpg" alt="Artificial Eye Rehabilitation After" className="w-full h-full object-cover" />
+                      <img src="/Artificial-Eye-Rehabilitation-after.jpg" alt="Artificial Eye Rehabilitation After" loading="lazy" className="w-full h-full object-cover" />
                     ) : (
                       <span className="text-navy/40 font-bold uppercase tracking-widest">[Clinical Photo Here]</span>
                     )}
@@ -91,9 +91,11 @@ export default function Gallery() {
         <div className="mt-16 flex justify-end max-w-5xl mx-auto">
           <button 
             onClick={() => setIsPhotoGalleryOpen(true)}
-            className="flex items-center gap-2 px-6 py-3 bg-navy text-ivory font-bold uppercase tracking-wider hover:bg-gold hover:text-navy transition-colors"
+            aria-expanded={isPhotoGalleryOpen}
+            aria-controls="photo-gallery-modal"
+            className="flex items-center gap-2 px-6 py-3 bg-navy text-ivory font-bold uppercase tracking-wider hover:bg-gold hover:text-navy transition-colors focus:outline-none focus:ring-2 focus:ring-navy focus:ring-offset-2 focus:ring-offset-ivory"
           >
-            <ImageIcon className="w-5 h-5" />
+            <ImageIcon className="w-5 h-5" aria-hidden="true" />
             {t('gallery.photoGallery')}
           </button>
         </div>
@@ -109,29 +111,52 @@ export default function Gallery() {
       <AnimatePresence>
         {isPhotoGalleryOpen && (
           <motion.div 
+            id="photo-gallery-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-title"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-navy/95 backdrop-blur-sm"
           >
-            <div className="w-full max-w-6xl max-h-full flex flex-col bg-ivory shadow-2xl overflow-hidden relative">
-              <div className="flex justify-between items-center p-6 border-b border-navy/10">
-                <h2 className="text-2xl font-bold text-navy uppercase tracking-wider">Photo Gallery</h2>
+            <div className="w-full max-w-6xl max-h-full flex flex-col bg-ivory/95 backdrop-blur-xl shadow-2xl border border-white/20 overflow-hidden relative rounded-xl">
+              <div className="flex justify-between items-center p-6 border-b border-navy/10 bg-white/40">
+                <h2 id="modal-title" className="text-2xl font-bold text-navy uppercase tracking-wider">Photo Gallery</h2>
                 <button 
                   onClick={() => setIsPhotoGalleryOpen(false)}
-                  className="p-2 text-navy/60 hover:text-navy hover:bg-navy/5 rounded-full transition-colors"
+                  aria-label="Close photo gallery"
+                  className="p-2 text-navy/60 hover:text-navy hover:bg-navy/5 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-navy focus:ring-offset-2"
                 >
-                  <X className="w-6 h-6" />
+                  <X className="w-6 h-6" aria-hidden="true" />
                 </button>
               </div>
               
               <div className="flex-1 overflow-y-auto p-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <motion.div 
+                  initial="hidden"
+                  animate="show"
+                  variants={{
+                    hidden: { opacity: 0 },
+                    show: {
+                      opacity: 1,
+                      transition: { staggerChildren: 0.1 }
+                    }
+                  }}
+                  className="grid grid-cols-1 md:grid-cols-2 gap-8"
+                >
                   {photoGalleryImages.map((img, i) => (
-                    <div key={i} className="flex flex-col bg-white border border-navy/10 p-4 shadow-sm rounded-sm">
+                    <motion.div 
+                      key={i} 
+                      variants={{
+                        hidden: { opacity: 0, y: 20 },
+                        show: { opacity: 1, y: 0, transition: { duration: 0.4 } }
+                      }}
+                      className="flex flex-col bg-white border border-navy/10 p-4 shadow-sm rounded-sm"
+                    >
                       <div className="aspect-[4/3] bg-navy/5 border border-navy/5 flex items-center justify-center overflow-hidden group mb-4 relative rounded-sm">
                         {img.src ? (
-                          <img src={img.src} alt={img.alt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                          <img src={img.src} alt={img.alt} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                         ) : (
                           <div className="text-center p-4">
                             <ImageIcon className="w-8 h-8 text-navy/20 mx-auto mb-2" />
@@ -174,9 +199,9 @@ export default function Gallery() {
                           />
                         </div>
                       </div>
-                    </div>
+                    </motion.div>
                   ))}
-                </div>
+                </motion.div>
               </div>
             </div>
           </motion.div>

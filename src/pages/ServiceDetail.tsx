@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { motion } from 'motion/react';
-import { ArrowLeft, CheckCircle2 } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, ArrowRight } from 'lucide-react';
 import SEO from '../components/SEO';
 
 const serviceKeys: Record<string, { titleKey: string; descKey: string; subKey?: string; features: string[] }> = {
@@ -1159,8 +1159,8 @@ export default function ServiceDetail() {
         description={t(service.descKey) || (isRichService && richData ? richData.introParas[0] : '')} 
       />
       <div id="service-detail-container" className="w-full max-w-[1200px] mx-auto p-4 md:p-8">
-        <Link id="service-detail-back-link" to="/" className="inline-flex items-center text-navy/60 hover:text-gold transition-colors mb-8 font-medium">
-          <ArrowLeft className="w-4 h-4 mr-2" />
+        <Link id="service-detail-back-link" to="/#conditions" aria-label={`Back to ${t('nav.home')}`} className="inline-flex items-center text-navy/60 hover:text-gold transition-colors mb-8 font-medium focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 rounded-sm">
+          <ArrowLeft className="w-4 h-4 mr-2" aria-hidden="true" />
           {t('nav.home')}
         </Link>
 
@@ -1169,7 +1169,7 @@ export default function ServiceDetail() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="bento-card bg-white p-8 md:p-12 relative overflow-hidden"
+          className="bento-card bg-white/80 backdrop-blur-md p-8 md:p-12 relative overflow-hidden"
         >
           <div className="absolute top-0 right-0 w-64 h-64 bg-gold/5 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
           
@@ -1369,6 +1369,61 @@ export default function ServiceDetail() {
             </div>
           </div>
         </motion.div>
+
+        {/* Cross-linking to other services */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-16 max-w-5xl mx-auto pb-10"
+        >
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-navy">
+              {t('home.viewAll') || 'Explore Other Conditions'}
+            </h2>
+            <div className="w-16 h-0.5 bg-gold/40 mx-auto mt-4" />
+          </div>
+          
+          <motion.div 
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={{
+              hidden: { opacity: 0 },
+              show: {
+                opacity: 1,
+                transition: { staggerChildren: 0.1 }
+              }
+            }}
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 lg:gap-6"
+          >
+            {Object.entries(serviceKeys)
+              .filter(([key]) => key !== id) // Exclude current service
+              .map(([key, item]) => (
+                <motion.div
+                  key={key}
+                  variants={{
+                    hidden: { opacity: 0, scale: 0.95 },
+                    show: { opacity: 1, scale: 1, transition: { duration: 0.3 } }
+                  }}
+                  className="h-full"
+                >
+                  <Link
+                    to={`/services/${key}`}
+                    className="group block p-5 md:p-6 bg-white/70 backdrop-blur-sm border border-gold/15 rounded-xl hover:border-gold/50 focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 shadow-sm hover:shadow-md transition-all text-center relative overflow-hidden h-full"
+                  >
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gold scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
+                    <h3 className="font-bold text-navy group-hover:text-gold transition-colors text-lg mb-3">{t(item.titleKey)}</h3>
+                    <div className="text-xs font-bold text-gold/80 tracking-wider uppercase flex items-center justify-center gap-1.5 group-hover:text-gold transition-all duration-300">
+                      <span>{t('home.clickToExplore') || 'Click to explore'}</span>
+                      <ArrowRight className="h-3.5 w-3.5 transform group-hover:translate-x-1.5 transition-transform duration-300" aria-hidden="true" />
+                    </div>
+                  </Link>
+                </motion.div>
+            ))}
+          </motion.div>
+        </motion.div>
+
       </div>
     </div>
   );

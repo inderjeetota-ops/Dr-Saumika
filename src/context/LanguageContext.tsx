@@ -38,6 +38,7 @@ const translations = {
     // Home - Why Oculoplasty
     'home.whyTitle': 'Why Oculoplasty?',
     'home.whyDesc': 'Specialized and delicate care for the structures surrounding the eye. If you experience these symptoms, an Oculoplasty expert provides the precise treatment required.',
+    'home.conditionsTreated': 'Conditions Treated',
     'home.drooping': 'Eyelid Disorders & Eyelid Surgery',
     'home.droopingSub': 'Specialised Oculoplasty Care in Lucknow by Dr. Saumika Singh',
     'home.droopingDesc': '',
@@ -56,7 +57,8 @@ const translations = {
     'home.botox': 'Eye Trauma, Eyelid & Orbital Reconstruction',
     'home.botoxSub': 'Specialised Oculoplasty Trauma Care in Lucknow by Dr. Saumika Singh',
     'home.botoxDesc': '',
-    'home.viewAll': 'View All Conditions Treated →',
+    'home.clickToExplore': 'Click to explore details & treatments',
+    'home.viewAll': 'Explore Other Conditions',
 
     // Conditions
     'cond.title': 'Conditions Treated',
@@ -141,6 +143,7 @@ const translations = {
     // Home - Why Oculoplasty
     'home.whyTitle': 'ओकुलोप्लास्टी क्यों?',
     'home.whyDesc': 'आंख के आसपास की संरचनाओं के लिए विशेष और नाजुक देखभाल। यदि आप इन लक्षणों का अनुभव करते हैं, तो एक ओकुलोप्लास्टी विशेषज्ञ सटीक उपचार प्रदान करता है।',
+    'home.conditionsTreated': 'उपचार की जाने वाली स्थितियाँ',
     'home.drooping': 'पलक विकार और पलक सर्जरी',
     'home.droopingSub': 'डॉ. सौमिका सिंह द्वारा लखनऊ में विशिष्ट ओकुलोप्लास्टी देखभाल',
     'home.droopingDesc': '',
@@ -159,7 +162,8 @@ const translations = {
     'home.botox': 'नेत्र आघात, पलक और ऑर्बिटल पुनर्निर्माण',
     'home.botoxSub': 'डॉ. सौमिका सिंह द्वारा लखनऊ में विशिष्ट ओकुलोप्लास्टी आघात देखभाल',
     'home.botoxDesc': '',
-    'home.viewAll': 'सभी उपचारित स्थितियां देखें →',
+    'home.clickToExplore': 'विवरण और उपचार जानने के लिए क्लिक करें',
+    'home.viewAll': 'अन्य उपचारित स्थितियां देखें',
 
     // Conditions
     'cond.title': 'उपचार की जाने वाली स्थितियाँ',

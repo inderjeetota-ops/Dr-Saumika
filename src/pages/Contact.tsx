@@ -51,7 +51,7 @@ export default function Contact() {
             transition={{ delay: 0.2 }}
             className="lg:col-span-2 space-y-8"
           >
-            <div className="bg-white p-8 border border-navy/10 shadow-sm">
+            <div className="bg-white/70 backdrop-blur-md p-8 border border-white/40 shadow-xl rounded-sm">
               <h2 className="text-2xl font-bold text-navy mb-8 border-b border-gold/20 pb-4">Clinic Details</h2>
               
               <div className="space-y-6">
@@ -109,7 +109,7 @@ export default function Contact() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4 }}
-            className="lg:col-span-3 bg-navy p-8 md:p-10 h-full flex flex-col"
+            className="lg:col-span-3 bg-navy/95 backdrop-blur-md border border-navy/20 p-8 md:p-10 h-full flex flex-col shadow-2xl rounded-sm"
           >
             <h2 className="text-2xl font-bold text-gold mb-8">{t('contact.reqAppt')}</h2>
             <form className="flex-1 flex flex-col space-y-6" action="https://api.web3forms.com/submit" method="POST" onSubmit={handleSubmit}>
@@ -119,22 +119,24 @@ export default function Contact() {
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-ivory/80 uppercase tracking-wider mb-2">{t('contact.formName')}</label>
+                  <label htmlFor="contact_name" className="block text-sm font-medium text-ivory/80 uppercase tracking-wider mb-2">{t('contact.formName')}</label>
                   <input 
+                    id="contact_name"
                     type="text" 
                     name="name"
                     required
-                    className="w-full bg-ivory/5 border border-ivory/20 px-4 py-3 text-ivory focus:outline-none focus:border-gold transition-colors"
+                    className="w-full bg-ivory/5 border border-ivory/20 px-4 py-3 text-ivory focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors"
                     placeholder={t('contact.formNamePlaceholder')}
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-ivory/80 uppercase tracking-wider mb-2">{t('contact.formPhone')}</label>
+                  <label htmlFor="contact_phone" className="block text-sm font-medium text-ivory/80 uppercase tracking-wider mb-2">{t('contact.formPhone')}</label>
                   <input 
+                    id="contact_phone"
                     type="tel" 
                     name="phone"
                     required
-                    className={`w-full bg-ivory/5 border ${phoneError ? 'border-red-500' : 'border-ivory/20'} px-4 py-3 text-ivory focus:outline-none focus:border-gold transition-colors`}
+                    className={`w-full bg-ivory/5 border ${phoneError ? 'border-red-500' : 'border-ivory/20'} px-4 py-3 text-ivory focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors`}
                     placeholder="+91"
                   />
                   {phoneError && (
@@ -144,21 +146,22 @@ export default function Contact() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-ivory/80 uppercase tracking-wider mb-2">{t('contact.formMessage')}</label>
+                <label htmlFor="contact_message" className="block text-sm font-medium text-ivory/80 uppercase tracking-wider mb-2">{t('contact.formMessage')}</label>
                 <textarea 
+                  id="contact_message"
                   name="message"
                   rows={4}
-                  className="w-full bg-ivory/5 border border-ivory/20 px-4 py-3 text-ivory focus:outline-none focus:border-gold transition-colors"
+                  className="w-full bg-ivory/5 border border-ivory/20 px-4 py-3 text-ivory focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors"
                   placeholder={t('contact.formMessagePlaceholder')}
                 ></textarea>
               </div>
 
               {/* Honeypot Spam Protection */}
-              <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
+              <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
 
               <button 
                 type="submit"
-                className="mt-auto w-full flex items-center justify-center px-8 py-4 bg-gold text-navy font-bold uppercase tracking-wider hover:bg-gold-light transition-colors"
+                className="mt-auto w-full flex items-center justify-center px-8 py-4 bg-gold text-navy font-bold uppercase tracking-wider hover:bg-gold-light transition-colors focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-navy"
               >
                 <span>{t('contact.formSubmit')}</span>
                 <Send className="ml-3 h-5 w-5" />
