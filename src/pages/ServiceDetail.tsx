@@ -27,16 +27,19 @@ const serviceKeys: Record<string, { titleKey: string; descKey: string; subKey?: 
   'thyroid-eye-disease': {
     titleKey: 'home.thyroid',
     descKey: 'home.thyroidDesc',
+    subKey: 'home.thyroidSub',
     features: ['te.f1', 'te.f2', 'te.f3']
   },
   'tumours': {
     titleKey: 'home.tumours',
     descKey: 'home.tumoursDesc',
+    subKey: 'home.tumoursSub',
     features: ['tu.f1', 'tu.f2', 'tu.f3']
   },
   'botox-aesthetics': {
     titleKey: 'home.botox',
     descKey: 'home.botoxDesc',
+    subKey: 'home.botoxSub',
     features: ['ba.f1', 'ba.f2', 'ba.f3']
   }
 };
@@ -598,6 +601,517 @@ const richOrbitalContent = {
   }
 };
 
+const richTumourContent = {
+  en: {
+    introTitle: "Introduction",
+    introParas: [
+      "An eye tumour is an abnormal growth that may involve the eyelids, conjunctiva (surface of the eye), eyeball or the tissues surrounding the eye (orbit). While many eye tumours are benign (non-cancerous), some can be malignant and require timely diagnosis and treatment to preserve vision, appearance and, in some cases, life.",
+      "Dr. Saumika Singh is a fellowship-trained Oculoplasty and Ocular Oncology surgeon specialising in the diagnosis, management and long-term follow-up of patients with ocular and periocular tumours. Treatment is planned individually, often in collaboration with oncologists, pathologists and other medical specialists whenever required."
+    ],
+    commonDisordersTitle: "Symptoms & Conditions We Treat",
+    disorders: [
+      {
+        title: "Eyelid Tumours",
+        desc: "Persistent eyelid lumps, ulcers, recurrent swellings or pigmented lesions may represent benign growths or eyelid cancers. Early diagnosis allows timely treatment while preserving eyelid function and appearance."
+      },
+      {
+        title: "Conjunctival Tumours",
+        desc: "Growths on the white part of the eye may range from harmless lesions to pre-cancerous or cancerous conditions. Any persistent conjunctival growth should be evaluated by an ocular oncology specialist."
+      },
+      {
+        title: "Intraocular Tumours",
+        desc: "Tumours arising inside the eye may affect vision and require specialised examination and imaging. Some are benign, while others require urgent treatment and long-term follow-up."
+      },
+      {
+        title: "Orbital Tumours",
+        desc: "Tumours involving the eye socket may present with bulging of the eye, swelling, double vision or gradual visual loss. Management depends on the type, size and location of the tumour."
+      },
+      {
+        title: "Pigmented Lesions Around the Eye",
+        desc: "Dark or changing pigmented lesions around the eyelids or eye surface should be assessed, especially if they increase in size, change colour or bleed."
+      },
+      {
+        title: "Secondary (Metastatic) Eye Tumours",
+        desc: "Occasionally, cancers from other parts of the body may spread to the eye or orbit. Early recognition helps guide further investigations and treatment."
+      }
+    ],
+    whenToConsultTitle: "When Should You Seek Specialist Evaluation?",
+    whenToConsultSubtitle: "You should consult an ocular oncology specialist if you notice:",
+    whenToConsultBullets: [
+      "A persistent lump on the eyelid",
+      "A non-healing ulcer or sore around the eye",
+      "A new growth on the white part of the eye",
+      "Progressive bulging of one eye",
+      "Unexplained loss of vision associated with an eye mass",
+      "Rapidly increasing pigmentation around the eye",
+      "Recurrent eyelid lesions despite previous treatment",
+      "A diagnosis of an eye tumour requiring specialist opinion"
+    ],
+    treatmentOptionsTitle: "Treatment Options",
+    treatmentOptionsSubtitle: "Treatment depends on the type, location and extent of the tumour and may include:",
+    treatmentOptionsBullets: [
+      "Observation with regular monitoring",
+      "Medical treatment for selected conditions",
+      "Surgical biopsy",
+      "Complete tumour excision",
+      "Eyelid reconstruction following tumour removal",
+      "Multidisciplinary cancer management",
+      "Long-term surveillance for recurrence"
+    ],
+    treatmentOptionsFooter: "The treatment plan is individualised for every patient.",
+    whyChooseTitle: "Why Consult an Ocular Oncology Specialist?",
+    whyChooseText: "Eye tumours are uncommon and often require specialised evaluation. Early diagnosis not only improves treatment outcomes but can also help preserve vision and minimise the extent of surgery. As a fellowship-trained Oculoplasty and Ocular Oncology surgeon, Dr. Saumika Singh provides comprehensive assessment and works closely with other specialists whenever multidisciplinary cancer care is required.",
+    faqsTitle: "Frequently Asked Questions",
+    faqs: [
+      {
+        q: "Does every eyelid lump indicate cancer?",
+        a: "No. Most eyelid lumps are benign, but persistent, recurrent or unusual lesions should always be examined to exclude eyelid cancer."
+      },
+      {
+        q: "Can eye tumours be treated successfully?",
+        a: "Many eye tumours can be treated successfully, particularly when diagnosed early. The treatment depends on the type and stage of the tumour."
+      },
+      {
+        q: "Will every eye tumour require removal of the eye?",
+        a: "No. Most eye tumours do not require removal of the eye. Many can be managed with observation, local surgery or other specialised treatments depending on the diagnosis."
+      },
+      {
+        q: "Can an eye tumour come back after treatment?",
+        a: "Some tumours require long-term follow-up because recurrence is possible. Regular reviews help detect any recurrence at an early stage."
+      }
+    ],
+    consultationSection: {
+      title: "Consultation",
+      text: "If you have been diagnosed with an eye tumour, have a persistent eyelid or conjunctival growth, or would like a specialist opinion regarding an ocular or orbital tumour, consult Dr. Saumika Singh for a comprehensive evaluation and personalised treatment plan."
+    }
+  },
+  hi: {
+    introTitle: "परिचय",
+    introParas: [
+      "एक आँख का ट्यूमर एक असामान्य वृद्धि है जिसमें पलकें, कंजांक्टिवा (आँख की सतह), आँख की पुतली या आँख के आसपास के ऊतक (ऑर्बिट) शामिल हो सकते हैं। हालांकि कई आँख के ट्यूमर सौम्य (benign/गैर-कैंसरयुक्त) होते हैं, लेकिन कुछ घातक (malignant) हो सकते हैं और दृष्टि, रूप-रंग और कुछ मामलों में जीवन को बचाने के लिए समय पर निदान और उपचार की आवश्यकता होती है।",
+      "डॉ. सौमिका सिंह एक फेलोशिप-प्रशिक्षित ओकुलोप्लास्टी और ओकुलर ऑन्कोलॉजी सर्जन हैं, जो ओकुलर और पेरिओकुलर ट्यूमर वाले रोगियों के निदान, प्रबंधन और दीर्घकालिक अनुवर्ती देखभाल (follow-up) में विशेषज्ञता रखती हैं। उपचार की योजना प्रत्येक रोगी के अनुसार व्यक्तिगत रूप से बनाई जाती है, और आवश्यकता पड़ने पर ऑन्कोलॉजिस्ट, पैथोलॉजिस्ट और अन्य चिकित्सा विशेषज्ञों के साथ मिलकर काम किया जाता है।"
+    ],
+    commonDisordersTitle: "लक्षण और स्थितियां जिनका हम इलाज करते हैं",
+    disorders: [
+      {
+        title: "पलक के ट्यूमर (Eyelid Tumours)",
+        desc: "पलक पर लगातार गांठ, अल्सर, बार-बार होने वाली सूजन या रंगीन धब्बे सौम्य वृद्धि या पलक के कैंसर का संकेत हो सकते हैं। प्रारंभिक निदान पलक के कार्य और रूप-रंग को बनाए रखते हुए समय पर उपचार की अनुमति देता है।"
+      },
+      {
+        title: "कंजांक्टिवल ट्यूमर (Conjunctival Tumours)",
+        desc: "आँख के सफेद हिस्से पर होने वाली वृद्धि हानिरहित घावों से लेकर कैंसर-पूर्व या कैंसरयुक्त स्थितियों तक हो सकती है। किसी भी लगातार कंजांक्टिवल वृद्धि का मूल्यांकन ओकुलर ऑन्कोलॉजी विशेषज्ञ द्वारा किया जाना चाहिए।"
+      },
+      {
+        title: "इंट्राओकुलर ट्यूमर (Intraocular Tumours)",
+        desc: "आँख के अंदर होने वाले ट्यूमर दृष्टि को प्रभावित कर सकते हैं और इसके लिए विशिष्ट जांच और इमेजिंग की आवश्यकता होती है। कुछ सौम्य होते हैं, जबकि अन्य को तत्काल उपचार और दीर्घकालिक अनुवर्ती कार्रवाई की आवश्यकता होती है।"
+      },
+      {
+        title: "ऑर्बिटल ट्यूमर (Orbital Tumours)",
+        desc: "नेत्र कोटर (आई सॉकेट) से जुड़े ट्यूमर के कारण आँख का उभरना, सूजन, दोहरी दृष्टि या धीरे-धीरे दृष्टि हानि हो सकती है। इसका प्रबंधन ट्यूमर के प्रकार, आकार और स्थान पर निर्भर करता है।"
+      },
+      {
+        title: "आँख के आसपास रंगीन धब्बे (Pigmented Lesions)",
+        desc: "पलकों या आँख की सतह के आसपास के काले या बदलते रंग के धब्बों का मूल्यांकन किया जाना चाहिए, विशेष रूप से यदि वे आकार में बढ़ रहे हों, रंग बदल रहे हों या उनसे खून बह रहा हो।"
+      },
+      {
+        title: "द्वितीयक (मेटास्टैटिक) आँख के ट्यूमर",
+        desc: "कभी-कभी, शरीर के अन्य हिस्सों से कैंसर आँख या ऑर्बिट में फैल सकता है। शीघ्र पहचान आगे की जांच और उपचार का मार्गदर्शन करने में मदद करती है।"
+      }
+    ],
+    whenToConsultTitle: "आपको ओकुलर ऑन्कोलॉजी विशेषज्ञ से कब परामर्श लेना चाहिए?",
+    whenToConsultSubtitle: "विशेषज्ञ मूल्यांकन लें यदि आप अनुभव करते हैं:",
+    whenToConsultBullets: [
+      "पलक पर लगातार बनी रहने वाली गांठ",
+      "आँख के आसपास न भरने वाला अल्सर या घाव",
+      "आँख के सफेद हिस्से पर एक नई वृद्धि",
+      "एक आँख का लगातार बाहर उभरना",
+      "आँख के द्रव्यमान (mass) से जुड़ी अस्पष्टीकृत दृष्टि हानि",
+      "आँख के आसपास तेजी से बढ़ता कालापन (pigmentation)",
+      "पिछले उपचार के बावजूद पलक के घावों का दोबारा होना",
+      "आँख के ट्यूमर का निदान जिसके लिए विशेषज्ञ की राय की आवश्यकता है"
+    ],
+    treatmentOptionsTitle: "उपचार के विकल्प",
+    treatmentOptionsSubtitle: "उपचार पूरी तरह से ट्यूमर के प्रकार, स्थान और सीमा पर निर्भर करता है और इसमें शामिल हो सकते हैं:",
+    treatmentOptionsBullets: [
+      "नियमित निगरानी के साथ अवलोकन",
+      "चुनिंदा स्थितियों के लिए चिकित्सा उपचार (दवाएं)",
+      "सर्जिकल बायोप्सी",
+      "ट्यूमर को पूरी तरह से निकालना (Excision)",
+      "ट्यूमर हटाने के बाद पलक का पुनर्निर्माण (Reconstruction)",
+      "बहु-विषयक कैंसर प्रबंधन (Multidisciplinary care)",
+      "पुनरावृत्ति (recurrence) के लिए दीर्घकालिक निगरानी"
+    ],
+    treatmentOptionsFooter: "प्रत्येक उपचार योजना रोगी की स्थिति के आधार पर व्यक्तिगत रूप से तैयार की जाती है।",
+    whyChooseTitle: "ओकुलर ऑन्कोलॉजी विशेषज्ञ से क्यों परामर्श लें?",
+    whyChooseText: "आँख के ट्यूमर असामान्य होते हैं और अक्सर विशिष्ट मूल्यांकन की आवश्यकता होती है। प्रारंभिक निदान न केवल उपचार के परिणामों में सुधार करता है बल्कि दृष्टि को संरक्षित करने और सर्जरी की सीमा को कम करने में भी मदद कर सकता है। एक फेलोशिप-प्रशिक्षित ओकुलोप्लास्टी और ओकुलर ऑन्कोलॉजी सर्जन के रूप में, डॉ. सौमिका सिंह व्यापक मूल्यांकन प्रदान करती हैं और बहु-विषयक कैंसर देखभाल की आवश्यकता होने पर अन्य विशेषज्ञों के साथ मिलकर काम करती हैं।",
+    faqsTitle: "अक्सर पूछे जाने वाले प्रश्न (FAQs)",
+    faqs: [
+      {
+        q: "क्या पलक की हर गांठ कैंसर का संकेत देती है?",
+        a: "नहीं। पलक की अधिकांश गांठें सौम्य होती हैं, लेकिन पलक के कैंसर की संभावना को खारिज करने के लिए लगातार बनी रहने वाली, बार-बार होने वाली या असामान्य गांठों की हमेशा जांच की जानी चाहिए।"
+      },
+      {
+        q: "क्या आँख के ट्यूमर का सफलतापूर्वक इलाज किया जा सकता है?",
+        a: "हाँ, कई आँख के ट्यूमर का सफलतापूर्वक इलाज किया जा सकता है, विशेष रूप से तब जब उनका निदान प्रारंभिक चरण में हो जाता है। उपचार ट्यूमर के प्रकार और चरण पर निर्भर करता है।"
+      },
+      {
+        q: "क्या हर आँख के ट्यूमर के लिए आँख निकालने की आवश्यकता होगी?",
+        a: "नहीं। अधिकांश आँख के ट्यूमर में आँख निकालने की आवश्यकता नहीं होती है। निदान के आधार पर कई मामलों को अवलोकन, स्थानीय सर्जरी या अन्य विशिष्ट उपचारों के साथ प्रबंधित किया जा सकता है।"
+      },
+      {
+        q: "क्या आँख का ट्यूमर इलाज के बाद वापस आ सकता है?",
+        a: "कुछ ट्यूमर को दीर्घकालिक अनुवर्ती देखभाल की आवश्यकता होती है क्योंकि पुनरावृत्ति संभव है। नियमित समीक्षा शुरुआती चरण में किसी भी पुनरावृत्ति का पता लगाने में मदद करती है।"
+      }
+    ],
+    consultationSection: {
+      title: "परामर्श",
+      text: "यदि आपको आँख के ट्यूमर का निदान हुआ है, पलक या कंजांक्टिवा पर लगातार वृद्धि है, या आँख या ऑर्बिटल ट्यूमर के संबंध में विशेषज्ञ की राय चाहते हैं, तो व्यापक मूल्यांकन और व्यक्तिगत उपचार योजना के लिए डॉ. सौमिका सिंह से परामर्श करें।"
+    }
+  }
+};
+
+const richSocketContent = {
+  en: {
+    introTitle: "Introduction",
+    introParas: [
+      "Losing an eye due to injury, infection, cancer or a painful blind eye can be emotionally and physically challenging. Modern oculoplastic surgery focuses not only on treating the underlying condition but also on restoring facial appearance, eyelid function and confidence through socket reconstruction and artificial eye rehabilitation.",
+      "Dr. Saumika Singh provides specialised care for patients requiring eye removal surgery, socket reconstruction and long-term rehabilitation with customised ocular prostheses, with the aim of achieving the best possible functional and cosmetic outcome."
+    ],
+    commonDisordersTitle: "Symptoms & Conditions We Treat",
+    disorders: [
+      {
+        title: "Painful Blind Eye",
+        desc: "A severely damaged or blind eye that causes persistent pain may require surgical removal when medical treatment is no longer effective. The goal is to relieve pain while preparing the socket for future rehabilitation."
+      },
+      {
+        title: "Eye Removal Surgery (Enucleation & Evisceration)",
+        desc: "In selected situations such as severe trauma, painful blind eye or certain eye tumours, removal of the eye may be recommended. Every patient is counselled thoroughly regarding the procedure, implant options and the rehabilitation process."
+      },
+      {
+        title: "Contracted Socket",
+        desc: "Scarring of the eye socket may prevent comfortable fitting of an artificial eye and affect facial appearance. Socket reconstruction helps restore adequate space for prosthesis fitting."
+      },
+      {
+        title: "Artificial Eye Rehabilitation",
+        desc: "A customised artificial eye (ocular prosthesis) is designed to closely match the natural eye, improving facial symmetry and confidence. Proper socket preparation is essential for achieving the best cosmetic result."
+      },
+      {
+        title: "Exposure or Extrusion of Orbital Implant",
+        desc: "Occasionally, the implant placed after eye removal surgery may become exposed or displaced. Early specialist evaluation helps determine whether medical treatment or reconstructive surgery is required."
+      },
+      {
+        title: "Congenital Small or Absent Eye",
+        desc: "Children born with a small eye (microphthalmos) or absent eye (anophthalmos) require specialised long-term management to promote normal socket growth and facial development."
+      }
+    ],
+    whenToConsultTitle: "When Should You Consult an Oculoplasty Surgeon?",
+    whenToConsultSubtitle: "Seek specialist consultation if you experience:",
+    whenToConsultBullets: [
+      "Persistent pain in a blind eye",
+      "Difficulty wearing an artificial eye",
+      "Poor cosmetic appearance after eye removal surgery",
+      "Recurrent discharge from the eye socket",
+      "Shrinking or scarring of the socket",
+      "Exposure of an orbital implant",
+      "A child born with an underdeveloped or absent eye"
+    ],
+    treatmentOptionsTitle: "Treatment Options",
+    treatmentOptionsSubtitle: "Management may include:",
+    treatmentOptionsBullets: [
+      "Medical treatment for socket inflammation or infection",
+      "Enucleation or evisceration when indicated",
+      "Primary orbital implant placement",
+      "Socket reconstruction surgery",
+      "Mucous membrane grafting",
+      "Dermis-fat grafting",
+      "Management of implant exposure",
+      "Coordination with an ocularist for customised artificial eye fitting"
+    ],
+    treatmentOptionsFooter: "Every treatment plan is individualised to optimise both comfort and appearance.",
+    whyChooseTitle: "Why Consult an Oculoplasty Surgeon?",
+    whyChooseText: "Successful socket rehabilitation involves much more than placing an artificial eye. It requires careful planning of eye removal surgery, preservation of socket anatomy, reconstruction when necessary and close coordination with an ocularist. As a fellowship-trained Oculoplasty and Ocular Oncology surgeon, Dr. Saumika Singh focuses on achieving a comfortable socket, natural appearance and long-term rehabilitation for every patient.",
+    faqsTitle: "Frequently Asked Questions",
+    faqs: [
+      {
+        q: "Will an artificial eye restore vision?",
+        a: "No. An artificial eye does not restore sight, but it provides excellent cosmetic rehabilitation and helps maintain facial symmetry."
+      },
+      {
+        q: "Will people be able to tell that I have an artificial eye?",
+        a: "Modern customised prostheses closely resemble the natural eye. Most people notice little or no difference during routine interactions."
+      },
+      {
+        q: "How long does recovery take after eye removal surgery?",
+        a: "Healing usually takes several weeks. Once the socket has healed adequately, a customised artificial eye can be fitted."
+      },
+      {
+        q: "Will my artificial eye move?",
+        a: "Yes. A well-fitted prosthesis generally moves along with the other eye to a considerable extent, although the movement is usually less than that of a natural eye."
+      },
+      {
+        q: "Can socket problems be corrected years after surgery?",
+        a: "Yes. Many socket-related problems, including contracted sockets, implant exposure and poorly fitting prostheses, can often be improved with reconstructive surgery after appropriate evaluation."
+      }
+    ],
+    consultationSection: {
+      title: "Consultation",
+      text: "If you have been advised eye removal surgery, are experiencing problems with an artificial eye or require specialised socket reconstruction, consult Dr. Saumika Singh for a comprehensive evaluation and personalised rehabilitation plan."
+    }
+  },
+  hi: {
+    introTitle: "परिचय",
+    introParas: [
+      "चोट, संक्रमण, कैंसर या दर्दनाक दृष्टिहीन आँख के कारण आँख खोना भावनात्मक और शारीरिक रूप से चुनौतीपूर्ण हो सकता है। आधुनिक ओकुलोप्लास्टिक सर्जरी न केवल अंतर्निहित स्थिति के इलाज पर ध्यान केंद्रित करती है, बल्कि सॉकेट पुनर्निर्माण और कृत्रिम आँख पुनर्वास के माध्यम से चेहरे के रूप-रंग, पलकों के कार्य और आत्मविश्वास को बहाल करने पर भी ध्यान केंद्रित करती है।",
+      "डॉ. सौमिका सिंह सर्वोत्तम संभव कार्यात्मक और कॉस्मेटिक परिणाम प्राप्त करने के उद्देश्य से आँख निकालने की सर्जरी, सॉकेट पुनर्निर्माण और अनुकूलित ओकुलर प्रोस्थेसिस (कृत्रिम आँख) के साथ दीर्घकालिक पुनर्वास की आवश्यकता वाले रोगियों के लिए विशिष्ट देखभाल प्रदान करती हैं।"
+    ],
+    commonDisordersTitle: "लक्षण और स्थितियां जिनका हम इलाज करते हैं",
+    disorders: [
+      {
+        title: "दर्दनाक दृष्टिहीन आँख (Painful Blind Eye)",
+        desc: "एक गंभीर रूप से क्षतिग्रस्त या दृष्टिहीन आँख जो लगातार दर्द का कारण बनती है, उसे चिकित्सा उपचार प्रभावी न होने पर सर्जिकल हटाने की आवश्यकता हो सकती है। इसका उद्देश्य भविष्य के पुनर्वास के लिए सॉकेट तैयार करते समय दर्द से राहत देना है।"
+      },
+      {
+        title: "आँख निकालने की सर्जरी (Enucleation और Evisceration)",
+        desc: "गंभीर आघात, दर्दनाक दृष्टिहीन आँख या कुछ आँखों के ट्यूमर जैसी चुनिंदा स्थितियों में आँख निकालने की सिफारिश की जा सकती है। प्रक्रिया, इम्प्लांट विकल्पों और पुनर्वास प्रक्रिया के संबंध में प्रत्येक रोगी को पूरी तरह से परामर्श दिया जाता है।"
+      },
+      {
+        title: "सिकुड़ा हुआ सॉकेट (Contracted Socket)",
+        desc: "आँख के सॉकेट में घाव होने से कृत्रिम आँख पहनने में असुविधा हो सकती है और चेहरे का रूप प्रभावित हो सकता है। सॉकेट पुनर्निर्माण कृत्रिम आँख (प्रोस्थेसिस) लगाने के लिए पर्याप्त जगह बहाल करने में मदद करता है।"
+      },
+      {
+        title: "कृत्रिम आँख पुनर्वास",
+        desc: "एक अनुकूलित कृत्रिम आँख (ओकुलर प्रोस्थेसिस) प्राकृतिक आँख से काफी हद तक मेल खाने के लिए डिज़ाइन की जाती है, जिससे चेहरे की समरूपता और आत्मविश्वास में सुधार होता है। सर्वोत्तम कॉस्मेटिक परिणाम प्राप्त करने के लिए उचित सॉकेट की तैयारी आवश्यक है।"
+      },
+      {
+        title: "ऑर्बिटल इम्प्लांट का निकलना या दिखना",
+        desc: "कभी-कभी, आँख निकालने की सर्जरी के बाद रखा गया इम्प्लांट बाहर दिख सकता है या विस्थापित हो सकता है। प्रारंभिक विशेषज्ञ मूल्यांकन यह निर्धारित करने में मदद करता है कि चिकित्सा उपचार की आवश्यकता है या पुनर्निर्माण सर्जरी की।"
+      },
+      {
+        title: "जन्मजात छोटी या अनुपस्थित आँख",
+        desc: "छोटे आँख (माइक्रोफ्थैल्मोस) या अनुपस्थित आँख (एनोफ्थैल्मोस) के साथ पैदा हुए बच्चों को सामान्य सॉकेट विकास और चेहरे के विकास को बढ़ावा देने के लिए विशिष्ट दीर्घकालिक प्रबंधन की आवश्यकता होती है।"
+      }
+    ],
+    whenToConsultTitle: "आपको ओकुलोप्लास्टी सर्जन से कब परामर्श लेना चाहिए?",
+    whenToConsultSubtitle: "यदि आप अनुभव करते हैं तो विशेषज्ञ परामर्श लें:",
+    whenToConsultBullets: [
+      "एक दृष्टिहीन आँख में लगातार दर्द होना",
+      "कृत्रिम आँख पहनने में कठिनाई",
+      "आँख निकालने की सर्जरी के बाद खराब कॉस्मेटिक उपस्थिति",
+      "आँख के सॉकेट से बार-बार पानी या मवाद आना",
+      "सॉकेट का सिकुड़ना या उसमें घाव होना",
+      "ऑर्बिटल इम्प्लांट का बाहर दिखना",
+      "अविकसित या अनुपस्थित आँख के साथ पैदा हुआ बच्चा"
+    ],
+    treatmentOptionsTitle: "उपचार के विकल्प",
+    treatmentOptionsSubtitle: "प्रबंधन में शामिल हो सकते हैं:",
+    treatmentOptionsBullets: [
+      "सॉकेट की सूजन या संक्रमण के लिए चिकित्सा उपचार",
+      "आवश्यकतानुसार इन्यूक्लिएशन (Enucleation) या एविसरेशन (Evisceration)",
+      "प्राथमिक ऑर्बिटल इम्प्लांट प्लेसमेंट",
+      "सॉकेट पुनर्निर्माण सर्जरी",
+      "म्यूकोसल ग्राफ्टिंग (Mucous membrane grafting)",
+      "डर्मिस-फैट ग्राफ्टिंग (Dermis-fat grafting)",
+      "इम्प्लांट एक्सपोज़र का प्रबंधन",
+      "अनुकूलित कृत्रिम आँख फिटिंग के लिए एक ओकुलरिस्ट के साथ समन्वय"
+    ],
+    treatmentOptionsFooter: "आराम और रूप-रंग दोनों को अनुकूलित करने के लिए प्रत्येक उपचार योजना व्यक्तिगत बनाई जाती है।",
+    whyChooseTitle: "ओकुलोप्लास्टी सर्जन से क्यों परामर्श लें?",
+    whyChooseText: "सफल सॉकेट पुनर्वास में केवल कृत्रिम आँख लगाने से कहीं अधिक शामिल है। इसके लिए आँख निकालने की सर्जरी की सावधानीपूर्वक योजना बनाने, सॉकेट की शारीरिक रचना के संरक्षण, आवश्यकता पड़ने पर पुनर्निर्माण और ओकुलरिस्ट के साथ निकट समन्वय की आवश्यकता होती है। फेलोशिप-प्रशिक्षित ओकुलोप्लास्टी और ओकुलर ऑन्कोलॉजी सर्जन के रूप में, डॉ. सौमिका सिंह प्रत्येक रोगी के लिए एक आरामदायक सॉकेट, प्राकृतिक रूप और दीर्घकालिक पुनर्वास प्राप्त करने पर ध्यान केंद्रित करती हैं।",
+    faqsTitle: "अक्सर पूछे जाने वाले प्रश्न (FAQs)",
+    faqs: [
+      {
+        q: "क्या कृत्रिम आँख से रोशनी वापस आएगी?",
+        a: "नहीं। कृत्रिम आँख रोशनी को बहाल नहीं करती है, लेकिन यह उत्कृष्ट कॉस्मेटिक पुनर्वास प्रदान करती है और चेहरे की समरूपता बनाए रखने में मदद करती है।"
+      },
+      {
+        q: "क्या लोगों को पता चल जाएगा कि मेरे पास कृत्रिम आँख है?",
+        a: "आधुनिक अनुकूलित प्रोस्थेसिस प्राकृतिक आँख से काफी मेल खाते हैं। अधिकांश लोग नियमित बातचीत के दौरान कोई अंतर नहीं नोटिस कर पाते।"
+      },
+      {
+        q: "आँख निकालने की सर्जरी के बाद ठीक होने में कितना समय लगता है?",
+        a: "ठीक होने में आमतौर पर कई सप्ताह लगते हैं। एक बार जब सॉकेट पर्याप्त रूप से ठीक हो जाता है, तो एक अनुकूलित कृत्रिम आँख लगाई जा सकती है।"
+      },
+      {
+        q: "क्या मेरी कृत्रिम आँख हिलेगी?",
+        a: "हाँ। अच्छी तरह से फिट की गई कृत्रिम आँख आमतौर पर दूसरी आँख के साथ काफी हद तक हिलती है, हालांकि इसकी गति प्राकृतिक आँख की तुलना में थोड़ी कम होती है।"
+      },
+      {
+        q: "क्या सर्जरी के वर्षों बाद भी सॉकेट की समस्याओं को ठीक किया जा सकता है?",
+        a: "हाँ। कई सॉकेट-संबंधित समस्याओं, जिनमें सिकुड़े हुए सॉकेट, इम्प्लांट का दिखना और खराब फिटिंग वाली कृत्रिम आँख शामिल हैं, को उचित मूल्यांकन के बाद पुनर्निर्माण सर्जरी के साथ ठीक किया जा सकता है।"
+      }
+    ],
+    consultationSection: {
+      title: "परामर्श",
+      text: "यदि आपको आँख निकालने की सर्जरी की सलाह दी गई है, कृत्रिम आँख के साथ समस्याओं का सामना करना पड़ रहा है या विशिष्ट सॉकेट पुनर्निर्माण की आवश्यकता है, तो व्यापक मूल्यांकन और व्यक्तिगत पुनर्वास योजना के लिए डॉ. सौमिका सिंह से परामर्श लें।"
+    }
+  }
+};
+
+const richTraumaContent = {
+  en: {
+    introTitle: "Introduction",
+    introParas: [
+      "Injuries around the eye can affect the eyelids, tear drainage system (lacrimal passages), eye socket (orbit) and surrounding facial tissues. Prompt evaluation and timely reconstruction are essential to restore function, protect the eye and achieve the best possible cosmetic outcome.",
+      "Dr. Saumika Singh specialises in the assessment and surgical management of periocular trauma, including eyelid injuries, tear drainage injuries and orbital fractures, using techniques aimed at preserving both vision and appearance."
+    ],
+    commonDisordersTitle: "Symptoms & Conditions We Treat",
+    disorders: [
+      {
+        title: "Eyelid Lacerations",
+        desc: "Cuts involving the eyelids require careful repair to restore normal eyelid position, blinking and eye protection. Complex eyelid injuries should be repaired by an oculoplasty surgeon to achieve the best functional and cosmetic results."
+      },
+      {
+        title: "Canalicular (Tear Duct) Injuries",
+        desc: "Injuries near the inner corner of the eyelids may damage the tear drainage channels, leading to persistent watering if left untreated. Early surgical repair with silicone stenting offers the best chance of restoring normal tear drainage."
+      },
+      {
+        title: "Orbital (Eye Socket) Fractures",
+        desc: "Blunt facial injuries may cause fractures of the eye socket, resulting in double vision, sunken appearance of the eye, restricted eye movements or numbness around the cheek. Some fractures require specialised reconstructive surgery."
+      },
+      {
+        title: "Eyelid Tissue Loss",
+        desc: "Animal bites, road traffic accidents and severe facial trauma may result in loss of eyelid tissue. Reconstructive eyelid surgery helps restore eyelid function while maintaining a natural appearance."
+      },
+      {
+        title: "Foreign Bodies Around the Eye",
+        desc: "Foreign objects lodged in the eyelids or surrounding tissues require careful evaluation and removal to prevent infection and long-term complications."
+      },
+      {
+        title: "Post-Traumatic Eyelid Deformities",
+        desc: "Poorly healed injuries may lead to eyelid malposition, scarring or cosmetic asymmetry. Secondary reconstructive surgery may improve both appearance and eyelid function."
+      }
+    ],
+    whenToConsultTitle: "Why Consult an Oculoplasty Surgeon?",
+    whenToConsultSubtitle: "The eyelids and surrounding structures are delicate and essential for protecting the eye and maintaining vision. Even seemingly small injuries can affect blinking, tear drainage and long-term appearance if not repaired appropriately.",
+    whenToConsultBullets: [
+      "A persistent lump on the eyelid or persistent swelling",
+      "A non-healing ulcer or sore around the eye after injury",
+      "Watering or blockages in the tear duct channels",
+      "Double vision or pain with eye movements",
+      "Asymmetry in eyelid shape or position",
+      "Exposure or noticeable scarring from previous injuries"
+    ],
+    treatmentOptionsTitle: "Treatment Options",
+    treatmentOptionsSubtitle: "Management may include:",
+    treatmentOptionsBullets: [
+      "Emergency eyelid repair",
+      "Canalicular repair with silicone tube intubation",
+      "Eyelid reconstruction",
+      "Orbital fracture repair",
+      "Scar revision surgery",
+      "Secondary eyelid reconstruction following previous trauma",
+      "Multidisciplinary care with maxillofacial surgeons, neurosurgeons and other specialists when required"
+    ],
+    treatmentOptionsFooter: "The treatment plan is individualised for every patient.",
+    whyChooseTitle: "Why Consult an Oculoplasty Surgeon?",
+    whyChooseText: "The eyelids and surrounding structures are delicate and essential for protecting the eye and maintaining vision. Even seemingly small injuries can affect blinking, tear drainage and long-term appearance if not repaired appropriately. A fellowship-trained oculoplasty surgeon is specifically trained in reconstructive surgery of the eyelids, lacrimal system and orbit, helping restore both function and appearance after injury.",
+    faqsTitle: "Frequently Asked Questions",
+    faqs: [
+      {
+        q: "Does every eyelid cut require specialist repair?",
+        a: "Minor superficial cuts may be managed conservatively, but injuries involving the eyelid margin, tear drainage system or deeper tissues should be evaluated by an oculoplasty surgeon."
+      },
+      {
+        q: "Can tear duct injuries be repaired successfully?",
+        a: "Yes. Early repair using specialised techniques and silicone stenting offers an excellent chance of restoring normal tear drainage."
+      },
+      {
+        q: "Will every orbital fracture require surgery?",
+        a: "No. Many fractures can be managed without surgery. The decision depends on double vision, eye position, fracture size and clinical findings."
+      },
+      {
+        q: "Will reconstructive surgery leave visible scars?",
+        a: "Every effort is made to place incisions along natural skin creases and restore the eyelid as anatomically as possible. While scars are inevitable after trauma, they usually become less noticeable with healing."
+      }
+    ],
+    consultationSection: {
+      title: "Consultation",
+      text: "If you or a family member has sustained an injury involving the eyelids, tear drainage system or eye socket, early specialist assessment can significantly improve long-term functional and cosmetic outcomes. Consult Dr. Saumika Singh for comprehensive evaluation and personalised reconstructive care."
+    }
+  },
+  hi: {
+    introTitle: "परिचय",
+    introParas: [
+      "आँख के आसपास की चोटें पलकों, आंसू जल निकासी प्रणाली (अश्रु मार्ग/lacrimal passages), आँख के सॉकेट (ऑर्बिट) और आसपास के चेहरे के ऊतकों को प्रभावित कर सकती हैं। कार्यप्रणाली को बहाल करने, आँख की रक्षा करने और सर्वोत्तम संभव कॉस्मेटिक परिणाम प्राप्त करने के लिए त्वरित मूल्यांकन और समय पर पुनर्निर्माण आवश्यक है।",
+      "डॉ. सौमिका सिंह पेरिओकुलर आघात (periocular trauma) के मूल्यांकन और सर्जिकल प्रबंधन में विशेषज्ञता रखती हैं, जिसमें पलक की चोटें, आंसू जल निकासी की चोटें और ऑर्बिटल फ्रैक्चर शामिल हैं, जिसमें दृष्टि और रूप-रंग दोनों को बनाए रखने के उद्देश्य से तकनीकों का उपयोग किया जाता है।"
+    ],
+    commonDisordersTitle: "लक्षण और स्थितियां जिनका हम इलाज करते हैं",
+    disorders: [
+      {
+        title: "पलक के घाव (Eyelid Lacerations)",
+        desc: "पलकों को शामिल करने वाले कटों को सामान्य पलक की स्थिति, पलक झपकने और आँख की सुरक्षा को बहाल करने के लिए सावधानीपूर्वक मरम्मत की आवश्यकता होती है। सर्वोत्तम कार्यात्मक और कॉस्मेटिक परिणाम प्राप्त करने के लिए एक ओकुलोप्लास्टी सर्जन द्वारा जटिल पलक की चोटों की मरम्मत की जानी चाहिए।"
+      },
+      {
+        title: "आंसू वाहिनी की चोटें (Canalicular / Tear Duct Injuries)",
+        desc: "पलकों के अंदरूनी कोने के पास की चोटें आंसू जल निकासी चैनलों को नुकसान पहुंचा सकती हैं, जिससे इलाज न किए जाने पर लगातार पानी आने लगता है। सिलिकॉन स्टेंटिंग के साथ प्रारंभिक सर्जिकल मरम्मत सामान्य आंसू जल निकासी को बहाल करने का सबसे अच्छा मौका देती है।"
+      },
+      {
+        title: "ऑर्बिटल फ्रैक्चर (Orbital / Eye Socket Fractures)",
+        desc: "चेहरे की चोटों के कारण आँख के सॉकेट में फ्रैक्चर हो सकता है, जिसके परिणामस्वरूप दोहरी दृष्टि, आँख का धंसा हुआ दिखना, आँख की सीमित गति या गाल के आसपास सुन्नता हो सकती है। कुछ फ्रैक्चरों के लिए विशिष्ट पुनर्निर्माण सर्जरी की आवश्यकता होती है।"
+      },
+      {
+        title: "पलक के ऊतकों की क्षति (Eyelid Tissue Loss)",
+        desc: "पशु के काटने, सड़क दुर्घटनाओं और चेहरे के गंभीर आघात के परिणामस्वरूप पलक के ऊतकों का नुकसान हो सकता है। पुनर्निर्माण पलक सर्जरी एक प्राकृतिक रूप बनाए रखने के साथ-साथ पलक के कार्य को बहाल करने में मदद करती है।"
+      },
+      {
+        title: "आँख के आसपास बाहरी वस्तुएं (Foreign Bodies)",
+        desc: "पलकों या आसपास के ऊतकों में फंसी बाहरी वस्तुओं को संक्रमण और दीर्घकालिक जटिलताओं को रोकने के लिए सावधानीपूर्वक मूल्यांकन और निकालने की आवश्यकता होती है।"
+      },
+      {
+        title: "चोट के बाद पलक की विकृतियां (Post-Traumatic Eyelid Deformities)",
+        desc: "खराब तरीके से ठीक हुई चोटों के कारण पलक की गलत स्थिति, निशान या कॉस्मेटिक विषमता हो सकती है। द्वितीयक पुनर्निर्माण सर्जरी रूप-रंग और पलक के कार्य दोनों में सुधार कर सकती है।"
+      }
+    ],
+    whenToConsultTitle: "ओकुलोप्लास्टी सर्जन से क्यों परामर्श लें?",
+    whenToConsultSubtitle: "पलकें और आसपास की संरचनाएं नाजुक होती हैं और आँख की सुरक्षा करने और दृष्टि बनाए रखने के लिए आवश्यक होती हैं। यदि उचित तरीके से मरम्मत न की जाए तो प्रतीत होने वाली छोटी चोटें भी पलक झपकने, आंसू की निकासी और दीर्घकालिक रूप-रंग को प्रभावित कर सकती हैं।",
+    whenToConsultBullets: [
+      "पलक पर लगातार बनी रहने वाली गांठ या लगातार सूजन",
+      "चोट के बाद आँख के आसपास न भरने वाला अल्सर या घाव",
+      "आंसू वाहिनी चैनलों में पानी या रुकावट",
+      "दोहरी दृष्टि या आँख हिलाने के साथ दर्द",
+      "पलक के आकार या स्थिति में विषमता",
+      "पिछले आघात से निशान या विकृति"
+    ],
+    treatmentOptionsTitle: "उपचार के विकल्प",
+    treatmentOptionsSubtitle: "प्रबंधन में शामिल हो सकते हैं:",
+    treatmentOptionsBullets: [
+      "आपातकालीन पलक की मरम्मत",
+      "सिलिकॉन ट्यूब इंटुबैषेण के साथ कैनालिकुलर मरम्मत",
+      "पलक पुनर्निर्माण",
+      "ऑर्बिटल फ्रैक्चर की मरम्मत",
+      "निशान संशोधन सर्जरी",
+      "पिछले आघात के बाद द्वितीयक पलक पुनर्निर्माण",
+      "मैक्सिलोफेशियल सर्जनों, न्यूरोसर्जनों और अन्य विशेषज्ञों के साथ बहु-विषयक देखभाल जब आवश्यक हो"
+    ],
+    treatmentOptionsFooter: "प्रत्येक उपचार योजना रोगी की स्थिति के आधार पर व्यक्तिगत रूप से तैयार की जाती है।",
+    whyChooseTitle: "ओकुलोप्लास्टी सर्जन से क्यों परामर्श लें?",
+    whyChooseText: "पलकें और आसपास की संरचनाएं नाजुक होती हैं और आँख की सुरक्षा करने और दृष्टि बनाए रखने के लिए आवश्यक होती हैं। यदि उचित तरीके से मरम्मत न की जाए तो प्रतीत होने वाली छोटी चोटें भी पलक झपकने, आंसू की निकासी और दीर्घकालिक रूप-रंग को प्रभावित कर सकती हैं। एक फेलोशिप-प्रशिक्षित ओकुलोप्लास्टी सर्जन विशेष रूप से पलकों, अश्रु प्रणाली और ऑर्बिट की पुनर्निर्माण सर्जरी में प्रशिक्षित होता है, जो चोट के बाद कार्य और रूप-रंग दोनों को बहाल करने में मदद करता है।",
+    faqsTitle: "अक्सर पूछे जाने वाले प्रश्न (FAQs)",
+    faqs: [
+      {
+        q: "क्या पलक के हर कट के लिए विशेषज्ञ मरम्मत की आवश्यकता होती है?",
+        a: "मामूली सतही कटों को सामान्य रूप से प्रबंधित किया जा सकता है, लेकिन पलक के किनारे, आंसू जल निकासी प्रणाली या गहरे ऊतकों को शामिल करने वाली चोटों का मूल्यांकन ओकुलोप्लास्टी सर्जन द्वारा किया जाना चाहिए।"
+      },
+      {
+        q: "क्या आंसू वाहिनी की चोटों को सफलतापूर्वक ठीक किया जा सकता है?",
+        a: "हाँ। विशिष्ट तकनीकों और सिलिकॉन स्टेंटिंग का उपयोग करके प्रारंभिक मरम्मत सामान्य आंसू जल निकासी को बहाल करने का एक उत्कृष्ट अवसर प्रदान करती है।"
+      },
+      {
+        q: "क्या हर ऑर्बिटल फ्रैक्चर के लिए सर्जरी की आवश्यकता होगी?",
+        a: "नहीं। कई फ्रैक्चर को बिना सर्जरी के प्रबंधित किया जा सकता है। निर्णय दोहरी दृष्टि, आँख की स्थिति, फ्रैक्चर के आकार और नैदानिक निष्कर्षों पर निर्भर करता है।"
+      },
+      {
+        q: "क्या पुनर्निर्माण सर्जरी से दिखने वाले निशान रह जाएंगे?",
+        a: "त्वचा की प्राकृतिक सिलवटों के साथ चीरे लगाने और पलक को शारीरिक रूप से बहाल करने का हर संभव प्रयास किया जाता है। हालांकि आघात के बाद निशान अपरिहार्य हैं, वे आमतौर पर उपचार के साथ कम ध्यान देने योग्य हो जाते हैं।"
+      }
+    ],
+    consultationSection: {
+      title: "परामर्श",
+      text: "यदि आपको या आपके परिवार के किसी सदस्य को पलकों, आंसू जल निकासी प्रणाली या आँख के सॉकेट से जुड़ी चोट लगी है, तो प्रारंभिक विशेषज्ञ मूल्यांकन दीर्घकालिक कार्यात्मक और कॉस्मेटिक परिणामों में महत्वपूर्ण सुधार कर सकता है। व्यापक मूल्यांकन और व्यक्तिगत पुनर्निर्माण देखभाल के लिए डॉ. सौमिका सिंह से परामर्श करें।"
+    }
+  }
+};
+
 export default function ServiceDetail() {
   const { id } = useParams<{ id: string }>();
   const { t, language } = useLanguage();
@@ -619,7 +1133,10 @@ export default function ServiceDetail() {
   const isEyelidSurgery = id === 'drooping-eyelids';
   const isWateringEyes = id === 'watering-eyes';
   const isOrbitalSurgery = id === 'artificial-eye';
-  const isRichService = isEyelidSurgery || isWateringEyes || isOrbitalSurgery;
+  const isTumoursService = id === 'thyroid-eye-disease';
+  const isSocketService = id === 'tumours';
+  const isTraumaService = id === 'botox-aesthetics';
+  const isRichService = isEyelidSurgery || isWateringEyes || isOrbitalSurgery || isTumoursService || isSocketService || isTraumaService;
   const currentLang = (language === 'hi' ? 'hi' : 'en') as 'en' | 'hi';
   const richData = (isEyelidSurgery 
     ? richEyelidContent[currentLang] 
@@ -627,7 +1144,13 @@ export default function ServiceDetail() {
       ? richWateringContent[currentLang] 
       : (isOrbitalSurgery 
         ? richOrbitalContent[currentLang] 
-        : null))) as any;
+        : (isTumoursService
+          ? richTumourContent[currentLang]
+          : (isSocketService
+            ? richSocketContent[currentLang]
+            : (isTraumaService
+              ? richTraumaContent[currentLang]
+              : null)))))) as any;
 
   return (
     <div id="service-detail-root" className="flex flex-col">
