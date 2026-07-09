@@ -124,9 +124,11 @@ export default function Home() {
                 <Link to={`/services/${item.slug}`} className="flex flex-col items-center text-center p-6 border border-gold/10 hover:border-gold/40 transition-all bg-white shadow-sm hover:shadow-md h-full">
                   <item.icon className="h-10 w-10 text-gold mb-4 stroke-[1.5]" />
                   <h3 className="text-xl font-bold text-navy mb-2">{item.title}</h3>
-                  <p className="text-sm text-navy/70 leading-relaxed">
-                    {item.desc}
-                  </p>
+                  {item.desc && (
+                    <p className="text-sm text-navy/70 leading-relaxed">
+                      {item.desc}
+                    </p>
+                  )}
                 </Link>
               </motion.div>
             ))}

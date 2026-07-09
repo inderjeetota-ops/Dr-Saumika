@@ -12,15 +12,15 @@ export default function Gallery() {
     ? ["टोसिस (Ptosis) सुधार", "कृत्रिम आंख पुनर्वास"]
     : ["Ptosis Correction", "Artificial Eye Rehabilitation"];
 
-  // Placeholders for the general photo gallery
-  const photoGalleryImages = [
-    { src: "/photo gallery 1.jpg", alt: "Gallery Image 1" },
-    { src: "/Photo gallery 2.jpg", alt: "Gallery Image 2" },
-    { src: "/Photo gallery 3.jpg", alt: "Gallery Image 3" },
-    { src: "/Photo gallery 4.jpg", alt: "Gallery Image 4" },
-    { src: "/Photo gallery 5.jpg", alt: "Gallery Image 5" },
-    { src: "/Photo gallery 6.jpg", alt: "Gallery Image 6" },
-  ];
+  // Placeholders for the general photo gallery with names and descriptions
+  const [photoGalleryImages, setPhotoGalleryImages] = useState([
+    { src: "/photo gallery 1.jpg", alt: "Gallery Image 1", name: "Case 1: Ptosis Correction", desc: "Before and after evaluation." },
+    { src: "/Photo gallery 2.jpg", alt: "Gallery Image 2", name: "Case 2: Ectropion Repair", desc: "Treatment progress of patient." },
+    { src: "/Photo gallery 3.jpg", alt: "Gallery Image 3", name: "Case 3: Custom Prosthesis", desc: "Successful oculoplastic care." },
+    { src: "/Photo gallery 4.jpg", alt: "Gallery Image 4", name: "Case 4: Blepharoplasty", desc: "Post-surgery aesthetic outcome." },
+    { src: "/Photo gallery 5.jpg", alt: "Gallery Image 5", name: "Case 5: Lacrimal System", desc: "Reconstructive socket rehabilitation." },
+    { src: "/Photo gallery 6.jpg", alt: "Gallery Image 6", name: "Case 6: Facial Aesthetics", desc: "Aesthetic enhancement result." },
+  ]);
 
   return (
     <div className="py-20 px-4 sm:px-6 lg:px-8 bg-ivory">
@@ -126,17 +126,54 @@ export default function Gallery() {
               </div>
               
               <div className="flex-1 overflow-y-auto p-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   {photoGalleryImages.map((img, i) => (
-                    <div key={i} className="aspect-square bg-navy/5 border border-navy/10 flex items-center justify-center overflow-hidden group">
-                      {img.src ? (
-                        <img src={img.src} alt={img.alt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                      ) : (
-                        <div className="text-center p-4">
-                          <ImageIcon className="w-8 h-8 text-navy/20 mx-auto mb-2" />
-                          <span className="text-navy/40 text-sm font-medium uppercase tracking-widest">Add Photo Here</span>
+                    <div key={i} className="flex flex-col bg-white border border-navy/10 p-4 shadow-sm rounded-sm">
+                      <div className="aspect-[4/3] bg-navy/5 border border-navy/5 flex items-center justify-center overflow-hidden group mb-4 relative rounded-sm">
+                        {img.src ? (
+                          <img src={img.src} alt={img.alt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                        ) : (
+                          <div className="text-center p-4">
+                            <ImageIcon className="w-8 h-8 text-navy/20 mx-auto mb-2" />
+                            <span className="text-navy/40 text-sm font-medium uppercase tracking-widest">Add Photo Here</span>
+                          </div>
+                        )}
+                      </div>
+                      
+                      <div className="space-y-3">
+                        <div>
+                          <label className="block text-xs font-bold uppercase tracking-wider text-navy/60 mb-1">
+                            Photo Name
+                          </label>
+                          <input
+                            type="text"
+                            value={img.name}
+                            onChange={(e) => {
+                              const updated = [...photoGalleryImages];
+                              updated[i].name = e.target.value;
+                              setPhotoGalleryImages(updated);
+                            }}
+                            placeholder="Enter photo name..."
+                            className="w-full px-3 py-2 text-sm bg-ivory border border-navy/10 text-navy focus:outline-none focus:border-gold transition-colors font-medium rounded-sm"
+                          />
                         </div>
-                      )}
+                        <div>
+                          <label className="block text-xs font-bold uppercase tracking-wider text-navy/60 mb-1">
+                            Description
+                          </label>
+                          <textarea
+                            value={img.desc}
+                            onChange={(e) => {
+                              const updated = [...photoGalleryImages];
+                              updated[i].desc = e.target.value;
+                              setPhotoGalleryImages(updated);
+                            }}
+                            placeholder="Enter photo description..."
+                            rows={3}
+                            className="w-full px-3 py-2 text-sm bg-ivory border border-navy/10 text-navy focus:outline-none focus:border-gold transition-colors resize-none rounded-sm leading-relaxed"
+                          />
+                        </div>
+                      </div>
                     </div>
                   ))}
                 </div>

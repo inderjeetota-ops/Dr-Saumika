@@ -38,12 +38,15 @@ const translations = {
     // Home - Why Oculoplasty
     'home.whyTitle': 'Why Oculoplasty?',
     'home.whyDesc': 'Specialized and delicate care for the structures surrounding the eye. If you experience these symptoms, an Oculoplasty expert provides the precise treatment required.',
-    'home.drooping': 'Drooping Eyelids',
-    'home.droopingDesc': 'Ptosis correction to restore visual field and appearance.',
-    'home.watering': 'Watering Eyes',
-    'home.wateringDesc': 'Advanced solutions for lacrimal duct blockages.',
-    'home.artificialTitle': 'Artificial Eye',
-    'home.artificialDesc': 'Custom socket reconstruction and prosthetic fitting.',
+    'home.drooping': 'Eyelid Disorders & Eyelid Surgery',
+    'home.droopingSub': 'Specialised Oculoplasty Care in Lucknow by Dr. Saumika Singh',
+    'home.droopingDesc': '',
+    'home.watering': 'Watering Eyes & Tear Drainage Disorders',
+    'home.wateringSub': 'Specialised Diagnosis & Treatment by Dr. Saumika Singh',
+    'home.wateringDesc': '',
+    'home.artificialTitle': 'Orbital Disorders & Orbital Surgery',
+    'home.artificialSub': 'Specialised Diagnosis & Treatment in Lucknow by Dr. Saumika Singh',
+    'home.artificialDesc': '',
     'home.thyroid': 'Thyroid Eye Disease',
     'home.thyroidDesc': 'Comprehensive management of TED symptoms.',
     'home.tumours': 'Eyelid & Ocular Tumours',
@@ -135,12 +138,15 @@ const translations = {
     // Home - Why Oculoplasty
     'home.whyTitle': 'ओकुलोप्लास्टी क्यों?',
     'home.whyDesc': 'आंख के आसपास की संरचनाओं के लिए विशेष और नाजुक देखभाल। यदि आप इन लक्षणों का अनुभव करते हैं, तो एक ओकुलोप्लास्टी विशेषज्ञ सटीक उपचार प्रदान करता है।',
-    'home.drooping': 'झुकी हुई पलकें',
-    'home.droopingDesc': 'दृश्य क्षेत्र और रूप-रंग को बहाल करने के लिए टोसिस (Ptosis) सुधार।',
-    'home.watering': 'आंखों से पानी आना',
-    'home.wateringDesc': 'लैक्रिमल डक्ट (आंसू नलिका) रुकावटों के लिए उन्नत समाधान।',
-    'home.artificialTitle': 'कृत्रिम आंख',
-    'home.artificialDesc': 'कस्टम सॉकेट पुनर्निर्माण और कृत्रिम आंख (प्रोस्थेटिक) फिटिंग।',
+    'home.drooping': 'पलक विकार और पलक सर्जरी',
+    'home.droopingSub': 'डॉ. सौमिका सिंह द्वारा लखनऊ में विशिष्ट ओकुलोप्लास्टी देखभाल',
+    'home.droopingDesc': '',
+    'home.watering': 'आंखों से पानी आना और आंसू नली के विकार',
+    'home.wateringSub': 'डॉ. सौमिका सिंह द्वारा विशिष्ट निदान और उपचार',
+    'home.wateringDesc': '',
+    'home.artificialTitle': 'ऑर्बिटल विकार और ऑर्बिटल सर्जरी',
+    'home.artificialSub': 'डॉ. सौमिका सिंह द्वारा लखनऊ में विशिष्ट निदान और उपचार',
+    'home.artificialDesc': '',
     'home.thyroid': 'थायरॉइड नेत्र रोग',
     'home.thyroidDesc': 'टीईडी (TED) लक्षणों का व्यापक प्रबंधन।',
     'home.tumours': 'पलक और ओकुलर ट्यूमर',
@@ -215,7 +221,8 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   }, [language]);
 
   const t = (key: string): string => {
-    return translations[language][key as keyof typeof translations['en']] || key;
+    const val = translations[language][key as keyof typeof translations['en']];
+    return val !== undefined ? val : key;
   };
 
   return (
