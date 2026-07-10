@@ -13,6 +13,28 @@ export function Navbar() {
   const location = useLocation();
   const isScrollingRef = useRef(false);
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const targetScrollYRef = useRef<number | null>(null);
+
+  // Clear scroll lock if the user manually scrolls or touches the screen during programmatic scroll
+  useEffect(() => {
+    const handleUserInteraction = () => {
+      if (isScrollingRef.current) {
+        isScrollingRef.current = false;
+        targetScrollYRef.current = null;
+        if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
+      }
+    };
+
+    window.addEventListener('wheel', handleUserInteraction, { passive: true });
+    window.addEventListener('touchmove', handleUserInteraction, { passive: true });
+    window.addEventListener('mousedown', handleUserInteraction, { passive: true });
+
+    return () => {
+      window.removeEventListener('wheel', handleUserInteraction);
+      window.removeEventListener('touchmove', handleUserInteraction);
+      window.removeEventListener('mousedown', handleUserInteraction);
+    };
+  }, []);
 
   const navLinks = [
     { name: t('nav.home'), path: '#home' },
@@ -57,14 +79,39 @@ export function Navbar() {
   // Synchronize active section state on initial load or path/hash updates
   useEffect(() => {
     if (location.pathname === '/') {
-      setActiveSection(location.hash || '#home');
+      if (!isScrollingRef.current) {
+        setActiveSection(location.hash || '#home');
+      }
+    } else {
+      // If we are not on the home page, clear active section and ensure scroll lock is off
+      setActiveSection('');
+      isScrollingRef.current = false;
+      targetScrollYRef.current = null;
+      if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
     }
   }, [location.pathname, location.hash]);
 
   // Handle manual scrolls with our high-precision spy
   useEffect(() => {
     const handleScroll = () => {
-      if (isScrollingRef.current) return;
+      if (isScrollingRef.current) {
+        // Check if we reached the target or the bottom of the page
+        const isAtBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 10;
+        if (targetScrollYRef.current !== null) {
+          const distance = Math.abs(window.scrollY - targetScrollYRef.current);
+          if (distance < 5 || isAtBottom) {
+            isScrollingRef.current = false;
+            targetScrollYRef.current = null;
+            if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
+            updateActiveSectionOnScroll();
+          }
+        } else if (isAtBottom) {
+          isScrollingRef.current = false;
+          if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
+          updateActiveSectionOnScroll();
+        }
+        return;
+      }
       updateActiveSectionOnScroll();
     };
 
@@ -84,32 +131,36 @@ export function Navbar() {
     
     if (location.pathname !== '/') {
       // If we are not on the home page, navigate to home with the hash
-      navigate(`/${path}`);
+      navigate(`/${path}`, { state: { fromNavbar: true } });
     } else {
-      // If on home page, scroll to element
-      const id = path.replace('#', '');
-      const element = document.getElementById(id);
-      
-      if (element) {
-        const offsetPosition = Math.max(0, element.getBoundingClientRect().top + window.scrollY - 80);
+      // If on home page, scroll to element with a slight delay for mobile transitions
+      setTimeout(() => {
+        const id = path.replace('#', '');
+        const element = document.getElementById(id);
         
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth"
-        });
-        
-        // Update URL without full page reload, using React Router
-        navigate(`/${path}`, { replace: true });
-        
-        // Timeout to re-enable scroll spy and ensure the correct item is selected at the destination
-        if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
-        scrollTimeoutRef.current = setTimeout(() => {
+        if (element) {
+          const offsetPosition = Math.max(0, element.getBoundingClientRect().top + window.scrollY - 80);
+          targetScrollYRef.current = offsetPosition;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+          });
+          
+          // Update URL without full page reload, using React Router
+          navigate(`/${path}`, { replace: true, state: { fromNavbar: true } });
+          
+          // Fallback safety timeout in case scroll event isn't triggered
+          if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
+          scrollTimeoutRef.current = setTimeout(() => {
+            isScrollingRef.current = false;
+            targetScrollYRef.current = null;
+            updateActiveSectionOnScroll();
+          }, 1000);
+        } else {
           isScrollingRef.current = false;
-          updateActiveSectionOnScroll();
-        }, 800);
-      } else {
-        isScrollingRef.current = false;
-      }
+        }
+      }, 100);
     }
   };
 
@@ -124,38 +175,31 @@ export function Navbar() {
               <span className="text-[10px] uppercase tracking-wider font-bold text-ivory/75">Language:</span>
             </div>
             <div className="relative flex bg-white/5 border border-white/10 rounded-full p-0.5 shadow-inner">
+              {/* Sliding background indicator */}
+              <div 
+                className={cn(
+                  "absolute top-0.5 bottom-0.5 rounded-full bg-ivory shadow-sm transition-all duration-300 ease-out z-0",
+                  language === 'en' ? "left-0.5 w-[calc(50%-2px)]" : "left-[calc(50%+2px)] w-[calc(50%-2px)]"
+                )}
+              />
               <button
                 onClick={() => setLanguage('en')}
                 aria-label="Switch language to English"
                 className={cn(
-                  "relative z-10 px-3.5 py-1 text-xs font-bold transition-colors duration-300 rounded-full focus:outline-none",
+                  "relative z-10 w-20 py-1 text-xs font-bold transition-colors duration-300 rounded-full focus:outline-none text-center",
                   language === 'en' ? "text-navy font-extrabold" : "text-ivory/70 hover:text-ivory"
                 )}
               >
-                {language === 'en' && (
-                  <motion.span
-                    layoutId="active-language-indicator"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                    className="absolute inset-0 bg-ivory rounded-full -z-10 shadow-sm"
-                  />
-                )}
                 <span className="relative z-10">English</span>
               </button>
               <button
                 onClick={() => setLanguage('hi')}
                 aria-label="Switch language to Hindi"
                 className={cn(
-                  "relative z-10 px-3.5 py-1 text-xs font-bold transition-colors duration-300 rounded-full focus:outline-none",
+                  "relative z-10 w-20 py-1 text-xs font-bold transition-colors duration-300 rounded-full focus:outline-none text-center",
                   language === 'hi' ? "text-navy font-extrabold" : "text-ivory/70 hover:text-ivory"
                 )}
               >
-                {language === 'hi' && (
-                  <motion.span
-                    layoutId="active-language-indicator"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                    className="absolute inset-0 bg-ivory rounded-full -z-10 shadow-sm"
-                  />
-                )}
                 <span className="relative z-10">हिंदी</span>
               </button>
             </div>
@@ -221,7 +265,7 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-t border-gold/20 bg-ivory/95 backdrop-blur-lg shadow-inner"
+            className="absolute top-full left-0 right-0 md:hidden border-b border-t border-gold/20 bg-ivory/95 backdrop-blur-lg shadow-lg overflow-hidden z-40"
           >
             <div className="px-4 pt-2 pb-6 space-y-1">
               {navLinks.map((link) => (
