@@ -192,12 +192,12 @@ export default function Home() {
             className="grid grid-cols-2 md:grid-cols-3 gap-x-4 md:gap-x-8 gap-y-8 md:gap-y-12"
           >
             {[
-              { icon: Eye, title: t('home.drooping'), desc: t('home.droopingDesc'), slug: 'drooping-eyelids' },
-              { icon: Droplets, title: t('home.watering'), desc: t('home.wateringDesc'), slug: 'watering-eyes' },
-              { icon: PlusCircle, title: t('home.artificialTitle'), desc: t('home.artificialDesc'), slug: 'artificial-eye' },
-              { icon: Activity, title: t('home.thyroid'), desc: t('home.thyroidDesc'), slug: 'thyroid-eye-disease' },
-              { icon: Shield, title: t('home.tumours'), desc: t('home.tumoursDesc'), slug: 'tumours' },
-              { icon: Sparkles, title: t('home.botox'), desc: t('home.botoxDesc'), slug: 'botox-aesthetics' }
+              { icon: Eye, title: t('home.drooping'), desc: t('home.droopingDesc'), slug: 'eyelid-disorders-eyelid-surgery' },
+              { icon: Droplets, title: t('home.watering'), desc: t('home.wateringDesc'), slug: 'watering-eyes-tear-drainage-disorders' },
+              { icon: PlusCircle, title: t('home.artificialTitle'), desc: t('home.artificialDesc'), slug: 'orbital-disorders-orbital-surgery' },
+              { icon: Activity, title: t('home.thyroid'), desc: t('home.thyroidDesc'), slug: 'eye-tumours-ocular-oncology' },
+              { icon: Shield, title: t('home.tumours'), desc: t('home.tumoursDesc'), slug: 'socket-reconstruction-artificial-eye-rehabilitation' },
+              { icon: Sparkles, title: t('home.botox'), desc: t('home.botoxDesc'), slug: 'eye-trauma-eyelid-orbital-reconstruction' }
             ].map((item, i) => (
               <motion.div 
                 key={i}

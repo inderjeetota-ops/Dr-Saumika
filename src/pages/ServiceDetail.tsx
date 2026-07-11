@@ -1,42 +1,42 @@
-import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { motion } from 'motion/react';
 import { ArrowLeft, CheckCircle2, ArrowRight } from 'lucide-react';
 import SEO from '../components/SEO';
 
 const serviceKeys: Record<string, { titleKey: string; descKey: string; subKey?: string; features: string[] }> = {
-  'drooping-eyelids': {
+  'eyelid-disorders-eyelid-surgery': {
     titleKey: 'home.drooping',
     descKey: 'home.droopingDesc',
     subKey: 'home.droopingSub',
     features: ['pt.f1', 'pt.f2', 'pt.f3']
   },
-  'watering-eyes': {
+  'watering-eyes-tear-drainage-disorders': {
     titleKey: 'home.watering',
     descKey: 'home.wateringDesc',
     subKey: 'home.wateringSub',
     features: ['we.f1', 'we.f2', 'we.f3']
   },
-  'artificial-eye': {
+  'orbital-disorders-orbital-surgery': {
     titleKey: 'home.artificialTitle',
     descKey: 'home.artificialDesc',
     subKey: 'home.artificialSub',
     features: ['ae.f1', 'ae.f2', 'ae.f3']
   },
-  'thyroid-eye-disease': {
+  'eye-tumours-ocular-oncology': {
     titleKey: 'home.thyroid',
     descKey: 'home.thyroidDesc',
     subKey: 'home.thyroidSub',
     features: ['te.f1', 'te.f2', 'te.f3']
   },
-  'tumours': {
+  'socket-reconstruction-artificial-eye-rehabilitation': {
     titleKey: 'home.tumours',
     descKey: 'home.tumoursDesc',
     subKey: 'home.tumoursSub',
     features: ['tu.f1', 'tu.f2', 'tu.f3']
   },
-  'botox-aesthetics': {
+  'eye-trauma-eyelid-orbital-reconstruction': {
     titleKey: 'home.botox',
     descKey: 'home.botoxDesc',
     subKey: 'home.botoxSub',
@@ -1114,9 +1114,31 @@ const richTraumaContent = {
 
 export default function ServiceDetail() {
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
   const { t, language } = useLanguage();
 
+  const redirects: Record<string, string> = {
+    'drooping-eyelids': 'eyelid-disorders-eyelid-surgery',
+    'watering-eyes': 'watering-eyes-tear-drainage-disorders',
+    'artificial-eye': 'orbital-disorders-orbital-surgery',
+    'thyroid-eye-disease': 'eye-tumours-ocular-oncology',
+    'tumours': 'socket-reconstruction-artificial-eye-rehabilitation',
+    'botox-aesthetics': 'eye-trauma-eyelid-orbital-reconstruction'
+  };
+
+  const isRedirecting = id && redirects[id];
+
+  React.useEffect(() => {
+    if (id && redirects[id]) {
+      navigate(`/services/${redirects[id]}`, { replace: true });
+    }
+  }, [id, navigate]);
+
   const service = id ? serviceKeys[id] : null;
+
+  if (isRedirecting) {
+    return null;
+  }
 
   if (!service) {
     return (
@@ -1130,12 +1152,12 @@ export default function ServiceDetail() {
     );
   }
 
-  const isEyelidSurgery = id === 'drooping-eyelids';
-  const isWateringEyes = id === 'watering-eyes';
-  const isOrbitalSurgery = id === 'artificial-eye';
-  const isTumoursService = id === 'thyroid-eye-disease';
-  const isSocketService = id === 'tumours';
-  const isTraumaService = id === 'botox-aesthetics';
+  const isEyelidSurgery = id === 'eyelid-disorders-eyelid-surgery';
+  const isWateringEyes = id === 'watering-eyes-tear-drainage-disorders';
+  const isOrbitalSurgery = id === 'orbital-disorders-orbital-surgery';
+  const isTumoursService = id === 'eye-tumours-ocular-oncology';
+  const isSocketService = id === 'socket-reconstruction-artificial-eye-rehabilitation';
+  const isTraumaService = id === 'eye-trauma-eyelid-orbital-reconstruction';
   const isRichService = isEyelidSurgery || isWateringEyes || isOrbitalSurgery || isTumoursService || isSocketService || isTraumaService;
   const currentLang = (language === 'hi' ? 'hi' : 'en') as 'en' | 'hi';
   const richData = (isEyelidSurgery 
