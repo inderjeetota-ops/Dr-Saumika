@@ -210,8 +210,13 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex-shrink-0 flex items-center mr-4">
-            <Link to="/" className="text-xl lg:text-2xl font-bold text-[#002246] tracking-tight whitespace-nowrap">
-              Dr. Saumika<span className="text-[#012b4e]"> Singh</span>
+            <Link to="/" className="flex flex-col group justify-center">
+              <span className="text-lg lg:text-xl font-bold text-[#002246] tracking-tight leading-none group-hover:text-gold transition-colors">
+                Dr. Saumika<span className="text-[#012b4e]"> Singh</span>
+              </span>
+              <span className="text-[8px] md:text-[9px] lg:text-[10px] text-gold font-semibold tracking-wider uppercase mt-1 leading-none">
+                MBBS • MS (Ophth) • Fellow Oculoplasty & Ocular Oncology
+              </span>
             </Link>
           </div>
           

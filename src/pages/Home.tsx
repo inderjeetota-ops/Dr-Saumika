@@ -9,7 +9,7 @@ import Contact from './Contact';
 import SEO from '../components/SEO';
 
 export default function Home() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <div className="flex flex-col">
@@ -17,78 +17,147 @@ export default function Home() {
         title={t('home.drName')} 
         description={t('home.subtitle')} 
       />
-      <div className="w-full max-w-[1200px] mx-auto p-4 md:p-8 grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+      <div className="w-full max-w-[1240px] mx-auto p-4 md:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch relative">
+      
       {/* Hero Section */}
-      <section id="home" className="bento-card lg:col-span-12 relative overflow-hidden">
-        <div className="absolute inset-0 z-0 bg-ivory-dark/30">
-          {/* Subtle background overlay / texture could go here */}
-          <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-navy to-transparent pointer-events-none"></div>
-        </div>
+      <section id="home" className="lg:col-span-12 bg-white/95 backdrop-blur-md border border-gold/15 shadow-xl hover:shadow-2xl rounded-3xl transition-all duration-500 relative overflow-hidden p-6 sm:p-10 lg:p-12 xl:p-14">
+        {/* Premium Top Line Accent */}
+        <div className="absolute top-0 left-0 right-0 h-[4px] bg-gradient-to-r from-gold via-gold-light to-gold" />
         
-        <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+        {/* Subtle luxury ambient glows */}
+        <div className="absolute -top-24 -left-24 w-80 h-80 bg-gold/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-navy-light/5 rounded-full blur-3xl pointer-events-none" />
+        
+        <div className="relative z-10 grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="max-w-3xl"
+            className="lg:col-span-7 max-w-3xl flex flex-col justify-between h-full"
           >
-            <p className="text-gold font-bold tracking-widest uppercase text-sm mb-4">
-              {t('home.specialist')}
-            </p>
-            <div className="flex items-center gap-4 sm:gap-6 mb-4">
-              <h1 className="text-3xl sm:text-5xl lg:text-5xl xl:text-6xl font-bold text-navy leading-tight whitespace-pre-line">
-                {t('home.drName')}
-              </h1>
-              <div className="w-20 h-24 sm:w-24 sm:h-32 md:w-28 md:h-36 border-2 border-gold bg-gray-200 flex items-center justify-center flex-shrink-0">
-                <img src="/dr-saumika.jpg" alt="Dr. Saumika Singh" className="w-full h-full object-cover" />
+            <div>
+              {/* Premium Specialist Badge */}
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold/10 border border-gold/20 text-gold text-xs font-semibold tracking-widest uppercase mb-6">
+                <Sparkles className="h-3 w-3 animate-pulse" />
+                <span>{t('home.specialist')}</span>
+              </div>
+
+              {/* Title & Portrait Row */}
+              <div className="flex flex-row items-center justify-between sm:justify-start gap-4 sm:gap-6 mb-2 sm:mb-6 w-full">
+                <h1 className="text-2xl sm:text-4xl md:text-5xl font-black text-navy leading-tight tracking-tight whitespace-pre-line flex-1">
+                  {t('home.drName')}
+                </h1>
+                
+                {/* Luxury Portrait Frame */}
+                <div className="relative p-1 rounded-2xl bg-gradient-to-br from-gold to-gold-light shadow-xl flex-shrink-0 group">
+                  <div className="w-20 h-24 sm:w-28 sm:h-36 md:w-32 md:h-40 rounded-xl overflow-hidden bg-white">
+                    <img src="/dr-saumika.jpg" alt="Dr. Saumika Singh" className="w-full h-full object-cover transform group-hover:scale-[1.05] transition-transform duration-500" />
+                  </div>
+                  <div className="absolute inset-0 border border-white/20 rounded-2xl pointer-events-none" />
+                </div>
+              </div>
+
+              <h2 className="text-lg sm:text-xl md:text-2xl text-navy-light font-medium mb-6 leading-relaxed">
+                {language === 'en' ? (
+                  <>
+                    Oculoplasty, Orbit & <br className="sm:hidden" />Ocular Oncology Surgeon
+                  </>
+                ) : (
+                  <>
+                    ओकुलोप्लास्टी, ऑर्बिट और <br className="sm:hidden" />ओकुलर ऑन्कोलॉजी सर्जन
+                  </>
+                )}
+              </h2>
+
+              {/* Elegant Qualification Block */}
+              <div className="mb-8 bg-gold/5 backdrop-blur-md p-5 rounded-2xl border border-gold/20 shadow-sm max-w-xl relative overflow-hidden group">
+                <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-gold via-gold-light to-gold" />
+                <div className="absolute top-0 right-0 w-16 h-16 bg-gold/10 rounded-full blur-lg pointer-events-none" />
+                
+                <div className="flex items-center gap-2 mb-3">
+                  <Sparkles className="h-4 w-4 text-gold animate-pulse" />
+                  <span className="text-xs font-bold uppercase tracking-widest text-gold">{language === 'hi' ? 'योग्यता और साख' : 'Credentials & Qualifications'}</span>
+                </div>
+                
+                <div className="space-y-2 text-navy text-sm">
+                  <div className="flex items-start gap-2.5">
+                    <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-gold/15 text-gold text-xs font-bold flex-shrink-0 mt-0.5">✓</span>
+                    <div>
+                      <p className="font-bold text-navy">{language === 'hi' ? 'एमबीबीएस • एमएस (नेत्र रोग)' : 'MBBS • MS (Ophthalmology)'}</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-2.5">
+                    <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-gold/15 text-gold text-xs font-bold flex-shrink-0 mt-0.5">✓</span>
+                    <div>
+                      <p className="font-bold text-navy">{language === 'hi' ? 'ओकुलोप्लास्टी और ओकुलर ऑन्कोलॉजी में फेलो' : 'Fellow in Oculoplasty & Ocular Oncology'}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Premium Condition Pillars */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8 max-w-2xl">
+                {[
+                  t('home.eyelid'),
+                  t('home.lacrimal'),
+                  t('home.orbital'),
+                  t('home.oncology'),
+                  t('home.artificial'),
+                  t('home.aesthetics')
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center text-navy/85 text-[14px] font-semibold bg-gold/5 border border-gold/10 rounded-xl px-4 py-2.5 hover:bg-gold/10 hover:border-gold/20 transition-all duration-300">
+                    <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-gold/15 text-gold text-[10px] font-bold flex-shrink-0 mr-3">✓</span>
+                    <span className="truncate">{item}</span>
+                  </div>
+                ))}
               </div>
             </div>
-            <h2 className="text-xl sm:text-2xl text-navy-light font-medium mb-8">
-              {t('home.subtitle')}
-            </h2>
-            
-            <div className="space-y-3 mb-10">
-              {[
-                t('home.eyelid'),
-                t('home.lacrimal'),
-                t('home.orbital'),
-                t('home.oncology'),
-                t('home.artificial'),
-                t('home.aesthetics')
-              ].map((item, i) => (
-                <div key={i} className="flex items-center text-navy/80 font-medium">
-                  <Check className="h-5 w-5 text-gold mr-3 flex-shrink-0" />
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/#contact" className="px-8 py-4 bg-navy text-ivory text-center font-bold uppercase tracking-wider hover:bg-navy-light transition-colors focus:outline-none focus:ring-2 focus:ring-navy focus:ring-offset-2">
-                {t('home.bookConsultation')}
+            {/* Elegant Call to Actions */}
+            <div className="flex flex-col sm:flex-row gap-4 mt-2">
+              <Link 
+                to="/#contact" 
+                className="flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-gold to-gold-light hover:from-gold-light hover:to-gold text-navy font-bold uppercase tracking-widest text-xs sm:text-sm rounded-xl transition-all duration-300 shadow-lg shadow-gold/10 hover:shadow-gold/25 transform active:scale-[0.98] cursor-pointer group text-center"
+              >
+                <span>{t('home.bookConsultation')}</span>
+                <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform duration-300" />
               </Link>
-              <a href="tel:+917460088838" className="px-8 py-4 border-2 border-navy text-navy text-center font-bold uppercase tracking-wider hover:bg-navy/5 transition-colors focus:outline-none focus:ring-2 focus:ring-navy focus:ring-offset-2">
-                {t('home.callNow')}
+              <a 
+                href="tel:+917460088838" 
+                className="flex items-center justify-center gap-2 px-8 py-4 bg-white/95 border border-navy/10 hover:border-navy/20 text-navy font-bold uppercase tracking-widest text-xs sm:text-sm rounded-xl transition-all duration-300 hover:bg-navy/5 shadow-sm transform active:scale-[0.98] cursor-pointer text-center"
+              >
+                <span>{t('home.callNow')}</span>
               </a>
             </div>
           </motion.div>
           
+          {/* Commitment Card */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-col justify-center items-center text-center bg-white/80 backdrop-blur-md text-navy p-8 sm:p-10 lg:p-14 order-last lg:ml-auto max-w-xl lg:max-w-md w-full border border-gold/20 mt-8 lg:mt-0 mx-auto lg:mx-0 shadow-xl"
+            className="lg:col-span-5 flex flex-col justify-center items-center text-center bg-gradient-to-br from-navy via-[#001d3d] to-[#000f24] text-white p-8 sm:p-10 lg:p-12 order-last lg:ml-auto max-w-xl lg:max-w-md w-full border border-gold/15 rounded-3xl shadow-2xl relative overflow-hidden mt-8 lg:mt-0 mx-auto lg:mx-0"
           >
-            <Shield className="h-12 w-12 text-gold mx-auto mb-6" />
-            <h2 className="text-3xl font-bold mb-6 text-gold">{t('home.commitmentTitle')}</h2>
-            <p className="text-base lg:text-lg leading-relaxed text-navy-light font-light">
+            {/* Elegant Design Accent Details */}
+            <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-gold via-gold-light to-gold" />
+            <div className="absolute bottom-0 right-0 w-32 h-32 bg-gold/5 rounded-full blur-2xl pointer-events-none" />
+            
+            <div className="p-3.5 rounded-xl bg-gold/10 border border-gold/25 text-gold mb-6">
+              <Shield className="h-6 w-6 text-gold animate-pulse" />
+            </div>
+            
+            <h2 className="text-2xl font-bold mb-4 text-gold tracking-tight">{t('home.commitmentTitle')}</h2>
+            
+            <p className="text-sm leading-relaxed text-ivory-dark/85 font-light mb-6">
               {t('home.commitmentDesc')}
             </p>
-            <div className="mt-8 pt-8 border-t border-gold/20 inline-block w-full">
-              <p className="text-base font-medium text-gold uppercase tracking-widest">
-                {t('home.location')}
-              </p>
-            </div>
+            
+            <div className="w-12 h-[1.5px] bg-gold/30 mb-6" />
+            
+            <p className="text-xs font-semibold text-gold uppercase tracking-widest">
+              {t('home.location')}
+            </p>
           </motion.div>
         </div>
       </section>
