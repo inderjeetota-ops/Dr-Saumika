@@ -79,16 +79,20 @@ export default function Home() {
                   <span className="text-xs font-bold uppercase tracking-widest text-gold">{language === 'hi' ? 'योग्यता और साख' : 'Credentials & Qualifications'}</span>
                 </div>
                 
-                <div className="space-y-2 text-navy text-sm">
-                  <div className="flex items-start gap-2.5">
-                    <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-gold/15 text-gold text-xs font-bold flex-shrink-0 mt-0.5">✓</span>
+                <div className="space-y-3 text-navy text-sm">
+                  <div className="flex items-start gap-3">
+                    <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-gradient-to-br from-gold/25 to-gold/5 border border-gold/35 text-gold flex-shrink-0 mt-0.5 shadow-sm shadow-gold/5">
+                      <Check className="h-2.5 w-2.5 stroke-[3]" />
+                    </span>
                     <div>
                       <p className="font-bold text-navy">{language === 'hi' ? 'एमबीबीएस • एमएस (नेत्र रोग)' : 'MBBS • MS (Ophthalmology)'}</p>
                     </div>
                   </div>
                   
-                  <div className="flex items-start gap-2.5">
-                    <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-gold/15 text-gold text-xs font-bold flex-shrink-0 mt-0.5">✓</span>
+                  <div className="flex items-start gap-3">
+                    <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-gradient-to-br from-gold/25 to-gold/5 border border-gold/35 text-gold flex-shrink-0 mt-0.5 shadow-sm shadow-gold/5">
+                      <Check className="h-2.5 w-2.5 stroke-[3]" />
+                    </span>
                     <div>
                       <p className="font-bold text-navy">{language === 'hi' ? 'ओकुलोप्लास्टी और ओकुलर ऑन्कोलॉजी में फेलो' : 'Fellow in Oculoplasty & Ocular Oncology'}</p>
                     </div>

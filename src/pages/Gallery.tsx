@@ -12,15 +12,24 @@ export default function Gallery() {
     ? ["टोसिस (Ptosis) सुधार", "कृत्रिम आंख पुनर्वास"]
     : ["Ptosis Correction", "Artificial Eye Rehabilitation"];
 
-  // Placeholders for the general photo gallery with names and descriptions
-  const [photoGalleryImages, setPhotoGalleryImages] = useState([
-    { src: "/photo gallery 1.jpg", alt: "Gallery Image 1", name: "Case 1: Ptosis Correction", desc: "Before and after evaluation." },
-    { src: "/Photo gallery 2.jpg", alt: "Gallery Image 2", name: "Case 2: Ectropion Repair", desc: "Treatment progress of patient." },
-    { src: "/Photo gallery 3.jpg", alt: "Gallery Image 3", name: "Case 3: Custom Prosthesis", desc: "Successful oculoplastic care." },
-    { src: "/Photo gallery 4.jpg", alt: "Gallery Image 4", name: "Case 4: Blepharoplasty", desc: "Post-surgery aesthetic outcome." },
-    { src: "/Photo gallery 5.jpg", alt: "Gallery Image 5", name: "Case 5: Lacrimal System", desc: "Reconstructive socket rehabilitation." },
-    { src: "/Photo gallery 6.jpg", alt: "Gallery Image 6", name: "Case 6: Facial Aesthetics", desc: "Aesthetic enhancement result." },
-  ]);
+  // Localized static photo gallery data with names and descriptions (read-only)
+  const photoGalleryImages = language === 'hi'
+    ? [
+        { src: "/photo gallery 1.jpg", alt: "Gallery Image 1", name: "केस 1: टोसिस सुधार (पलक का उठना)", desc: "ऑपरेशन से पहले और बाद का सटीक मूल्यांकन।" },
+        { src: "/Photo gallery 2.jpg", alt: "Gallery Image 2", name: "केस 2: एक्ट्रोपियन सुधार (पलक का पलटना)", desc: "मरीज के उपचार में लगातार सुधार और प्रगति।" },
+        { src: "/Photo gallery 3.jpg", alt: "Gallery Image 3", name: "केस 3: कस्टम कृत्रिम आँख (Prosthesis)", desc: "सफलतापूर्वक ओकुलोप्लास्टिक उपचार और सौंदर्य पुनर्वास।" },
+        { src: "/Photo gallery 4.jpg", alt: "Gallery Image 4", name: "केस 4: ब्लेफेरोप्लास्टी (पलक की सर्जरी)", desc: "सर्जरी के बाद का उत्कृष्ट सौंदर्य परिणाम।" },
+        { src: "/Photo gallery 5.jpg", alt: "Gallery Image 5", name: "केस 5: अश्रु प्रणाली और सॉकेट", desc: "पुनर्निर्माण सॉकेट पुनर्वास और सौंदर्य सुधार।" },
+        { src: "/Photo gallery 6.jpg", alt: "Gallery Image 6", name: "केस 6: चेहरे का सौंदर्य संवर्धन", desc: "चेहरे की बनावट में प्राकृतिक और सुंदर सुधार।" },
+      ]
+    : [
+        { src: "/photo gallery 1.jpg", alt: "Gallery Image 1", name: "Case 1: Ptosis Correction", desc: "Before and after evaluation." },
+        { src: "/Photo gallery 2.jpg", alt: "Gallery Image 2", name: "Case 2: Ectropion Repair", desc: "Treatment progress of patient." },
+        { src: "/Photo gallery 3.jpg", alt: "Gallery Image 3", name: "Case 3: Custom Prosthesis", desc: "Successful oculoplastic care." },
+        { src: "/Photo gallery 4.jpg", alt: "Gallery Image 4", name: "Case 4: Blepharoplasty", desc: "Post-surgery aesthetic outcome." },
+        { src: "/Photo gallery 5.jpg", alt: "Gallery Image 5", name: "Case 5: Lacrimal System", desc: "Reconstructive socket rehabilitation." },
+        { src: "/Photo gallery 6.jpg", alt: "Gallery Image 6", name: "Case 6: Facial Aesthetics", desc: "Aesthetic enhancement result." },
+      ];
 
   return (
     <div className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-ivory via-white to-ivory relative overflow-hidden">
@@ -215,39 +224,18 @@ export default function Gallery() {
                         )}
                       </div>
                       
-                      <div className="space-y-4">
-                        <div>
-                          <label className="block text-xs font-bold uppercase tracking-wider text-navy/50 mb-1.5">
-                            Photo Name
-                          </label>
-                          <input
-                            type="text"
-                            value={img.name}
-                            onChange={(e) => {
-                              const updated = [...photoGalleryImages];
-                              updated[i].name = e.target.value;
-                              setPhotoGalleryImages(updated);
-                            }}
-                            placeholder="Enter photo name..."
-                            className="w-full px-4 py-2.5 text-sm bg-ivory/40 border border-gold/20 text-navy focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all font-medium rounded-xl"
-                          />
+                      <div className="space-y-2 mt-1">
+                        <div className="flex items-center gap-2">
+                          <span className="text-[10px] font-bold uppercase tracking-widest text-gold bg-gold/10 px-2.5 py-1 rounded-md border border-gold/10">
+                            {language === 'hi' ? 'क्लीनिकल केस' : 'Clinical Case'}
+                          </span>
                         </div>
-                        <div>
-                          <label className="block text-xs font-bold uppercase tracking-wider text-navy/50 mb-1.5">
-                            Description
-                          </label>
-                          <textarea
-                            value={img.desc}
-                            onChange={(e) => {
-                              const updated = [...photoGalleryImages];
-                              updated[i].desc = e.target.value;
-                              setPhotoGalleryImages(updated);
-                            }}
-                            placeholder="Enter photo description..."
-                            rows={2}
-                            className="w-full px-4 py-2.5 text-sm bg-ivory/40 border border-gold/20 text-navy focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all resize-none rounded-xl leading-relaxed"
-                          />
-                        </div>
+                        <h3 className="text-base font-bold text-navy tracking-tight mt-2">
+                          {img.name}
+                        </h3>
+                        <p className="text-sm text-navy/70 leading-relaxed font-light">
+                          {img.desc}
+                        </p>
                       </div>
                     </motion.div>
                   ))}
