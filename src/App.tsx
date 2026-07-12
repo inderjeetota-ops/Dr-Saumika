@@ -7,6 +7,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Layout } from './components/Layout';
 import { LanguageProvider } from './context/LanguageContext';
+import ScrollToTop from './components/ScrollToTop';
 
 import Home from './pages/Home';
 import Gallery from './pages/Gallery';
@@ -18,6 +19,7 @@ export default function App() {
   return (
     <LanguageProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />

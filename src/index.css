@@ -18,6 +18,10 @@ body {
   font-family: var(--font-sans);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 @layer utilities {
   .bento-card {
     @apply bg-white/70 backdrop-blur-md p-6 md:p-8 flex flex-col relative border border-gold/20 shadow-[0_4px_24px_rgba(0,33,71,0.04)] bg-gradient-to-br from-white/90 to-white/40;

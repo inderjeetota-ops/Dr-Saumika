@@ -87,9 +87,9 @@ export default function Gallery() {
                   <div className="absolute top-0 left-0 right-0 h-[3px] bg-navy" />
                   <div className="aspect-[4/3] bg-navy/5 flex items-center justify-center overflow-hidden rounded-xl relative">
                     {idx === 0 ? (
-                      <img src="/ptosis-before.jpg" alt="Ptosis Before" loading="lazy" className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-500" />
+                      <img src="/ptosis-before.jpg" alt="Severe Ptosis (Drooping Upper Eyelid) before surgical correction by Dr. Saumika Singh" loading="lazy" className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-500" />
                     ) : idx === 1 ? (
-                      <img src="/Artificial-Eye-Rehabilitation-before.jpg" alt="Artificial Eye Rehabilitation Before" loading="lazy" className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-500" />
+                      <img src="/Artificial-Eye-Rehabilitation-before.jpg" alt="Anophthalmic socket volume loss before custom prosthesis fitting by Dr. Saumika Singh" loading="lazy" className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-500" />
                     ) : (
                       <span className="text-navy/40 font-bold uppercase tracking-widest text-center px-4">[Clinical Photo Here]</span>
                     )}
@@ -109,9 +109,9 @@ export default function Gallery() {
                   <div className="absolute top-0 left-0 right-0 h-[3px] bg-gold" />
                   <div className="aspect-[4/3] bg-navy/5 flex items-center justify-center overflow-hidden rounded-xl relative">
                     {idx === 0 ? (
-                      <img src="/ptosis-after.jpg" alt="Ptosis After" loading="lazy" className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-500" />
+                      <img src="/ptosis-after.jpg" alt="Successful Ptosis Correction (Eyelid Surgery) showing restored eyelid height and natural symmetry by Dr. Saumika Singh" loading="lazy" className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-500" />
                     ) : idx === 1 ? (
-                      <img src="/Artificial-Eye-Rehabilitation-after.jpg" alt="Artificial Eye Rehabilitation After" loading="lazy" className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-500" />
+                      <img src="/Artificial-Eye-Rehabilitation-after.jpg" alt="Natural artificial eye prosthesis rehabilitation showing premium cosmetic matching by Dr. Saumika Singh" loading="lazy" className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-500" />
                     ) : (
                       <span className="text-navy/40 font-bold uppercase tracking-widest">[Clinical Photo Here]</span>
                     )}
