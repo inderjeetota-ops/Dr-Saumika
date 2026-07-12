@@ -41,6 +41,18 @@ const serviceKeys: Record<string, { titleKey: string; descKey: string; subKey?: 
     descKey: 'home.botoxDesc',
     subKey: 'home.botoxSub',
     features: ['ba.f1', 'ba.f2', 'ba.f3']
+  },
+  'botox-eyelid-cosmetic-surgery-periocular-aesthetics': {
+    titleKey: 'home.botoxCosmetic',
+    descKey: 'home.botoxCosmeticDesc',
+    subKey: 'home.botoxCosmeticSub',
+    features: []
+  },
+  'why-choose-an-oculoplasty-ocular-oncology-specialist': {
+    titleKey: 'home.whyChoose',
+    descKey: 'home.whyChooseDesc',
+    subKey: 'home.whyChooseSub',
+    features: []
   }
 };
 
@@ -1112,6 +1124,304 @@ const richTraumaContent = {
   }
 };
 
+const richBotoxContent = {
+  en: {
+    introParas: [
+      "The eyes are often the first feature to reflect ageing, fatigue or facial asymmetry. Modern Oculoplastic Surgery combines specialised knowledge of eyelid anatomy with aesthetic principles to achieve natural-looking results while preserving normal eyelid function and eye health.",
+      "Dr. Saumika Singh offers both medical and cosmetic Periocular procedures, including Botox treatment, blepharoplasty (eyelid surgery) and selected minimally invasive procedures, with treatment tailored to each individual's concerns and facial anatomy."
+    ],
+    commonDisordersTitle: "Medical & Cosmetic Treatments We Offer",
+    disorders: [
+      {
+        title: "Botox for Blepharospasm",
+        desc: "Blepharospasm is a condition in which involuntary eyelid muscle contractions interfere with normal blinking and daily activities. Botox injections help relax the affected muscles, providing significant symptomatic relief."
+      },
+      {
+        title: "Botox for Hemifacial Spasm",
+        desc: "Involuntary twitching affecting one side of the face can often be effectively managed with carefully administered Botox injections, reducing muscle spasms and improving comfort."
+      },
+      {
+        title: "Cosmetic Botox Around the Eyes",
+        desc: "Botox may be used to soften fine lines around the eyes, reduce crow's feet and achieve a refreshed appearance while maintaining natural facial expression."
+      },
+      {
+        title: "Upper Eyelid Blepharoplasty",
+        desc: "Excess upper eyelid skin may create a tired appearance, interfere with vision or make daily activities uncomfortable. Blepharoplasty removes excess skin and, when required, fat to restore a more youthful and functional eyelid."
+      },
+      {
+        title: "Lower Eyelid Blepharoplasty",
+        desc: "Lower eyelid surgery helps improve under-eye bags, puffiness and excess skin, creating a smoother and more rested appearance."
+      },
+      {
+        title: "Periocular Rejuvenation",
+        desc: "Selected patients may benefit from procedures designed to improve the appearance of the eyelids and surrounding tissues while preserving a natural look."
+      },
+      {
+        title: "Functional Eyelid Surgery",
+        desc: "Some patients require eyelid surgery not only for cosmetic improvement but also to restore vision, improve eyelid closure or correct eyelid malposition. Treatment is planned according to both functional and aesthetic needs."
+      }
+    ],
+    whenToConsultTitle: "Who Can Benefit?",
+    whenToConsultSubtitle: "You may benefit from consultation if you experience:",
+    whenToConsultBullets: [
+      "Excess upper eyelid skin affecting vision",
+      "Heavy or tired-looking eyelids",
+      "Under-eye bags or puffiness",
+      "Crow's feet around the eyes",
+      "Involuntary eyelid twitching or spasms",
+      "Facial asymmetry due to muscle overactivity",
+      "Age-related changes around the eyes"
+    ],
+    treatmentOptionsTitle: "Treatment Options",
+    treatmentOptionsSubtitle: "Depending on your concerns, treatment may include:",
+    treatmentOptionsBullets: [
+      "Therapeutic Botox injections",
+      "Cosmetic Botox around the eyes",
+      "Upper eyelid blepharoplasty",
+      "Lower eyelid blepharoplasty",
+      "Functional eyelid surgery",
+      "Combined medical and aesthetic procedures where appropriate"
+    ],
+    treatmentOptionsFooter: "",
+    whyChooseTitle: "Why Choose an Oculoplasty Surgeon?",
+    whyChooseText: "The eyelids are delicate structures that protect the eyes and preserve vision. Cosmetic procedures around the eyes require a detailed understanding of eyelid anatomy, blinking, tear production and ocular health.\nAs a fellowship-trained Oculoplasty surgeon, Dr. Saumika Singh performs both functional and aesthetic eyelid procedures with emphasis on patient safety, natural appearance and preservation of normal eyelid function.",
+    faqsTitle: "Frequently Asked Questions",
+    faqs: [
+      {
+        q: "Is Botox safe around the eyes?",
+        a: "Yes. When performed by a trained oculoplasty specialist, Botox is a safe and effective treatment for selected medical and cosmetic conditions around the eyes."
+      },
+      {
+        q: "How long does Botox last?",
+        a: "The effects typically last around 3–4 months, although this may vary between individuals."
+      },
+      {
+        q: "Will blepharoplasty leave visible scars?",
+        a: "Incisions are usually placed within the natural eyelid crease or just below the eyelashes, making scars minimally visible after healing."
+      },
+      {
+        q: "Is eyelid cosmetic surgery only for appearance?",
+        a: "No. Many patients undergo blepharoplasty because excess eyelid skin interferes with vision, causes heaviness or contributes to eye strain."
+      },
+      {
+        q: "How soon can I return to work after blepharoplasty?",
+        a: "Most patients resume routine activities within 1–2 weeks, although recovery varies depending on the individual and the procedure performed."
+      }
+    ],
+    consultationSection: {
+      title: "Consultation",
+      text: "Whether you are seeking relief from eyelid spasms or wish to improve the appearance of your eyelids with natural-looking results, consult Dr. Saumika Singh for a personalised evaluation and treatment plan."
+    }
+  },
+  hi: {
+    introParas: [
+      "आंखें अक्सर उम्र बढ़ने, थकान या चेहरे की विषमता को दर्शाने वाली पहली विशेषता होती हैं। आधुनिक ओकुलोप्लास्टिक सर्जरी प्राकृतिक रूप-रंग बनाए रखते हुए सामान्य पलक समारोह और आंखों के स्वास्थ्य को संरक्षित करने के लिए सौंदर्य सिद्धांतों के साथ पलक शरीर रचना विज्ञान के विशेष ज्ञान को जोड़ती है।",
+      "डॉ. सौमिका सिंह बोतॉक्स उपचार, ब्लेफेरोप्लास्टी (पलक सर्जरी) और न्यूनतम आक्रामक प्रक्रियाओं सहित चिकित्सा और कॉस्मेटिक पेरिओकुलर दोनों प्रक्रियाएं प्रदान करती हैं, जिसमें प्रत्येक व्यक्ति की चिंताओं और चेहरे की शरीर रचना के अनुरूप उपचार होता है।"
+    ],
+    commonDisordersTitle: "मेडिकल और कॉस्मेटिक उपचार जो हम प्रदान करते हैं",
+    disorders: [
+      {
+        title: "ब्लेफेरोस्पाज्म के लिए बोटॉक्स",
+        desc: "ब्लेफेरोस्पाज्म एक ऐसी स्थिति है जिसमें अनैच्छिक पलक की मांसपेशियों का संकुचन सामान्य पलक झपकने और दैनिक गतिविधियों में हस्तक्षेप करता है। बोटॉक्स इंजेक्शन प्रभावित मांसपेशियों को आराम देने में मदद करते हैं, जिससे महत्वपूर्ण रोगसूचक राहत मिलती है।"
+      },
+      {
+        title: "हेमीफेशियल ऐंठन के लिए बोटॉक्स",
+        desc: "चेहरे के एक हिस्से को प्रभावित करने वाले अनैच्छिक फड़कने को अक्सर बोटॉक्स इंजेक्शन के माध्यम से प्रभावी ढंग से प्रबंधित किया जा सकता है, जिससे मांसपेशियों में ऐंठन कम होती है और आराम में सुधार होता है।"
+      },
+      {
+        title: "आंखों के आसपास कॉस्मेटिक बोटॉक्स",
+        desc: "बोटॉक्स का उपयोग आंखों के आसपास महीन रेखाओं को नरम करने, क्रो फीट को कम करने और प्राकृतिक चेहरे की अभिव्यक्ति को बनाए रखते हुए एक ताज़ा उपस्थिति प्राप्त करने के लिए किया जा सकता है।"
+      },
+      {
+        title: "अपर आईलिड ब्लेफेरोप्लास्टी",
+        desc: "अतिरिक्त ऊपरी पलक की त्वचा थका हुआ रूप दे सकती है, दृष्टि में हस्तक्षेप कर सकती है या दैनिक गतिविधियों को असुविधाजनक बना सकती है। ब्लेफेरोप्लास्टी अतिरिक्त त्वचा और, जब आवश्यक हो, वसा को हटाकर अधिक युवा और कार्यात्मक पलक को बहाल करती है।"
+      },
+      {
+        title: "लोअर आईलिड ब्लेफेरोप्लास्टी",
+        desc: "निचली पलक की सर्जरी आंखों के नीचे के बैग, सूजन और अतिरिक्त त्वचा को बेहतर बनाने में मदद करती है, जिससे एक चिकना और अधिक आराम वाला लुक मिलता है।"
+      },
+      {
+        title: "पेरिओकुलर रिजूवनेशन",
+        desc: "चुनिंदा रोगियों को प्राकृतिक रूप बनाए रखते हुए पलकों और आसपास के ऊतकों की उपस्थिति में सुधार करने के लिए डिज़ाइन की गई प्रक्रियाओं से लाभ हो सकता है।"
+      },
+      {
+        title: "फंक्शनल आईलिड सर्जरी",
+        desc: "कुछ रोगियों को केवल कॉस्मेटिक सुधार के लिए ही नहीं बल्कि दृष्टि बहाल करने, पलक बंद करने में सुधार करने या पलक की गलत स्थिति को ठीक करने के लिए पलक सर्जरी की आवश्यकता होती है। कार्यात्मक और सौंदर्य संबंधी दोनों जरूरतों के अनुसार उपचार की योजना बनाई जाती है।"
+      }
+    ],
+    whenToConsultTitle: "कौन लाभ उठा सकता है?",
+    whenToConsultSubtitle: "यदि आप निम्न अनुभव करते हैं तो आप परामर्श से लाभान्वित हो सकते हैं:",
+    whenToConsultBullets: [
+      "अतिरिक्त ऊपरी पलक त्वचा दृष्टि को प्रभावित कर रही है",
+      "भारी या थकी हुई दिखने वाली पलकें",
+      "आंखों के नीचे बैग या सूजन",
+      "आंखों के आसपास कौवे के पैर (Crow's feet)",
+      "अनैच्छिक पलक फड़कना या ऐंठन",
+      "मांसपेशियों की अति सक्रियता के कारण चेहरे की विषमता",
+      "आंखों के आसपास उम्र से संबंधित बदलाव"
+    ],
+    treatmentOptionsTitle: "उपचार के विकल्प",
+    treatmentOptionsSubtitle: "आपकी चिंताओं के आधार पर, उपचार में शामिल हो सकते हैं:",
+    treatmentOptionsBullets: [
+      "चिकित्सीय बोटॉक्स इंजेक्शन",
+      "आंखों के आसपास कॉस्मेटिक बोटॉक्स",
+      "ऊपरी पलक ब्लेफेरोप्लास्टी",
+      "निचली पलक ब्लेफेरोप्लास्टी",
+      "कार्यात्मक पलक सर्जरी",
+      "जहां उचित हो, संयुक्त चिकित्सा और सौंदर्य प्रक्रियाएं"
+    ],
+    treatmentOptionsFooter: "",
+    whyChooseTitle: "ओकुलोप्लास्टी सर्जन क्यों चुनें?",
+    whyChooseText: "पलकें नाजुक संरचनाएं हैं जो आंखों की रक्षा करती हैं और दृष्टि को सुरक्षित रखती हैं। आंखों के आसपास कॉस्मेटिक प्रक्रियाओं के लिए पलक शरीर रचना, पलक झपकना, आंसू उत्पादन और आंखों के स्वास्थ्य की विस्तृत समझ की आवश्यकता होती है।\nएक फेलोशिप-प्रशिक्षित ओकुलोप्लास्टी सर्जन के रूप में, डॉ. सौमिका सिंह रोगी की सुरक्षा, प्राकृतिक उपस्थिति और सामान्य पलक समारोह के संरक्षण पर जोर देने के साथ कार्यात्मक और सौंदर्य संबंधी पलक प्रक्रियाएं दोनों करती हैं।",
+    faqsTitle: "अक्सर पूछे जाने वाले प्रश्न",
+    faqs: [
+      {
+        q: "क्या आंखों के आसपास बोटॉक्स सुरक्षित है?",
+        a: "हाँ। जब एक प्रशिक्षित ओकुलोप्लास्टी विशेषज्ञ द्वारा किया जाता है, तो बोटॉक्स आंखों के आसपास चयनित चिकित्सा और कॉस्मेटिक स्थितियों के लिए एक सुरक्षित और प्रभावी उपचार है।"
+      },
+      {
+        q: "बोटॉक्स का असर कितने समय तक रहता है?",
+        a: "प्रभाव आमतौर पर लगभग 3-4 महीने तक रहते हैं, हालांकि यह व्यक्तियों के बीच भिन्न हो सकता है।"
+      },
+      {
+        q: "क्या ब्लेफेरोप्लास्टी से निशान दिखाई देंगे?",
+        a: "चीरे आमतौर पर प्राकृतिक पलक क्रीज के भीतर या पलकों के ठीक नीचे लगाए जाते हैं, जिससे उपचार के बाद निशान कम से कम दिखाई देते हैं।"
+      },
+      {
+        q: "क्या पलक कॉस्मेटिक सर्जरी केवल दिखने के लिए है?",
+        a: "नहीं। कई रोगी ब्लेफेरोप्लास्टी से गुजरते हैं क्योंकि अतिरिक्त पलक की त्वचा दृष्टि में बाधा डालती है, भारीपन का कारण बनती है या आंखों में खिंचाव में योगदान करती है।"
+      },
+      {
+        q: "ब्लेफेरोप्लास्टी के बाद मैं कितनी जल्दी काम पर लौट सकता हूं?",
+        a: "अधिकांश रोगी 1-2 सप्ताह के भीतर नियमित गतिविधियां फिर से शुरू कर देते हैं, हालांकि रिकवरी व्यक्ति और की गई प्रक्रिया के आधार पर भिन्न होती है।"
+      }
+    ],
+    consultationSection: {
+      title: "परामर्श",
+      text: "चाहे आप पलकों की ऐंठन से राहत पा रहे हों या प्राकृतिक दिखने वाले परिणामों के साथ अपनी पलकों की उपस्थिति में सुधार करना चाहते हों, व्यक्तिगत मूल्यांकन और उपचार योजना के लिए डॉ. सौमिका सिंह से परामर्श लें।"
+    }
+  }
+};
+
+const richWhyChooseContent = {
+  en: {
+    introParas: [
+      "Most eye problems can be effectively diagnosed and treated by a general ophthalmologist. However, certain conditions affecting the eyelids, tear drainage system, eye socket (orbit), and tumours involving the eye and surrounding tissues often benefit from evaluation by a specialist trained specifically in these areas.",
+      "An Oculoplasty & Ocular Oncology Surgeon is an ophthalmologist who has undergone advanced fellowship training to manage these complex conditions. The specialty combines precision microsurgery, reconstructive techniques and tumour management with a thorough understanding of eye health—helping patients achieve the best possible functional, medical and cosmetic outcomes."
+    ],
+    commonDisordersTitle: "Conditions commonly managed by an Oculoplasty & Ocular Oncology Specialist",
+    disorders: [
+      {
+        title: "Evaluation & Treatment",
+        desc: "Specialist evaluation may be recommended for various complex conditions affecting the eye and surrounding structures."
+      }
+    ],
+    whenToConsultTitle: "Who Can Benefit?",
+    whenToConsultSubtitle: "Specialist evaluation may be recommended for:",
+    whenToConsultBullets: [
+      "Drooping eyelids (Ptosis)",
+      "Watering eyes and blocked tear ducts",
+      "Eyelid lumps, cysts and swellings",
+      "Eyelids turning inward (Entropion) or outward (Ectropion)",
+      "Eyelid injuries and facial trauma around the eyes",
+      "Thyroid Eye Disease and prominent eyes",
+      "Orbital disorders and orbital tumours",
+      "Eyelid, conjunctival and ocular surface tumours",
+      "Suspicious pigmented lesions around the eyes",
+      "Artificial eye fitting and socket reconstruction",
+      "Functional and cosmetic eyelid procedures, including blepharoplasty and Botox"
+    ],
+    treatmentOptionsTitle: "A personalised approach to every patient",
+    treatmentOptionsSubtitle: "Care may include:",
+    treatmentOptionsBullets: [
+      "Eyelid surgery and reconstruction",
+      "Tear duct (lacrimal) surgery",
+      "Management of eyelid, ocular surface and orbital tumours",
+      "Orbital surgery",
+      "Socket reconstruction and artificial eye rehabilitation",
+      "Eye trauma repair",
+      "Botox and periocular aesthetic procedures",
+      "Long-term follow-up whenever required"
+    ],
+    treatmentOptionsFooter: "No two patients are alike, and neither are their treatment plans. Some conditions can be treated with medication or minimally invasive procedures, while others require specialised surgery or long-term monitoring. Every consultation begins with understanding the patient's symptoms, concerns and expectations before recommending the most appropriate treatment.",
+    whyChooseTitle: "Why does specialised care make a difference?",
+    whyChooseText: "The eyelids and tissues around the eyes do much more than frame our face. They protect the eye, distribute tears, maintain comfortable vision and contribute to normal facial expression.\nTreatment in this region often requires careful planning because every decision affects both eye function and appearance. Whether managing a blocked tear duct, repairing an eyelid after trauma, removing a tumour or reconstructing delicate tissues, the goal is always to preserve vision, restore function and achieve a natural result.\nSimilarly, ocular oncology focuses on the diagnosis and management of tumours involving the eyelids, conjunctiva, eye socket and surrounding tissues. Early recognition of suspicious lesions, timely biopsy when required and appropriate treatment can make a significant difference to both eye health and long-term outcomes.",
+    faqsTitle: "Choosing the right specialist",
+    faqs: [
+      {
+        q: "When to see a specialist?",
+        a: "Many patients are referred to an oculoplasty specialist by their ophthalmologist, while others seek consultation directly after noticing symptoms such as persistent watering, a drooping eyelid, an eyelid growth, swelling around the eye or changes in eye appearance."
+      },
+      {
+        q: "Does this replace my regular eye doctor?",
+        a: "Seeking specialist care does not replace comprehensive eye care—it complements it. Working alongside your ophthalmologist, an Oculoplasty & Ocular Oncology Surgeon provides focused expertise for conditions affecting the structures around the eye, ensuring that treatment is tailored to both your eye health and your overall well-being."
+      }
+    ],
+    consultationSection: {
+      title: "Compassionate, Specialised Care",
+      text: "Every patient deserves to understand their condition, feel comfortable asking questions and be involved in decisions about their treatment. Whether the problem is functional, reconstructive, traumatic, oncological or aesthetic, the aim is to provide thoughtful, evidence-based care with clear communication and a treatment plan tailored to your individual needs."
+    }
+  },
+  hi: {
+    introParas: [
+      "अधिकांश आंखों की समस्याओं का प्रभावी ढंग से निदान और उपचार एक सामान्य नेत्र रोग विशेषज्ञ द्वारा किया जा सकता है। हालांकि, पलकों, आंसू जल निकासी प्रणाली, आंख के सॉकेट (ऑर्बिट) और आंख और आसपास के ऊतकों को प्रभावित करने वाले ट्यूमर को प्रभावित करने वाली कुछ स्थितियों को अक्सर इन क्षेत्रों में विशेष रूप से प्रशिक्षित विशेषज्ञ द्वारा मूल्यांकन से लाभ होता है।",
+      "एक ओकुलोप्लास्टी और ओकुलर ऑन्कोलॉजी सर्जन एक नेत्र रोग विशेषज्ञ है जिसने इन जटिल स्थितियों का प्रबंधन करने के लिए उन्नत फेलोशिप प्रशिक्षण प्राप्त किया है। विशेषता आंखों के स्वास्थ्य की पूरी समझ के साथ सटीक माइक्रोसर्जरी, पुनर्निर्माण तकनीक और ट्यूमर प्रबंधन को जोड़ती है-रोगियों को सर्वोत्तम संभव कार्यात्मक, चिकित्सा और कॉस्मेटिक परिणाम प्राप्त करने में मदद करती है।"
+    ],
+    commonDisordersTitle: "आमतौर पर ओकुलोप्लास्टी और ओकुलर ऑन्कोलॉजी विशेषज्ञ द्वारा प्रबंधित स्थितियां",
+    disorders: [
+      {
+        title: "मूल्यांकन और उपचार",
+        desc: "आंखों और आसपास की संरचनाओं को प्रभावित करने वाली विभिन्न जटिल स्थितियों के लिए विशेषज्ञ मूल्यांकन की सिफारिश की जा सकती है।"
+      }
+    ],
+    whenToConsultTitle: "कौन लाभ उठा सकता है?",
+    whenToConsultSubtitle: "विशेषज्ञ मूल्यांकन की सिफारिश निम्न के लिए की जा सकती है:",
+    whenToConsultBullets: [
+      "झुकी हुई पलकें (Ptosis)",
+      "पानी आना और अवरुद्ध आंसू नलिकाएं",
+      "पलक में गांठ, सिस्ट और सूजन",
+      "पलकों का अंदर की ओर (Entropion) या बाहर की ओर (Ectropion) मुड़ना",
+      "पलक में चोट और आंखों के आसपास चेहरे का आघात",
+      "थायरॉइड आई डिजीज और उभरी हुई आंखें",
+      "ऑर्बिटल विकार और ऑर्बिटल ट्यूमर",
+      "पलक, कंजंक्टाइवल और ओकुलर सरफेस ट्यूमर",
+      "आंखों के आसपास संदिग्ध पिगमेंटेड घाव",
+      "कृत्रिम आंख लगाना और सॉकेट पुनर्निर्माण",
+      "ब्लेफेरोप्लास्टी और बोटॉक्स सहित कार्यात्मक और कॉस्मेटिक पलक प्रक्रियाएं"
+    ],
+    treatmentOptionsTitle: "हर मरीज के लिए एक व्यक्तिगत दृष्टिकोण",
+    treatmentOptionsSubtitle: "देखभाल में शामिल हो सकते हैं:",
+    treatmentOptionsBullets: [
+      "पलक की सर्जरी और पुनर्निर्माण",
+      "आंसू वाहिनी (लैक्रिमल) सर्जरी",
+      "पलक, ओकुलर सतह और ऑर्बिटल ट्यूमर का प्रबंधन",
+      "ऑर्बिटल सर्जरी",
+      "सॉकेट पुनर्निर्माण और कृत्रिम आंख पुनर्वास",
+      "आंखों के आघात की मरम्मत",
+      "बोटॉक्स और पेरिओकुलर सौंदर्य प्रक्रियाएं",
+      "जब भी आवश्यक हो दीर्घकालिक अनुवर्ती कार्रवाई"
+    ],
+    treatmentOptionsFooter: "कोई भी दो मरीज एक जैसे नहीं होते हैं, और न ही उनकी उपचार योजनाएं होती हैं। कुछ स्थितियों का इलाज दवा या न्यूनतम आक्रामक प्रक्रियाओं से किया जा सकता है, जबकि अन्य के लिए विशेष सर्जरी या दीर्घकालिक निगरानी की आवश्यकता होती है। प्रत्येक परामर्श सबसे उपयुक्त उपचार की सिफारिश करने से पहले रोगी के लक्षणों, चिंताओं और अपेक्षाओं को समझने से शुरू होता है।",
+    whyChooseTitle: "विशेषज्ञ देखभाल से क्या फर्क पड़ता है?",
+    whyChooseText: "पलकें और आंखों के आसपास के ऊतक हमारे चेहरे को फ्रेम करने से कहीं अधिक काम करते हैं। वे आंख की रक्षा करते हैं, आंसू वितरित करते हैं, आरामदायक दृष्टि बनाए रखते हैं और सामान्य चेहरे की अभिव्यक्ति में योगदान करते हैं।\nइस क्षेत्र में उपचार के लिए अक्सर सावधानीपूर्वक योजना की आवश्यकता होती है क्योंकि हर निर्णय आंखों के कार्य और उपस्थिति दोनों को प्रभावित करता है। चाहे अवरुद्ध आंसू वाहिनी का प्रबंधन करना हो, आघात के बाद पलक की मरम्मत करना हो, ट्यूमर को हटाना हो या नाजुक ऊतकों का पुनर्निर्माण करना हो, लक्ष्य हमेशा दृष्टि को संरक्षित करना, कार्य को बहाल करना और एक प्राकृतिक परिणाम प्राप्त करना है।\nइसी तरह, ओकुलर ऑन्कोलॉजी पलकों, कंजंक्टिवा, आंख के सॉकेट और आसपास के ऊतकों से जुड़े ट्यूमर के निदान और प्रबंधन पर केंद्रित है। संदिग्ध घावों की शीघ्र पहचान, आवश्यकता पड़ने पर समय पर बायोप्सी और उचित उपचार आंखों के स्वास्थ्य और दीर्घकालिक परिणामों दोनों में महत्वपूर्ण अंतर ला सकते हैं।",
+    faqsTitle: "सही विशेषज्ञ का चुनाव",
+    faqs: [
+      {
+        q: "विशेषज्ञ से कब मिलें?",
+        a: "कई रोगियों को उनके नेत्र रोग विशेषज्ञ द्वारा ओकुलोप्लास्टी विशेषज्ञ के पास भेजा जाता है, जबकि अन्य लगातार पानी आने, पलक झुकने, पलक बढ़ने, आंख के आसपास सूजन या आंख के रूप में बदलाव जैसे लक्षणों को देखने के बाद सीधे परामर्श लेते हैं।"
+      },
+      {
+        q: "क्या यह मेरे नियमित नेत्र चिकित्सक का स्थान लेता है?",
+        a: "विशेषज्ञ की देखभाल की तलाश व्यापक आंखों की देखभाल की जगह नहीं लेती है - यह इसे पूरक करती है। आपके नेत्र रोग विशेषज्ञ के साथ काम करते हुए, एक ओकुलोप्लास्टी और ओकुलर ऑन्कोलॉजी सर्जन आंख के आसपास की संरचनाओं को प्रभावित करने वाली स्थितियों के लिए केंद्रित विशेषज्ञता प्रदान करता है, यह सुनिश्चित करते हुए कि उपचार आपके आंखों के स्वास्थ्य और आपके समग्र कल्याण दोनों के अनुरूप है।"
+      }
+    ],
+    consultationSection: {
+      title: "करुणापूर्ण, विशेषज्ञ देखभाल",
+      text: "हर मरीज अपनी स्थिति को समझने, सवाल पूछने में सहज महसूस करने और अपने उपचार के बारे में निर्णयों में शामिल होने का हकदार है। चाहे समस्या कार्यात्मक, पुनर्निर्माण, दर्दनाक, ऑन्कोलॉजिकल या सौंदर्यपूर्ण हो, उद्देश्य स्पष्ट संचार के साथ विचारशील, साक्ष्य-आधारित देखभाल और आपकी व्यक्तिगत आवश्यकताओं के अनुरूप उपचार योजना प्रदान करना है।"
+    }
+  }
+};
+
 export default function ServiceDetail() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
@@ -1158,7 +1468,9 @@ export default function ServiceDetail() {
   const isTumoursService = id === 'eye-tumours-ocular-oncology';
   const isSocketService = id === 'socket-reconstruction-artificial-eye-rehabilitation';
   const isTraumaService = id === 'eye-trauma-eyelid-orbital-reconstruction';
-  const isRichService = isEyelidSurgery || isWateringEyes || isOrbitalSurgery || isTumoursService || isSocketService || isTraumaService;
+  const isBotoxService = id === 'botox-eyelid-cosmetic-surgery-periocular-aesthetics';
+  const isWhyChooseService = id === 'why-choose-an-oculoplasty-ocular-oncology-specialist';
+  const isRichService = isEyelidSurgery || isWateringEyes || isOrbitalSurgery || isTumoursService || isSocketService || isTraumaService || isBotoxService || isWhyChooseService;
   const currentLang = (language === 'hi' ? 'hi' : 'en') as 'en' | 'hi';
   const richData = (isEyelidSurgery 
     ? richEyelidContent[currentLang] 
@@ -1172,7 +1484,11 @@ export default function ServiceDetail() {
             ? richSocketContent[currentLang]
             : (isTraumaService
               ? richTraumaContent[currentLang]
-              : null)))))) as any;
+              : (isBotoxService
+                ? richBotoxContent[currentLang]
+                : (isWhyChooseService
+                  ? richWhyChooseContent[currentLang]
+                  : null)))))))) as any;
 
   return (
     <div id="service-detail-root" className="flex flex-col">

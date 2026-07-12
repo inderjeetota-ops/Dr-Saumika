@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Check, Droplets, Eye, Shield, Sparkles, Activity, PlusCircle, ArrowRight } from 'lucide-react';
+import { Check, Droplets, Eye, Shield, Sparkles, Activity, PlusCircle, ArrowRight, Star, Award } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -193,7 +193,7 @@ export default function Home() {
                 }
               }
             }}
-            className="grid grid-cols-2 md:grid-cols-3 gap-x-4 md:gap-x-8 gap-y-8 md:gap-y-12"
+            className="grid grid-cols-2 md:grid-cols-4 gap-x-4 md:gap-x-8 gap-y-8 md:gap-y-12"
           >
             {[
               { icon: Eye, title: t('home.drooping'), desc: t('home.droopingDesc'), slug: 'eyelid-disorders-eyelid-surgery' },
@@ -201,7 +201,9 @@ export default function Home() {
               { icon: PlusCircle, title: t('home.artificialTitle'), desc: t('home.artificialDesc'), slug: 'orbital-disorders-orbital-surgery' },
               { icon: Activity, title: t('home.thyroid'), desc: t('home.thyroidDesc'), slug: 'eye-tumours-ocular-oncology' },
               { icon: Shield, title: t('home.tumours'), desc: t('home.tumoursDesc'), slug: 'socket-reconstruction-artificial-eye-rehabilitation' },
-              { icon: Sparkles, title: t('home.botox'), desc: t('home.botoxDesc'), slug: 'eye-trauma-eyelid-orbital-reconstruction' }
+              { icon: Sparkles, title: t('home.botox'), desc: t('home.botoxDesc'), slug: 'eye-trauma-eyelid-orbital-reconstruction' },
+              { icon: Star, title: t('home.botoxCosmetic'), desc: t('home.botoxCosmeticDesc'), slug: 'botox-eyelid-cosmetic-surgery-periocular-aesthetics' },
+              { icon: Award, title: t('home.whyChoose'), desc: t('home.whyChooseDesc'), slug: 'why-choose-an-oculoplasty-ocular-oncology-specialist' }
             ].map((item, i) => (
               <motion.div 
                 key={i}
