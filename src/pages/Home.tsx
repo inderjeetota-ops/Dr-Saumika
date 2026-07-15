@@ -16,6 +16,7 @@ export default function Home() {
       <SEO 
         title={t('home.drName')} 
         description={t('home.subtitle')} 
+        url="https://drsaumika.in"
       />
       <div className="w-full max-w-[1240px] mx-auto p-4 md:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch relative">
       

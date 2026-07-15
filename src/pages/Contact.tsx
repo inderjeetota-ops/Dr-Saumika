@@ -32,7 +32,7 @@ export default function Contact() {
       <div className="absolute top-1/4 left-10 w-72 h-72 bg-gold/5 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-navy-light/5 rounded-full blur-[120px] pointer-events-none" />
 
-      <SEO title={t('contact.title')} description={t('contact.desc')} />
+      <SEO title={t('contact.title')} description={t('contact.desc')} url="https://drsaumika.in/contact" />
       
       <div className="max-w-7xl mx-auto relative z-10">
         

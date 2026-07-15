@@ -1495,6 +1495,7 @@ export default function ServiceDetail() {
       <SEO 
         title={t(service.titleKey)} 
         description={t(service.descKey) || (isRichService && richData ? richData.introParas[0] : '')} 
+        url={`https://drsaumika.in/services/${id}`}
       />
       <div id="service-detail-container" className="w-full max-w-[1200px] mx-auto p-4 md:p-8">
         <Link id="service-detail-back-link" to="/#conditions" aria-label={`Back to ${t('nav.home')}`} className="inline-flex items-center text-navy/60 hover:text-gold transition-colors mb-8 font-medium focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 rounded-sm">

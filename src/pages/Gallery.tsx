@@ -37,7 +37,7 @@ export default function Gallery() {
       <div className="absolute top-1/3 right-10 w-80 h-80 bg-gold/5 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-1/3 left-10 w-96 h-96 bg-navy-light/5 rounded-full blur-[120px] pointer-events-none" />
 
-      <SEO title={t('gallery.title')} description={t('gallery.note')} />
+      <SEO title={t('gallery.title')} description={t('gallery.note')} url="https://drsaumika.in/gallery" />
       
       <div className="max-w-7xl mx-auto relative z-10">
         
