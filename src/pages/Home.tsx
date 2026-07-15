@@ -51,7 +51,7 @@ export default function Home() {
                 {/* Luxury Portrait Frame */}
                 <div className="relative p-1 rounded-2xl bg-gradient-to-br from-gold to-gold-light shadow-xl flex-shrink-0 group">
                   <div className="w-20 h-24 sm:w-28 sm:h-36 md:w-32 md:h-40 rounded-xl overflow-hidden bg-white">
-                    <img src="/dr-saumika.jpg" alt="Dr. Saumika Singh" className="w-full h-full object-cover transform group-hover:scale-[1.05] transition-transform duration-500" />
+                    <img src="/dr-saumika.jpg" alt="Dr. Saumika Singh - Oculoplastic Surgeon in Lucknow" className="w-full h-full object-cover transform group-hover:scale-[1.05] transition-transform duration-500" />
                   </div>
                   <div className="absolute inset-0 border border-white/20 rounded-2xl pointer-events-none" />
                 </div>

@@ -53,7 +53,7 @@ export function Footer() {
           <div className="lg:col-span-5 flex flex-col items-center lg:items-end justify-start w-full">
             <div className="bg-white/5 border border-white/10 backdrop-blur-sm p-5 rounded-xl flex flex-col items-center text-center shadow-lg hover:border-gold/30 transition-all duration-300 group max-w-[240px]">
               <div className="bg-white p-2 rounded-lg shadow-inner group-hover:scale-[1.02] transition-transform duration-300">
-                <img src="/qr-code.png" alt="QR Code" loading="lazy" className="w-20 h-20 sm:w-24 sm:h-24 object-contain" />
+                <img src="/qr-code.png" alt="Scan QR Code to contact Dr. Saumika Singh Clinic" loading="lazy" className="w-20 h-20 sm:w-24 sm:h-24 object-contain" />
               </div>
               <span className="text-xs font-bold text-gold mt-3 tracking-wider uppercase">{scanText}</span>
               <span className="text-[10px] text-ivory-dark/60 mt-1 max-w-[160px] leading-relaxed">{scanSubtext}</span>

@@ -9,7 +9,7 @@ interface SEOProps {
   url?: string;
 }
 
-export default function SEO({ title, description, name = "Dr. Saumika Singh", type = "website", url = "https://drsaumika.in" }: SEOProps) {
+export default function SEO({ title, description, name = "Dr. Saumika Singh", type = "website", url }: SEOProps) {
   // Clean newlines from the title (e.g. "Dr. Saumika\nSingh")
   const cleanTitle = title.replace(/\r?\n|\r/g, " ").trim();
   const cleanName = name.trim();
@@ -20,6 +20,9 @@ export default function SEO({ title, description, name = "Dr. Saumika Singh", ty
     fullTitle = `${cleanName} - Best Oculoplastic Surgeon in Lucknow`;
   }
 
+  // Get dynamic canonical URL if not explicitly provided
+  const canonicalUrl = url || (typeof window !== 'undefined' ? `https://drsaumika.in${window.location.pathname}` : 'https://drsaumika.in');
+
   // Expanded and highly professional Medical/Local Business Schema
   const defaultSchema = {
     "@context": "https://schema.org",
@@ -27,7 +30,7 @@ export default function SEO({ title, description, name = "Dr. Saumika Singh", ty
     "name": "Dr. Saumika Singh - Oculoplasty, Orbit & Ocular Oncology Surgeon",
     "alternateName": "Dr. Saumika Singh Eyecare Clinic",
     "description": "Expert Oculoplasty, Orbit, Tear Duct & Ocular Oncology surgical services by fellowship-trained eye plastic specialist Dr. Saumika Singh in Gomti Nagar, Lucknow.",
-    "url": url,
+    "url": canonicalUrl,
     "telephone": "+917460088838",
     "priceRange": "$$",
     "image": "https://drsaumika.in/dr-saumika.jpg",
@@ -91,12 +94,13 @@ export default function SEO({ title, description, name = "Dr. Saumika Singh", ty
       {/* Standard metadata tags */}
       <title>{fullTitle}</title>
       <meta name='description' content={description} />
+      <link rel="canonical" href={canonicalUrl} />
       
       {/* Facebook tags */}
       <meta property="og:type" content={type} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
-      <meta property="og:url" content={url} />
+      <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content="https://drsaumika.in/dr-saumika.jpg" />
       
       {/* Twitter tags */}

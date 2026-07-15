@@ -1454,7 +1454,7 @@ export default function ServiceDetail() {
     return (
       <div id="service-not-found" className="flex flex-col items-center justify-center min-h-[60vh] text-center p-8">
         <SEO title="Service Not Found" description="The requested service could not be found." />
-        <h2 id="service-not-found-heading" className="text-3xl font-bold text-navy mb-4">Service Not Found</h2>
+        <h1 id="service-not-found-heading" className="text-3xl font-bold text-navy mb-4">Service Not Found</h1>
         <Link id="service-not-found-back" to="/" className="text-gold font-bold hover:text-navy transition-colors">
           &larr; Back to Home
         </Link>
