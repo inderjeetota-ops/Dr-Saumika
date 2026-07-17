@@ -25,8 +25,8 @@ export default function SEO({ title, description, path, image = DEFAULT_IMAGE, j
       <meta property="og:description" content={description} />
       <meta property="og:url" content={url} />
       <meta property="og:image" content={image} />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
+      <meta property="og:image:width" content="1194" />
+      <meta property="og:image:height" content="1317" />
       <meta property="og:image:alt" content={title} />
       <meta property="og:site_name" content="Dr. Saumika Singh — Oculoplasty Specialist" />
 
