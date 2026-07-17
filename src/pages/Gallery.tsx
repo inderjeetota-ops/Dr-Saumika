@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Image as ImageIcon, Sparkles, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
-import SEO from '../components/SEO';
 
 export default function Gallery() {
   const [isPhotoGalleryOpen, setIsPhotoGalleryOpen] = useState(false);
@@ -36,12 +35,6 @@ export default function Gallery() {
       {/* Subtle Background Accent Lighting */}
       <div className="absolute top-1/3 right-10 w-80 h-80 bg-gold/5 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-1/3 left-10 w-96 h-96 bg-navy-light/5 rounded-full blur-[120px] pointer-events-none" />
-
-      <SEO
-        title="Before & After Gallery | Dr. Saumika Singh — Oculoplasty Surgeon"
-        description="View case results from oculoplasty, eyelid, orbital and ocular oncology procedures performed by Dr. Saumika Singh in Lucknow."
-        path="/gallery"
-      />
       
       <div className="max-w-7xl mx-auto relative z-10">
         
