@@ -13,10 +13,33 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
-      <SEO 
-        title={t('home.drName')} 
-        description={t('home.subtitle')} 
-        url="https://drsaumika.in"
+      <SEO
+        title="Dr. Saumika Singh | Oculoplasty, Orbit & Ocular Oncology Surgeon in Lucknow"
+        description="Dr. Saumika Singh, MBBS, MS (Ophth), FICO (UK), is a specialist oculoplasty, orbit & ocular oncology surgeon in Lucknow treating eyelid, tear duct, orbital and eye tumour conditions."
+        path="/"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Physician",
+          "name": "Dr. Saumika Singh",
+          "medicalSpecialty": "Ophthalmology",
+          "description": "Oculoplasty, Orbit & Ocular Oncology Surgeon",
+          "image": "https://drsaumika.in/dr-saumika.jpg",
+          "url": "https://drsaumika.in/",
+          "telephone": "+91-7460088838",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Alyantra Medicity, Vibhuti Khand, Gomti Nagar",
+            "addressLocality": "Lucknow",
+            "addressRegion": "Uttar Pradesh",
+            "addressCountry": "IN"
+          },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+            "opens": "10:00",
+            "closes": "18:00"
+          }
+        }}
       />
       <div className="w-full max-w-[1240px] mx-auto p-4 md:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch relative">
       
@@ -52,7 +75,7 @@ export default function Home() {
                 {/* Luxury Portrait Frame */}
                 <div className="relative p-1 rounded-2xl bg-gradient-to-br from-gold to-gold-light shadow-xl flex-shrink-0 group">
                   <div className="w-20 h-24 sm:w-28 sm:h-36 md:w-32 md:h-40 rounded-xl overflow-hidden bg-white">
-                    <img src="/dr-saumika.jpg" alt="Dr. Saumika Singh - Oculoplastic Surgeon in Lucknow" className="w-full h-full object-cover transform group-hover:scale-[1.05] transition-transform duration-500" />
+                    <img src="/dr-saumika.jpg" alt="Dr. Saumika Singh, oculoplasty and ocular oncology surgeon" className="w-full h-full object-cover transform group-hover:scale-[1.05] transition-transform duration-500" />
                   </div>
                   <div className="absolute inset-0 border border-white/20 rounded-2xl pointer-events-none" />
                 </div>
@@ -223,7 +246,7 @@ export default function Home() {
                 whileHover={{ y: -8, scale: 1.02, transition: { duration: 0.2 } }}
                 className="h-full"
               >
-                <Link to={`/services/${item.slug}`} className="group flex flex-col items-center text-center px-3 py-5 sm:p-6 border border-gold/15 hover:border-gold/50 focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 transition-all rounded-xl relative overflow-hidden bg-white/70 backdrop-blur-sm shadow-sm hover:shadow-xl h-full pb-8">
+                <Link to={`/services/${item.slug}`} aria-label={`Explore ${item.title}`} className="group flex flex-col items-center text-center px-3 py-5 sm:p-6 border border-gold/15 hover:border-gold/50 focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 transition-all rounded-xl relative overflow-hidden bg-white/70 backdrop-blur-sm shadow-sm hover:shadow-xl h-full pb-8">
                   {/* Decorative premium hover line */}
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gold scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
                   

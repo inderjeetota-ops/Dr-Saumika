@@ -1453,7 +1453,7 @@ export default function ServiceDetail() {
   if (!service) {
     return (
       <div id="service-not-found" className="flex flex-col items-center justify-center min-h-[60vh] text-center p-8">
-        <SEO title="Service Not Found" description="The requested service could not be found." />
+        <SEO title="Service Not Found" description="The requested service could not be found." path={`/services/${id || 'not-found'}`} />
         <h1 id="service-not-found-heading" className="text-3xl font-bold text-navy mb-4">Service Not Found</h1>
         <Link id="service-not-found-back" to="/" className="text-gold font-bold hover:text-navy transition-colors">
           &larr; Back to Home
@@ -1490,12 +1490,52 @@ export default function ServiceDetail() {
                   ? richWhyChooseContent[currentLang]
                   : null)))))))) as any;
 
+  const seoData: Record<string, { title: string; desc: string }> = {
+    'eyelid-disorders-eyelid-surgery': {
+      title: "Eyelid Disorders & Eyelid Surgery | Dr. Saumika Singh, Lucknow",
+      desc: "Expert diagnosis and surgical treatment of eyelid disorders including ptosis, entropion, ectropion and eyelid tumours by Dr. Saumika Singh in Lucknow."
+    },
+    'watering-eyes-tear-drainage-disorders': {
+      title: "Watering Eyes & Tear Drainage Disorders | Dr. Saumika Singh, Lucknow",
+      desc: "Specialist treatment for watering eyes and lacrimal (tear duct) drainage disorders, including DCR surgery, by Dr. Saumika Singh in Lucknow."
+    },
+    'orbital-disorders-orbital-surgery': {
+      title: "Orbital Disorders & Orbital Surgery | Dr. Saumika Singh, Lucknow",
+      desc: "Diagnosis and surgical management of orbital diseases including thyroid eye disease, orbital tumours and fractures by Dr. Saumika Singh in Lucknow."
+    },
+    'eye-tumours-ocular-oncology': {
+      title: "Eye Tumours & Ocular Oncology | Dr. Saumika Singh, Lucknow",
+      desc: "Comprehensive care for eyelid, conjunctival and intraocular tumours from a fellowship-trained ocular oncology specialist in Lucknow."
+    },
+    'socket-reconstruction-artificial-eye-rehabilitation': {
+      title: "Socket Reconstruction & Artificial Eye Rehabilitation | Dr. Saumika Singh",
+      desc: "Socket reconstruction surgery and artificial eye (ocular prosthesis) rehabilitation for patients who have lost an eye, offered by Dr. Saumika Singh in Lucknow."
+    },
+    'eye-trauma-eyelid-orbital-reconstruction': {
+      title: "Eye Trauma, Eyelid & Orbital Reconstruction | Dr. Saumika Singh, Lucknow",
+      desc: "Emergency and reconstructive surgery for eye, eyelid and orbital trauma by Dr. Saumika Singh, oculoplasty specialist in Lucknow."
+    },
+    'botox-eyelid-cosmetic-surgery-periocular-aesthetics': {
+      title: "Botox, Eyelid Cosmetic Surgery & Periocular Aesthetics | Dr. Saumika Singh",
+      desc: "Cosmetic eyelid surgery, Botox and periocular aesthetic treatments performed by oculoplasty specialist Dr. Saumika Singh in Lucknow."
+    },
+    'why-choose-an-oculoplasty-ocular-oncology-specialist': {
+      title: "Why Choose an Oculoplasty & Ocular Oncology Specialist | Dr. Saumika Singh",
+      desc: "Understand the difference a fellowship-trained oculoplasty and ocular oncology specialist makes for eyelid, orbital and eye tumour conditions."
+    }
+  };
+  
+  const seoInfo = id && seoData[id] ? seoData[id] : { 
+    title: t(service.titleKey), 
+    desc: t(service.descKey) || (isRichService && richData ? richData.introParas[0] : '') 
+  };
+
   return (
     <div id="service-detail-root" className="flex flex-col">
       <SEO 
-        title={t(service.titleKey)} 
-        description={t(service.descKey) || (isRichService && richData ? richData.introParas[0] : '')} 
-        url={`https://drsaumika.in/services/${id}`}
+        title={seoInfo.title}
+        description={seoInfo.desc}
+        path={`/services/${id}`}
       />
       <div id="service-detail-container" className="w-full max-w-[1200px] mx-auto p-4 md:p-8">
         <Link id="service-detail-back-link" to="/#conditions" aria-label={`Back to ${t('nav.home')}`} className="inline-flex items-center text-navy/60 hover:text-gold transition-colors mb-8 font-medium focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 rounded-sm">
@@ -1749,6 +1789,7 @@ export default function ServiceDetail() {
                 >
                   <Link
                     to={`/services/${key}`}
+                    aria-label={`Learn more about ${t(item.titleKey)} treatments`}
                     className="group block p-5 md:p-6 bg-white/70 backdrop-blur-sm border border-gold/15 rounded-xl hover:border-gold/50 focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 shadow-sm hover:shadow-md transition-all text-center relative overflow-hidden h-full"
                   >
                     <div className="absolute top-0 left-0 right-0 h-1 bg-gold scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />

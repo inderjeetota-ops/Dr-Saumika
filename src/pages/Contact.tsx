@@ -32,7 +32,30 @@ export default function Contact() {
       <div className="absolute top-1/4 left-10 w-72 h-72 bg-gold/5 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-navy-light/5 rounded-full blur-[120px] pointer-events-none" />
 
-      <SEO title={t('contact.title')} description={t('contact.desc')} url="https://drsaumika.in/contact" />
+      <SEO
+        title="Contact & Appointments | Dr. Saumika Singh, Lucknow"
+        description="Book a consultation with Dr. Saumika Singh at Alyantra Medicity, Vibhuti Khand, Gomti Nagar, Lucknow. Open Monday–Saturday, 10 AM–6 PM. Call +91 7460088838."
+        path="/contact"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "MedicalBusiness",
+          "name": "Dr. Saumika Singh — Oculoplasty & Ocular Oncology Clinic",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Alyantra Medicity, Vibhuti Khand, Gomti Nagar",
+            "addressLocality": "Lucknow",
+            "addressRegion": "Uttar Pradesh",
+            "addressCountry": "IN"
+          },
+          "telephone": "+91-7460088838",
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+            "opens": "10:00",
+            "closes": "18:00"
+          }
+        }}
+      />
       
       <div className="max-w-7xl mx-auto relative z-10">
         

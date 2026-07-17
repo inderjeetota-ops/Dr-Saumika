@@ -6,7 +6,7 @@ import SEO from '../components/SEO';
 export default function NotFound() {
   return (
     <div className="flex flex-col items-center justify-center min-h-[70vh] px-4 text-center">
-      <SEO title="Page Not Found - 404" description="The page you are looking for doesn't exist or has been moved." />
+      <SEO title="Page Not Found - 404" description="The page you are looking for doesn't exist or has been moved." path="/404" />
       <h1 className="text-6xl md:text-8xl font-bold text-navy mb-6">404</h1>
       <h2 className="text-2xl md:text-3xl font-medium text-navy/80 mb-8">
         Page Not Found
