@@ -1,4 +1,13 @@
 {
+  "redirects": [
+    { "source": "/conditions", "destination": "/", "permanent": true },
+    { "source": "/services/artificial-eye", "destination": "/services/socket-reconstruction-artificial-eye-rehabilitation", "permanent": true },
+    { "source": "/services/botox-aesthetics", "destination": "/services/botox-eyelid-cosmetic-surgery-periocular-aesthetics", "permanent": true },
+    { "source": "/services/drooping-eyelids", "destination": "/services/eyelid-disorders-eyelid-surgery", "permanent": true },
+    { "source": "/services/thyroid-eye-disease", "destination": "/services/orbital-disorders-orbital-surgery", "permanent": true },
+    { "source": "/services/tumours", "destination": "/services/eye-tumours-ocular-oncology", "permanent": true },
+    { "source": "/services/watering-eyes", "destination": "/services/watering-eyes-tear-drainage-disorders", "permanent": true }
+  ],
   "rewrites": [
     {
       "source": "/((?!api/|assets/|static/|robots.txt|sitemap.xml|_redirects|.*\\.).*)",
