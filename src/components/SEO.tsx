@@ -9,7 +9,7 @@ interface SEOProps {
 }
 
 const SITE_URL = 'https://drsaumika.in';
-const DEFAULT_IMAGE = `${SITE_URL}/og-image.jpg`;
+const DEFAULT_IMAGE = `${SITE_URL}/dr-saumika.jpg`;
 
 export default function SEO({ title, description, path, image = DEFAULT_IMAGE, jsonLd }: SEOProps) {
   const url = `${SITE_URL}${path}`;

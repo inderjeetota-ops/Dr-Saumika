@@ -13,7 +13,7 @@ import Home from './pages/Home';
 import GalleryPage from './pages/GalleryPage';
 import ContactPage from './pages/ContactPage';
 import ServiceDetail from './pages/ServiceDetail';
-import NotFound from './pages/NotFound';
+import NotFoundPage from './pages/NotFoundPage';
 
 export default function App() {
   return (
@@ -27,7 +27,7 @@ export default function App() {
             <Route path="gallery" element={<GalleryPage />} />
             <Route path="contact" element={<ContactPage />} />
             <Route path="services/:id" element={<ServiceDetail />} />
-            <Route path="*" element={<NotFound />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
