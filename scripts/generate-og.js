@@ -64,20 +64,6 @@ const __dirname = path.dirname(__filename);
           color: #d4af37; /* gold */
           margin: 0 0 40px 0;
         }
-        .location {
-          display: flex;
-          align-items: center;
-          font-size: 24px;
-          font-weight: 600;
-          color: #fdfbf7; /* ivory */
-          margin-top: auto;
-        }
-        .location svg {
-          width: 32px;
-          height: 32px;
-          margin-right: 12px;
-          color: #d4af37;
-        }
         .gradient-overlay {
           position: absolute;
           top: 0;
@@ -92,11 +78,7 @@ const __dirname = path.dirname(__filename);
     <body>
       <div class="left">
         <h1>Dr. Saumika Singh</h1>
-        <h2>Oculoplasty, Orbit &amp; Ocular Oncology Surgeon</h2>
-        <div class="location">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
-          Lucknow
-        </div>
+        <h2>Oculoplasty, Orbit &amp; Ocular Oncology Surgeon — Lucknow</h2>
       </div>
       <div class="right">
         <div class="gradient-overlay"></div>
