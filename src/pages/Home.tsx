@@ -14,15 +14,15 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       <SEO
-        title="Dr. Saumika Singh | Oculoplasty, Orbit & Ocular Oncology Surgeon in Lucknow"
-        description="Dr. Saumika Singh, MBBS, MS (Ophth), FICO (UK), is a specialist oculoplasty, orbit & ocular oncology surgeon in Lucknow treating eyelid, tear duct, orbital and eye tumour conditions."
+        title="Dr. Saumika Singh | Oculoplasty & Ocular Oncology, Lucknow"
+        description="Dr. Saumika Singh, MBBS, MS (Ophth), FICO (UK) — oculoplasty, orbit & ocular oncology surgeon in Lucknow. Expert eyelid, tear duct and eye tumour care."
         path="/"
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "Physician",
           "name": "Dr. Saumika Singh",
-          "medicalSpecialty": "Ophthalmology",
-          "description": "Oculoplasty, Orbit & Ocular Oncology Surgeon",
+          "medicalSpecialty": "https://schema.org/Surgical",
+          "description": "Oculoplasty, Orbit & Ocular Oncology Surgeon — MBBS, MS (Ophth), FICO (UK)",
           "image": "https://drsaumika.in/dr-saumika.jpg",
           "url": "https://drsaumika.in/",
           "telephone": "+91-7460088838",

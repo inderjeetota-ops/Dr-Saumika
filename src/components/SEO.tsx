@@ -9,7 +9,7 @@ interface SEOProps {
 }
 
 const SITE_URL = 'https://drsaumika.in';
-const DEFAULT_IMAGE = `${SITE_URL}/dr-saumika.jpg`;
+const DEFAULT_IMAGE = `${SITE_URL}/og-image.jpg`;
 
 export default function SEO({ title, description, path, image = DEFAULT_IMAGE, jsonLd }: SEOProps) {
   const url = `${SITE_URL}${path}`;
@@ -25,6 +25,9 @@ export default function SEO({ title, description, path, image = DEFAULT_IMAGE, j
       <meta property="og:description" content={description} />
       <meta property="og:url" content={url} />
       <meta property="og:image" content={image} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content={title} />
       <meta property="og:site_name" content="Dr. Saumika Singh — Oculoplasty Specialist" />
 
       {/* Twitter Card */}

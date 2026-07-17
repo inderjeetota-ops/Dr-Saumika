@@ -7,7 +7,7 @@ export default function ContactPage() {
     <>
       <SEO
         title="Contact & Appointments | Dr. Saumika Singh, Lucknow"
-        description="Book a consultation with Dr. Saumika Singh at Alyantra Medicity, Vibhuti Khand, Gomti Nagar, Lucknow. Open Monday–Saturday, 10 AM–6 PM. Call +91 7460088838."
+        description="Book a consultation with Dr. Saumika Singh at Alyantra Medicity, Lucknow. Open Mon–Sat, 10 AM–6 PM. Call +91 7460088838 for appointments."
         path="/contact"
         jsonLd={{
           "@context": "https://schema.org",
