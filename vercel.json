@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/((?!api/|assets/|static/|robots.txt|sitemap.xml|_redirects|.*\\.).*)",
-      "destination": "/index.html"
+      "destination": "/200.html"
     }
   ]
 }

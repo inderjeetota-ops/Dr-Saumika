@@ -46,6 +46,8 @@ app.use(express.static(distDir, { index: false })); // Don't serve index.html au
 
 // Read the original index.html into memory so we don't serve an already-prerendered version
 const originalIndexHtml = fs.readFileSync(path.join(distDir, 'index.html'), 'utf-8');
+// Save the empty shell for SPA fallback
+fs.writeFileSync(path.join(distDir, '200.html'), originalIndexHtml);
 
 // Fallback to index.html for client-side routing
 app.get(/(.*)/, (req, res) => {
