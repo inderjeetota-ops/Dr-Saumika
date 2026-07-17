@@ -89,6 +89,14 @@ export default function Home() {
                       <p className="font-bold text-navy">{language === 'hi' ? 'एमबीबीएस • एमएस (नेत्र रोग)' : 'MBBS • MS (Ophthalmology)'}</p>
                     </div>
                   </div>
+                  <div className="flex items-start gap-3">
+                    <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-gradient-to-br from-gold/25 to-gold/5 border border-gold/35 text-gold flex-shrink-0 mt-0.5 shadow-sm shadow-gold/5">
+                      <Check className="h-2.5 w-2.5 stroke-[3]" />
+                    </span>
+                    <div>
+                      <p className="font-bold text-navy">{language === 'hi' ? 'एफआईसीओ (यूके)' : 'FICO (UK)'}</p>
+                    </div>
+                  </div>
                   
                   <div className="flex items-start gap-3">
                     <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-gradient-to-br from-gold/25 to-gold/5 border border-gold/35 text-gold flex-shrink-0 mt-0.5 shadow-sm shadow-gold/5">
