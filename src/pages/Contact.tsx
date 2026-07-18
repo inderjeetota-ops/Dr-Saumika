@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { MapPin, Phone, Mail, Clock, MessageCircle, Send, Calendar, ArrowRight, Sparkles } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, MessageCircle, Send, Calendar, ArrowRight, Sparkles, Star } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function Contact({ isEmbedded = false }: { isEmbedded?: boolean }) {
@@ -179,6 +179,21 @@ export default function Contact({ isEmbedded = false }: { isEmbedded?: boolean }
                 </div>
               </a>
             </div>
+
+            <a 
+              href="https://g.page/r/CW3TPEeu5H1WEBM/review" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="mt-4 flex flex-col sm:flex-row items-center gap-3 p-5 bg-gold/5 hover:bg-gold/10 border border-gold/20 hover:border-gold/40 rounded-xl transition-all duration-300 group justify-center text-center shadow-sm w-full"
+            >
+              <div className="p-2.5 rounded-lg bg-gold/10 text-gold group-hover:scale-110 transition-transform duration-300">
+                <Star className="h-6 w-6" />
+              </div>
+              <div>
+                <span className="font-bold text-navy text-sm block">{language === 'en' ? 'Leave us a Google Review' : 'Google पर हमें रेट करें'}</span>
+                <span className="text-[10px] text-navy/50 font-medium block uppercase tracking-wider">{language === 'en' ? 'Share your experience' : 'अपना अनुभव साझा करें'}</span>
+              </div>
+            </a>
           </motion.div>
 
           {/* Luxury Dark Form Panel (Grid Span 7) */}

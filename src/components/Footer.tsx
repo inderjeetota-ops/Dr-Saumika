@@ -41,11 +41,21 @@ export function Footer() {
               <p className="text-gold font-medium text-sm tracking-wide mb-4 max-w-sm">
                 {t('home.subtitle')}
               </p>
-              <p className="text-ivory-dark/70 text-sm leading-relaxed max-w-xl">
+              <p className="text-ivory-dark/70 text-sm leading-relaxed max-w-xl mb-6">
                 {language === 'en' 
                   ? 'Providing world-class microsurgical care for eyelid, lacrimal system, orbit, and ocular oncology conditions in Lucknow.'
                   : 'लखनऊ में पलक, आंसू नली प्रणाली, ऑर्बिट और ओकुलर ऑन्कोलॉजी स्थितियों के लिए विश्व स्तरीय माइक्रोसर्जिकल देखभाल प्रदान करना।'}
               </p>
+              <div>
+                <a 
+                  href="https://g.page/r/CW3TPEeu5H1WEBM/review" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-gold hover:text-white transition-colors text-sm font-semibold border border-gold/30 hover:border-gold px-4 py-2 rounded-full"
+                >
+                  ⭐ {language === 'en' ? 'Leave us a Google Review' : 'Google पर हमें रेट करें'}
+                </a>
+              </div>
             </div>
           </div>
 
