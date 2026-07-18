@@ -283,10 +283,10 @@ export default function Home() {
       </div>
       
       <div id="gallery">
-        <Gallery />
+        <Gallery isEmbedded={true} />
       </div>
       <div id="contact">
-        <Contact />
+        <Contact isEmbedded={true} />
       </div>
     </div>
   );

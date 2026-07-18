@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { X, Image as ImageIcon, Sparkles, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
-export default function Gallery() {
+export default function Gallery({ isEmbedded = false }: { isEmbedded?: boolean }) {
   const [isPhotoGalleryOpen, setIsPhotoGalleryOpen] = useState(false);
   const { language, t } = useLanguage();
 
@@ -50,9 +50,15 @@ export default function Gallery() {
             <Sparkles className="h-3 w-3 animate-pulse" />
             <span>{language === 'hi' ? 'क्लीनिकल परिणाम' : 'Visual Evidence'}</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-navy mb-4 tracking-tight">
-            {t('gallery.title')}
-          </h1>
+          {isEmbedded ? (
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-navy mb-4 tracking-tight">
+              {t('gallery.title')}
+            </h2>
+          ) : (
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-navy mb-4 tracking-tight">
+              {t('gallery.title')}
+            </h1>
+          )}
           <p className="text-sm sm:text-base text-navy/70 max-w-2xl mx-auto leading-relaxed">
             {language === 'hi' 
               ? 'हमारे विशेषज्ञ ओकुलोप्लास्टी उपचारों और उत्कृष्ट माइक्रोसर्जिकल प्रक्रियाओं के वास्तविक परिणाम।'

@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { MapPin, Phone, Mail, Clock, MessageCircle, Send, Calendar, ArrowRight, Sparkles } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
-export default function Contact() {
+export default function Contact({ isEmbedded = false }: { isEmbedded?: boolean }) {
   const [phoneError, setPhoneError] = React.useState("");
   const { t, language } = useLanguage();
 
@@ -45,9 +45,15 @@ export default function Contact() {
             <Sparkles className="h-3 w-3 animate-pulse" />
             <span>{language === 'en' ? 'Get In Touch' : 'संपर्क करें'}</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-navy mb-4 tracking-tight">
-            {t('contact.title')}
-          </h1>
+          {isEmbedded ? (
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-navy mb-4 tracking-tight">
+              {t('contact.title')}
+            </h2>
+          ) : (
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-navy mb-4 tracking-tight">
+              {t('contact.title')}
+            </h1>
+          )}
           <p className="text-sm sm:text-base text-navy/70 max-w-2xl mx-auto leading-relaxed">
             {t('contact.desc')}
           </p>
