@@ -235,8 +235,21 @@ const translations = {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
+import { useLocation } from 'react-router-dom';
+
+
+export function getLocalizedPath(pathname: string, targetLang: Language): string {
+  const isHi = pathname.startsWith('/hi');
+  const basePath = isHi ? (pathname.slice(3) || '/') : pathname;
+  if (targetLang === 'hi') {
+    return basePath === '/' ? '/hi' : `/hi${basePath}`;
+  }
+  return basePath;
+}
+
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLanguage] = useState<Language>('en');
+  const location = useLocation();
+  const language: Language = location.pathname.startsWith('/hi') ? 'hi' : 'en';
 
   React.useEffect(() => {
     document.documentElement.lang = language;
@@ -248,7 +261,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider value={{ language, t }}>
       {children}
     </LanguageContext.Provider>
   );

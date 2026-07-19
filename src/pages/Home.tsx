@@ -16,7 +16,7 @@ export default function Home() {
       <SEO
         title="Dr. Saumika Singh | Oculoplasty & Ocular Oncology, Lucknow"
         description="Dr. Saumika Singh, MBBS, MS (Ophth), FICO (UK) — oculoplasty, orbit & ocular oncology surgeon in Lucknow. Expert eyelid, tear duct and eye tumour care."
-        path="/"
+        path={language === 'hi' ? '/hi' : '/'}
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "Physician",

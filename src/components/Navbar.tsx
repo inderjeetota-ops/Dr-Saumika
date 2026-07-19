@@ -3,12 +3,12 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Menu, X, Globe } from 'lucide-react';
 import { cn } from '../lib/utils';
 import { AnimatePresence, motion } from 'motion/react';
-import { useLanguage } from '../context/LanguageContext';
+import { useLanguage, getLocalizedPath } from '../context/LanguageContext';
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('#home');
-  const { language, setLanguage, t } = useLanguage();
+  const { language, t } = useLanguage();
   const navigate = useNavigate();
   const location = useLocation();
   const isScrollingRef = useRef(false);
@@ -183,7 +183,7 @@ export function Navbar() {
                 )}
               />
               <button
-                onClick={() => setLanguage('en')}
+                onClick={() => navigate(getLocalizedPath(location.pathname, 'en'))}
                 aria-label="Switch language to English"
                 className={cn(
                   "relative z-10 w-20 py-1 text-xs font-bold transition-colors duration-300 rounded-full focus:outline-none text-center",
@@ -193,7 +193,7 @@ export function Navbar() {
                 <span className="relative z-10">English</span>
               </button>
               <button
-                onClick={() => setLanguage('hi')}
+                onClick={() => navigate(getLocalizedPath(location.pathname, 'hi'))}
                 aria-label="Switch language to Hindi"
                 className={cn(
                   "relative z-10 w-20 py-1 text-xs font-bold transition-colors duration-300 rounded-full focus:outline-none text-center",

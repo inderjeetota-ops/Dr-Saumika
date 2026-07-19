@@ -2,13 +2,11 @@
  * @license
  * SPDX-License-Identifier: Apache-2.0
  */
-
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Layout } from './components/Layout';
 import { LanguageProvider } from './context/LanguageContext';
 import ScrollToTop from './components/ScrollToTop';
-
 import Home from './pages/Home';
 import GalleryPage from './pages/GalleryPage';
 import ContactPage from './pages/ContactPage';
@@ -17,8 +15,8 @@ import NotFoundPage from './pages/NotFoundPage';
 
 export default function App() {
   return (
-    <LanguageProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <LanguageProvider>
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Layout />}>
@@ -27,10 +25,16 @@ export default function App() {
             <Route path="gallery" element={<GalleryPage />} />
             <Route path="contact" element={<ContactPage />} />
             <Route path="services/:id" element={<ServiceDetail />} />
+            
+            <Route path="hi" element={<Home />} />
+            <Route path="hi/gallery" element={<GalleryPage />} />
+            <Route path="hi/contact" element={<ContactPage />} />
+            <Route path="hi/services/:id" element={<ServiceDetail />} />
+
             <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
-      </BrowserRouter>
-    </LanguageProvider>
+      </LanguageProvider>
+    </BrowserRouter>
   );
 }

@@ -2,13 +2,16 @@ import React from 'react';
 import Contact from './Contact';
 import SEO from '../components/SEO';
 
+import { useLanguage } from '../context/LanguageContext';
+
 export default function ContactPage() {
+  const { language } = useLanguage();
   return (
     <>
       <SEO
         title="Contact & Appointments | Dr. Saumika Singh, Lucknow"
         description="Book a consultation with Dr. Saumika Singh at Alyantra Medicity, Lucknow. Open Mon–Sat, 10 AM–6 PM. Call +91 7460088838 for appointments."
-        path="/contact"
+        path={language === 'hi' ? '/hi/contact' : '/contact'}
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "MedicalBusiness",

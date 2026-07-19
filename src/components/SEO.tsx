@@ -13,11 +13,19 @@ const DEFAULT_IMAGE = `${SITE_URL}/dr-saumika.jpg`;
 
 export default function SEO({ title, description, path, image = DEFAULT_IMAGE, jsonLd }: SEOProps) {
   const url = `${SITE_URL}${path}`;
+
+  const isHi = path.startsWith('/hi');
+  const enPath = isHi ? (path.slice(3) || '/') : path;
+  const hiPath = isHi ? path : (path === '/' ? '/hi' : `/hi${path}`);
+
   return (
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={url} />
+      <link rel="alternate" hrefLang="en-IN" href={`${SITE_URL}${enPath}`} />
+      <link rel="alternate" hrefLang="hi-IN" href={`${SITE_URL}${hiPath}`} />
+      <link rel="alternate" hrefLang="x-default" href={`${SITE_URL}${enPath}`} />
 
       {/* Open Graph */}
       <meta property="og:type" content="website" />

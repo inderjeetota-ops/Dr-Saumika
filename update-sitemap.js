@@ -1,0 +1,75 @@
+import fs from 'fs';
+const file = 'public/sitemap.xml';
+let content = fs.readFileSync(file, 'utf8');
+
+const additional = `  <url>
+    <lastmod>2026-07-19</lastmod>
+    <loc>https://drsaumika.in/hi</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <lastmod>2026-07-19</lastmod>
+    <loc>https://drsaumika.in/hi/gallery</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <lastmod>2026-07-19</lastmod>
+    <loc>https://drsaumika.in/hi/contact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <lastmod>2026-07-19</lastmod>
+    <loc>https://drsaumika.in/hi/services/eyelid-disorders-eyelid-surgery</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <lastmod>2026-07-19</lastmod>
+    <loc>https://drsaumika.in/hi/services/watering-eyes-tear-drainage-disorders</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <lastmod>2026-07-19</lastmod>
+    <loc>https://drsaumika.in/hi/services/orbital-disorders-orbital-surgery</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <lastmod>2026-07-19</lastmod>
+    <loc>https://drsaumika.in/hi/services/eye-tumours-ocular-oncology</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <lastmod>2026-07-19</lastmod>
+    <loc>https://drsaumika.in/hi/services/socket-reconstruction-artificial-eye-rehabilitation</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <lastmod>2026-07-19</lastmod>
+    <loc>https://drsaumika.in/hi/services/eye-trauma-eyelid-orbital-reconstruction</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <lastmod>2026-07-19</lastmod>
+    <loc>https://drsaumika.in/hi/services/botox-eyelid-cosmetic-surgery-periocular-aesthetics</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <lastmod>2026-07-19</lastmod>
+    <loc>https://drsaumika.in/hi/services/why-choose-an-oculoplasty-ocular-oncology-specialist</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>`;
+
+content = content.replace(/<\/urlset>/, additional);
+
+fs.writeFileSync(file, content);

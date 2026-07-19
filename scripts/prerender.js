@@ -39,6 +39,17 @@ const routes = [
   '/services/eye-trauma-eyelid-orbital-reconstruction',
   '/services/botox-eyelid-cosmetic-surgery-periocular-aesthetics',
   '/services/why-choose-an-oculoplasty-ocular-oncology-specialist',
+  '/hi',
+  '/hi/gallery',
+  '/hi/contact',
+  '/hi/services/eyelid-disorders-eyelid-surgery',
+  '/hi/services/watering-eyes-tear-drainage-disorders',
+  '/hi/services/orbital-disorders-orbital-surgery',
+  '/hi/services/eye-tumours-ocular-oncology',
+  '/hi/services/socket-reconstruction-artificial-eye-rehabilitation',
+  '/hi/services/eye-trauma-eyelid-orbital-reconstruction',
+  '/hi/services/botox-eyelid-cosmetic-surgery-periocular-aesthetics',
+  '/hi/services/why-choose-an-oculoplasty-ocular-oncology-specialist',
 ];
 
 const app = express();
