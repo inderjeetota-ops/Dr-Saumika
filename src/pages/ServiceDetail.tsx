@@ -1541,7 +1541,7 @@ export default function ServiceDetail() {
           "@graph": [
             {
               "@type": "MedicalProcedure",
-              "name": seoInfo.title,
+              "name": t(service.titleKey),
               "description": seoInfo.desc,
               "provider": {
                 "@type": "Physician",
@@ -1553,9 +1553,9 @@ export default function ServiceDetail() {
             {
               "@type": "BreadcrumbList",
               "itemListElement": [
-                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://drsaumika.in/" },
-                { "@type": "ListItem", "position": 2, "name": "Conditions Treated", "item": "https://drsaumika.in/#conditions" },
-                { "@type": "ListItem", "position": 3, "name": seoInfo.title, "item": `https://drsaumika.in/services/${id}` }
+                { "@type": "ListItem", "position": 1, "name": t('nav.home'), "item": `https://drsaumika.in${language === 'hi' ? '/hi' : '/'}` },
+                { "@type": "ListItem", "position": 2, "name": t('nav.conditions'), "item": `https://drsaumika.in${language === 'hi' ? '/hi' : '/'}#conditions` },
+                { "@type": "ListItem", "position": 3, "name": t(service.titleKey), "item": `https://drsaumika.in${language === 'hi' ? `/hi/services/${id}` : `/services/${id}`}` }
               ]
             }
           ]

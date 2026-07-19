@@ -24,7 +24,7 @@ export default function Home() {
           "medicalSpecialty": "https://schema.org/Surgical",
           "description": "Oculoplasty, Orbit & Ocular Oncology Surgeon — MBBS, MS (Ophth), FICO (UK)",
           "image": "https://drsaumika.in/dr-saumika.jpg",
-          "url": "https://drsaumika.in/",
+          "url": `https://drsaumika.in${language === 'hi' ? '/hi' : '/'}`,
           "telephone": "+91-7460088838",
           "address": {
             "@type": "PostalAddress",
