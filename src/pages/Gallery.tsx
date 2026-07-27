@@ -100,11 +100,7 @@ export default function Gallery({ isEmbedded = false }: { isEmbedded?: boolean }
                       {language === 'hi' ? 'पहले' : 'Before'}
                     </span>
                   </div>
-                  <div className="mt-4 flex justify-between items-center px-1">
-                    <span className="text-xs font-bold text-navy/50 tracking-wider uppercase">
-                      {idx === 0 ? (language === 'hi' ? 'गंभीर पलक का झुकना' : 'Severe Drooping Eyelid Condition') : (language === 'hi' ? 'खोई हुई चमक और असममिति' : 'Volume loss and aesthetic asymmetry')}
-                    </span>
-                  </div>
+
                 </div>
 
                 {/* After Image Card */}
@@ -122,11 +118,7 @@ export default function Gallery({ isEmbedded = false }: { isEmbedded?: boolean }
                       {language === 'hi' ? 'बाद में' : 'After'}
                     </span>
                   </div>
-                  <div className="mt-4 flex justify-between items-center px-1">
-                    <span className="text-xs font-bold text-gold tracking-wider uppercase">
-                      {idx === 0 ? (language === 'hi' ? 'पूरी तरह से उठा हुआ और प्राकृतिक' : 'Restored eyelid height and natural symmetry') : (language === 'hi' ? 'कस्टम मैचिंग कृत्रिम आंख' : 'Custom matched premium cosmetic shell')}
-                    </span>
-                  </div>
+
                 </div>
               </div>
             </motion.section>

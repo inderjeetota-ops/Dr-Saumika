@@ -32,7 +32,7 @@ const translations = {
     
     // Home - Commitment
     'home.commitmentTitle': 'Commitment to Excellence',
-    'home.commitmentDesc': 'Dr. Saumika Singh is a fellowship-trained Oculoplasty, Orbit & Ocular Oncology Surgeon with expertise in the management of eyelid disorders, lacrimal diseases, orbital pathology, ocular surface and periocular tumours, socket reconstruction, and periocular aesthetics.',
+    'home.commitmentDesc': "Dedicated exclusively to Oculoplasty, Orbit and Ocular Oncology, Dr. Saumika Singh's practice is focused on conditions that demand advanced subspecialty expertise. From complex eyelid reconstruction and ocular tumours to lacrimal and orbital disorders, every patient receives individualized care grounded in clinical excellence and meticulous surgical planning.",
     'home.location': 'Alyantra Medicity, Lucknow',
     
     // Home - Why Oculoplasty
@@ -86,7 +86,7 @@ const translations = {
     'contact.emailTitle': 'Email',
     'contact.email': 'contact@drsaumika.in',
     'contact.hoursTitle': 'Consultation Hours',
-    'contact.hours': 'Monday - Saturday: 10:00 AM - 6:00 PM\nSunday: Closed',
+    'contact.hours': 'Monday - Saturday\n10:00 AM - 6:00 PM',
     'contact.reqAppt': 'Request an Appointment',
     'contact.formName': 'Full Name',
     'contact.formPhone': 'Phone Number',
@@ -143,7 +143,7 @@ const translations = {
     
     // Home - Commitment
     'home.commitmentTitle': 'उत्कृष्टता के प्रति प्रतिबद्धता',
-    'home.commitmentDesc': 'डॉ. सौमिका सिंह एक फेलोशिप-प्रशिक्षित ओकुलोप्लास्टी, ऑर्बिट और ओकुलर ऑन्कोलॉजी सर्जन हैं, जिन्हें पलकों के विकारों, लैक्रिमल बीमारियों, ऑर्बिटल पैथोलॉजी, ओकुलर सतह और पेरिओकुलर ट्यूमर, सॉकेट पुनर्निर्माण और पेरिओकुलर सौंदर्यशास्त्र के प्रबंधन में विशेषज्ञता प्राप्त है।',
+    'home.commitmentDesc': 'विशेष रूप से ओकुलोप्लास्टी, ऑर्बिट और ओकुलर ऑन्कोलॉजी को समर्पित, डॉ. सौमिका सिंह का अभ्यास उन स्थितियों पर केंद्रित है जो उन्नत उप-विशेषज्ञता की मांग करते हैं। जटिल पलक पुनर्निर्माण और ओकुलर ट्यूमर से लेकर लैक्रिमल और कक्षीय विकारों तक, प्रत्येक रोगी को नैदानिक उत्कृष्टता और सावधानीपूर्वक सर्जिकल योजना के आधार पर व्यक्तिगत देखभाल प्राप्त होती है।',
     'home.location': 'अलियंत्रा मेडिसिटी, लखनऊ',
     
     // Home - Why Oculoplasty
@@ -197,7 +197,7 @@ const translations = {
     'contact.emailTitle': 'ईमेल',
     'contact.email': 'contact@drsaumika.in',
     'contact.hoursTitle': 'परामर्श का समय',
-    'contact.hours': 'सोमवार - शनिवार: सुबह 10:00 - शाम 6:00\nरविवार: बंद',
+    'contact.hours': 'सोमवार - शनिवार\nसुबह 10:00 - शाम 6:00',
     'contact.reqAppt': 'अपॉइंटमेंट का अनुरोध करें',
     'contact.formName': 'पूरा नाम',
     'contact.formPhone': 'फ़ोन नंबर',

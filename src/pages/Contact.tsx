@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { MapPin, Phone, Mail, Clock, MessageCircle, Send, Calendar, ArrowRight, Sparkles, Star } from 'lucide-react';
+import {  MapPin, Phone, Mail, Clock, MessageCircle, Send, Calendar, ArrowRight, Sparkles, Star , Shield } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function Contact({ isEmbedded = false }: { isEmbedded?: boolean }) {
@@ -84,9 +84,9 @@ export default function Contact({ isEmbedded = false }: { isEmbedded?: boolean }
               <div className="space-y-6 sm:space-y-8">
                 {/* Address Row */}
                 <div className="flex items-start group/row">
-                  <div className="p-3 rounded-xl bg-gold/5 border border-gold/10 text-gold mr-4 group-hover/row:bg-gold/10 group-hover/row:border-gold/30 transition-all duration-300 flex-shrink-0">
+                  <a href="https://www.google.com/maps/search/?api=1&query=Alyantra+Medicity,+Vibhuti+Khand,+Gomti+Nagar,+Lucknow,+Uttar+Pradesh" target="_blank" rel="noopener noreferrer" className="p-3 rounded-xl bg-gold/5 border border-gold/10 text-gold mr-4 group-hover/row:bg-gold/10 group-hover/row:border-gold/30 transition-all duration-300 flex-shrink-0 block cursor-pointer">
                     <MapPin className="h-5 w-5" />
-                  </div>
+                  </a>
                   <div>
                     <h3 className="font-bold text-navy text-sm tracking-wider uppercase mb-1">{t('contact.addressTitle')}</h3>
                     <a 
@@ -115,9 +115,9 @@ export default function Contact({ isEmbedded = false }: { isEmbedded?: boolean }
 
                 {/* Phone Row */}
                 <div className="flex items-start group/row">
-                  <div className="p-3 rounded-xl bg-gold/5 border border-gold/10 text-gold mr-4 group-hover/row:bg-gold/10 group-hover/row:border-gold/30 transition-all duration-300 flex-shrink-0">
+                  <a href="tel:+917460088838" className="p-3 rounded-xl bg-gold/5 border border-gold/10 text-gold mr-4 group-hover/row:bg-gold/10 group-hover/row:border-gold/30 transition-all duration-300 flex-shrink-0 block cursor-pointer">
                     <Phone className="h-5 w-5" />
-                  </div>
+                  </a>
                   <div>
                     <h3 className="font-bold text-navy text-sm tracking-wider uppercase mb-1">{t('contact.phoneTitle')}</h3>
                     <a 
@@ -131,9 +131,9 @@ export default function Contact({ isEmbedded = false }: { isEmbedded?: boolean }
 
                 {/* Email Row */}
                 <div className="flex items-start group/row">
-                  <div className="p-3 rounded-xl bg-gold/5 border border-gold/10 text-gold mr-4 group-hover/row:bg-gold/10 group-hover/row:border-gold/30 transition-all duration-300 flex-shrink-0">
+                  <a href="mailto:contact@drsaumika.in" className="p-3 rounded-xl bg-gold/5 border border-gold/10 text-gold mr-4 group-hover/row:bg-gold/10 group-hover/row:border-gold/30 transition-all duration-300 flex-shrink-0 block cursor-pointer">
                     <Mail className="h-5 w-5" />
-                  </div>
+                  </a>
                   <div>
                     <h3 className="font-bold text-navy text-sm tracking-wider uppercase mb-1">{t('contact.emailTitle')}</h3>
                     <a 
@@ -180,20 +180,6 @@ export default function Contact({ isEmbedded = false }: { isEmbedded?: boolean }
               </a>
             </div>
 
-            <a 
-              href="https://g.page/r/CW3TPEeu5H1WEBM/review" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="mt-4 flex flex-col sm:flex-row items-center gap-3 p-5 bg-gold/5 hover:bg-gold/10 border border-gold/20 hover:border-gold/40 rounded-xl transition-all duration-300 group justify-center text-center shadow-sm w-full"
-            >
-              <div className="p-2.5 rounded-lg bg-gold/10 text-gold group-hover:scale-110 transition-transform duration-300">
-                <Star className="h-6 w-6" />
-              </div>
-              <div>
-                <span className="font-bold text-navy text-sm block">{language === 'en' ? 'Leave us a Google Review' : 'Google पर हमें रेट करें'}</span>
-                <span className="text-[10px] text-navy/50 font-medium block uppercase tracking-wider">{language === 'en' ? 'Share your experience' : 'अपना अनुभव साझा करें'}</span>
-              </div>
-            </a>
           </motion.div>
 
           {/* Luxury Dark Form Panel (Grid Span 7) */}
@@ -281,8 +267,59 @@ export default function Contact({ isEmbedded = false }: { isEmbedded?: boolean }
                   <span>{t('contact.formSubmit')}</span>
                   <Send className="h-4 w-4 transform group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform duration-300" />
                 </button>
-              </form>
+                            </form>
             </div>
+          </motion.div>
+
+          {/* Commitment Card */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="lg:col-span-12 w-full flex flex-col justify-center items-center text-center bg-gradient-to-br from-navy via-[#001d3d] to-[#000f24] text-white p-8 sm:p-10 lg:p-12 border border-gold/15 rounded-3xl shadow-2xl relative overflow-hidden mt-10 mx-auto max-w-5xl"
+          >
+            {/* Elegant Design Accent Details */}
+            <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-gold via-gold-light to-gold" />
+            <div className="absolute bottom-0 right-0 w-32 h-32 bg-gold/5 rounded-full blur-2xl pointer-events-none" />
+            
+            <div className="p-3.5 rounded-xl bg-gold/10 border border-gold/25 text-gold mb-6">
+              <Shield className="h-6 w-6 text-gold animate-pulse" />
+            </div>
+            
+            <h2 className="text-2xl font-bold mb-4 text-gold tracking-tight">{t('home.commitmentTitle')}</h2>
+            
+            <p className="text-sm leading-relaxed text-ivory-dark/85 font-light mb-6 max-w-2xl mx-auto">
+              {t('home.commitmentDesc')}
+            </p>
+            
+            <div className="w-12 h-[1.5px] bg-gold/30 mb-6" />
+            
+            <p className="text-xs font-semibold text-gold uppercase tracking-widest">
+              {t('home.location')}
+            </p>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="lg:col-span-12 w-full max-w-5xl mx-auto mt-4"
+          >
+            <a 
+              href="https://g.page/r/CW3TPEeu5H1WEBM/review" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex flex-col sm:flex-row items-center gap-3 p-5 bg-white hover:bg-gold/5 border border-gold/20 hover:border-gold/40 rounded-3xl transition-all duration-300 group justify-center text-center shadow-md w-full"
+            >
+              <div className="p-3 rounded-xl bg-gold/10 text-gold group-hover:scale-110 transition-transform duration-300">
+                <Star className="h-6 w-6" />
+              </div>
+              <div>
+                <span className="font-bold text-navy text-base sm:text-lg block">{language === 'en' ? 'Leave us a Google Review' : 'Google पर हमें रेट करें'}</span>
+                <span className="text-xs text-navy/50 font-medium block uppercase tracking-wider mt-1">{language === 'en' ? 'Share your experience' : 'अपना अनुभव साझा करें'}</span>
+              </div>
+            </a>
           </motion.div>
 
         </div>

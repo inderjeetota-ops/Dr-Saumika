@@ -1,0 +1,11 @@
+import fs from 'fs';
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="50" cy="50" r="40" />
+  <path d="M 10 50 Q 50 15 90 50 Q 50 85 10 50" />
+  <circle cx="50" cy="50" r="10" fill="#001d3d" stroke="none" />
+  <path d="M 10 50 L 32 50" />
+  <path d="M 90 50 L 68 50" />
+  <path d="M 40 35 A 18 18 0 0 0 40 65" />
+  <path d="M 60 35 A 18 18 0 0 1 60 65" />
+</svg>`;
+fs.writeFileSync('test.svg', svg);
