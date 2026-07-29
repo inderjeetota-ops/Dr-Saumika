@@ -14,20 +14,24 @@ export default function Gallery({ isEmbedded = false }: { isEmbedded?: boolean }
   // Localized static photo gallery data with names and descriptions (read-only)
   const photoGalleryImages = language === 'hi'
     ? [
-        { src: "/photo gallery 1.jpg", alt: "Gallery Image 1", name: "केस 1: टोसिस सुधार (पलक का उठना)", desc: "ऑपरेशन से पहले और बाद का सटीक मूल्यांकन।" },
-        { src: "/Photo gallery 2.jpg", alt: "Gallery Image 2", name: "केस 2: एक्ट्रोपियन सुधार (पलक का पलटना)", desc: "मरीज के उपचार में लगातार सुधार और प्रगति।" },
-        { src: "/Photo gallery 3.jpg", alt: "Gallery Image 3", name: "केस 3: कस्टम कृत्रिम आँख (Prosthesis)", desc: "सफलतापूर्वक ओकुलोप्लास्टिक उपचार और सौंदर्य पुनर्वास।" },
-        { src: "/Photo gallery 4.jpg", alt: "Gallery Image 4", name: "केस 4: ब्लेफेरोप्लास्टी (पलक की सर्जरी)", desc: "सर्जरी के बाद का उत्कृष्ट सौंदर्य परिणाम।" },
-        { src: "/Photo gallery 5.jpg", alt: "Gallery Image 5", name: "केस 5: अश्रु प्रणाली और सॉकेट", desc: "पुनर्निर्माण सॉकेट पुनर्वास और सौंदर्य सुधार।" },
-        { src: "/Photo gallery 6.jpg", alt: "Gallery Image 6", name: "केस 6: चेहरे का सौंदर्य संवर्धन", desc: "चेहरे की बनावट में प्राकृतिक और सुंदर सुधार।" },
+        { src: "/photo-gallery-1.jpg", webpSrc: "/photo-gallery-1.webp", width: 1200, height: 900, name: "डर्मोलिपोमा",             alt: "डर्मोलिपोमा — क्लिनिकल फोटो, डॉ. सौमिका सिंह (ऑकुलोप्लास्टी और ऑकुलर ऑन्कोलॉजी), लखनऊ" },
+        { src: "/photo-gallery-2.jpg", webpSrc: "/photo-gallery-2.webp", width: 1200, height: 900, name: "पैपिलोमा",               alt: "पैपिलोमा — क्लिनिकल फोटो, डॉ. सौमिका सिंह (ऑकुलोप्लास्टी और ऑकुलर ऑन्कोलॉजी), लखनऊ" },
+        { src: "/photo-gallery-3.jpg", webpSrc: "/photo-gallery-3.webp", width: 1200, height: 900, name: "कोरिस्टोमा",             alt: "कोरिस्टोमा — क्लिनिकल फोटो, डॉ. सौमिका सिंह (ऑकुलोप्लास्टी और ऑकुलर ऑन्कोलॉजी), लखनऊ" },
+        { src: "/photo-gallery-4.jpg", webpSrc: "/photo-gallery-4.webp", width: 1200, height: 900, name: "कंजंक्टाइवल सिस्ट",       alt: "कंजंक्टाइवल सिस्ट — क्लिनिकल फोटो, डॉ. सौमिका सिंह (ऑकुलोप्लास्टी और ऑकुलर ऑन्कोलॉजी), लखनऊ" },
+        { src: "/photo-gallery-5.jpg", webpSrc: "/photo-gallery-5.webp", width: 1200, height: 900, name: "पलक कार्सिनोमा",          alt: "पलक कार्सिनोमा — क्लिनिकल फोटो, डॉ. सौमिका सिंह (ऑकुलोप्लास्टी और ऑकुलर ऑन्कोलॉजी), लखनऊ" },
+        { src: "/photo-gallery-6.jpg", webpSrc: "/photo-gallery-6.webp", width: 1200, height: 900, name: "सेबोरेइक केराटोसिस",      alt: "सेबोरेइक केराटोसिस — क्लिनिकल फोटो, डॉ. सौमिका सिंह (ऑकुलोप्लास्टी और ऑकुलर ऑन्कोलॉजी), लखनऊ" },
+        { src: "/photo-gallery-7.jpg", webpSrc: "/photo-gallery-7.webp", width: 1200, height: 900, name: "आवर्तक चालाज़ियन",        alt: "आवर्तक चालाज़ियन — क्लिनिकल फोटो, डॉ. सौमिका सिंह (ऑकुलोप्लास्टी और ऑकुलर ऑन्कोलॉजी), लखनऊ" },
+        { src: "/photo-gallery-8.jpg", webpSrc: "/photo-gallery-8.webp", width: 1200, height: 900, name: "सिकाट्रिशियल एक्ट्रोपियन", alt: "सिकाट्रिशियल एक्ट्रोपियन — क्लिनिकल फोटो, डॉ. सौमिका सिंह (ऑकुलोप्लास्टी और ऑकुलर ऑन्कोलॉजी), लखनऊ" },
       ]
     : [
-        { src: "/photo gallery 1.jpg", alt: "Gallery Image 1", name: "Case 1: Ptosis Correction", desc: "Before and after evaluation." },
-        { src: "/Photo gallery 2.jpg", alt: "Gallery Image 2", name: "Case 2: Ectropion Repair", desc: "Treatment progress of patient." },
-        { src: "/Photo gallery 3.jpg", alt: "Gallery Image 3", name: "Case 3: Custom Prosthesis", desc: "Successful oculoplastic care." },
-        { src: "/Photo gallery 4.jpg", alt: "Gallery Image 4", name: "Case 4: Blepharoplasty", desc: "Post-surgery aesthetic outcome." },
-        { src: "/Photo gallery 5.jpg", alt: "Gallery Image 5", name: "Case 5: Lacrimal System", desc: "Reconstructive socket rehabilitation." },
-        { src: "/Photo gallery 6.jpg", alt: "Gallery Image 6", name: "Case 6: Facial Aesthetics", desc: "Aesthetic enhancement result." },
+        { src: "/photo-gallery-1.jpg", webpSrc: "/photo-gallery-1.webp", width: 1200, height: 900, name: "Dermolipoma",           alt: "Dermolipoma — clinical photograph, Dr. Saumika Singh (oculoplasty & ocular oncology), Lucknow" },
+        { src: "/photo-gallery-2.jpg", webpSrc: "/photo-gallery-2.webp", width: 1200, height: 900, name: "Papilloma",             alt: "Papilloma — clinical photograph, Dr. Saumika Singh (oculoplasty & ocular oncology), Lucknow" },
+        { src: "/photo-gallery-3.jpg", webpSrc: "/photo-gallery-3.webp", width: 1200, height: 900, name: "Choristoma",            alt: "Choristoma — clinical photograph, Dr. Saumika Singh (oculoplasty & ocular oncology), Lucknow" },
+        { src: "/photo-gallery-4.jpg", webpSrc: "/photo-gallery-4.webp", width: 1200, height: 900, name: "Conjunctival Cyst",     alt: "Conjunctival cyst — clinical photograph, Dr. Saumika Singh (oculoplasty & ocular oncology), Lucknow" },
+        { src: "/photo-gallery-5.jpg", webpSrc: "/photo-gallery-5.webp", width: 1200, height: 900, name: "Eyelid Carcinoma",      alt: "Eyelid carcinoma — clinical photograph, Dr. Saumika Singh (oculoplasty & ocular oncology), Lucknow" },
+        { src: "/photo-gallery-6.jpg", webpSrc: "/photo-gallery-6.webp", width: 1200, height: 900, name: "Seborrheic Keratosis",  alt: "Seborrheic keratosis — clinical photograph, Dr. Saumika Singh (oculoplasty & ocular oncology), Lucknow" },
+        { src: "/photo-gallery-7.jpg", webpSrc: "/photo-gallery-7.webp", width: 1200, height: 900, name: "Recurrent Chalazion",   alt: "Recurrent chalazion — clinical photograph, Dr. Saumika Singh (oculoplasty & ocular oncology), Lucknow" },
+        { src: "/photo-gallery-8.jpg", webpSrc: "/photo-gallery-8.webp", width: 1200, height: 900, name: "Cicatricial Ectropion", alt: "Cicatricial ectropion — clinical photograph, Dr. Saumika Singh (oculoplasty & ocular oncology), Lucknow" },
       ];
 
   return (
@@ -88,11 +92,17 @@ export default function Gallery({ isEmbedded = false }: { isEmbedded?: boolean }
                 {/* Before Image Card */}
                 <div className="bg-white/90 backdrop-blur-md p-5 border border-gold/15 shadow-xl hover:shadow-2xl hover:border-gold/30 rounded-2xl transition-all duration-300 relative overflow-hidden group">
                   <div className="absolute top-0 left-0 right-0 h-[3px] bg-navy" />
-                  <div className="aspect-[4/3] bg-navy/5 flex items-center justify-center overflow-hidden rounded-xl relative">
+                  <div className="aspect-[16/10] w-full bg-navy/5 flex items-center justify-center overflow-hidden rounded-xl relative">
                     {idx === 0 ? (
-                      <img src="/ptosis-before.jpg" alt="Severe Ptosis (Drooping Upper Eyelid) before surgical correction by Dr. Saumika Singh" loading="lazy" className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-500" />
+                      <picture className="contents">
+                        <source srcSet="/ptosis-before.webp" type="image/webp" />
+                        <img src="/ptosis-before.jpg" alt="Severe Ptosis (Drooping Upper Eyelid) before surgical correction by Dr. Saumika Singh" width="2587" height="1600" loading="lazy" className="w-full h-full object-cover object-center hover:scale-[1.03] transition-transform duration-500" />
+                      </picture>
                     ) : idx === 1 ? (
-                      <img src="/Artificial-Eye-Rehabilitation-before.jpg" alt="Anophthalmic socket volume loss before custom prosthesis fitting by Dr. Saumika Singh" loading="lazy" className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-500" />
+                      <picture className="contents">
+                        <source srcSet="/Artificial-Eye-Rehabilitation-before.webp" type="image/webp" />
+                        <img src="/Artificial-Eye-Rehabilitation-before.jpg" alt="Anophthalmic socket volume loss before custom prosthesis fitting by Dr. Saumika Singh" width="3352" height="1977" loading="lazy" className="w-full h-full object-cover object-center hover:scale-[1.03] transition-transform duration-500" />
+                      </picture>
                     ) : (
                       <span className="text-navy/40 font-bold uppercase tracking-widest text-center px-4">[Clinical Photo Here]</span>
                     )}
@@ -106,11 +116,17 @@ export default function Gallery({ isEmbedded = false }: { isEmbedded?: boolean }
                 {/* After Image Card */}
                 <div className="bg-white/90 backdrop-blur-md p-5 border border-gold/25 shadow-xl hover:shadow-2xl hover:border-gold/40 rounded-2xl transition-all duration-300 relative overflow-hidden group">
                   <div className="absolute top-0 left-0 right-0 h-[3px] bg-gold" />
-                  <div className="aspect-[4/3] bg-navy/5 flex items-center justify-center overflow-hidden rounded-xl relative">
+                  <div className="aspect-[16/10] w-full bg-navy/5 flex items-center justify-center overflow-hidden rounded-xl relative">
                     {idx === 0 ? (
-                      <img src="/ptosis-after.jpg" alt="Successful Ptosis Correction (Eyelid Surgery) showing restored eyelid height and natural symmetry by Dr. Saumika Singh" loading="lazy" className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-500" />
+                      <picture className="contents">
+                        <source srcSet="/ptosis-after.webp" type="image/webp" />
+                        <img src="/ptosis-after.jpg" alt="Successful Ptosis Correction (Eyelid Surgery) showing restored eyelid height and natural symmetry by Dr. Saumika Singh" width="1435" height="839" loading="lazy" className="w-full h-full object-cover object-center hover:scale-[1.03] transition-transform duration-500" />
+                      </picture>
                     ) : idx === 1 ? (
-                      <img src="/Artificial-Eye-Rehabilitation-after.jpg" alt="Natural artificial eye prosthesis rehabilitation showing premium cosmetic matching by Dr. Saumika Singh" loading="lazy" className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-500" />
+                      <picture className="contents">
+                        <source srcSet="/Artificial-Eye-Rehabilitation-after.webp" type="image/webp" />
+                        <img src="/Artificial-Eye-Rehabilitation-after.jpg" alt="Natural artificial eye prosthesis rehabilitation showing premium cosmetic matching by Dr. Saumika Singh" width="3027" height="1469" loading="lazy" className="w-full h-full object-cover object-center hover:scale-[1.03] transition-transform duration-500" />
+                      </picture>
                     ) : (
                       <span className="text-navy/40 font-bold uppercase tracking-widest">[Clinical Photo Here]</span>
                     )}
@@ -210,7 +226,10 @@ export default function Gallery({ isEmbedded = false }: { isEmbedded?: boolean }
                     >
                       <div className="aspect-[4/3] bg-navy/5 border border-navy/5 flex items-center justify-center overflow-hidden group mb-4 relative rounded-xl shadow-inner">
                         {img.src ? (
-                          <img src={img.src} alt={img.alt} loading="lazy" className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500" />
+                          <picture>
+                            {img.webpSrc && <source srcSet={img.webpSrc} type="image/webp" />}
+                            <img src={img.src} alt={img.alt} width={img.width} height={img.height} loading="lazy" className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500" />
+                          </picture>
                         ) : (
                           <div className="text-center p-4">
                             <ImageIcon className="w-8 h-8 text-navy/20 mx-auto mb-2" />
@@ -228,9 +247,6 @@ export default function Gallery({ isEmbedded = false }: { isEmbedded?: boolean }
                         <h3 className="text-base font-bold text-navy tracking-tight mt-2">
                           {img.name}
                         </h3>
-                        <p className="text-sm text-navy/70 leading-relaxed font-light">
-                          {img.desc}
-                        </p>
                       </div>
                     </motion.div>
                   ))}
