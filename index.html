@@ -4,6 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#1a365d" />
+
+    <!-- Google Analytics 4 (gtag.js) -->
+    <script>
+      (function () {
+        // Only load analytics on the real production domain.
+        // This prevents (a) the Puppeteer prerender step (which runs on
+        // localhost:3456 during `npm run build`) and (b) local dev from
+        // sending fake hits to Analytics.
+        if (location.hostname !== 'drsaumika.in') return;
+
+        var GA_MEASUREMENT_ID = 'G-NXLC2MZWH1'; // GA4 Measurement ID for drsaumika.in
+
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
+        document.head.appendChild(s);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', GA_MEASUREMENT_ID);
+      })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="image" href="/dr-saumika.webp" type="image/webp">
