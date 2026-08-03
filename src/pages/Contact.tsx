@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import {  MapPin, Phone, Mail, Clock, MessageCircle, Send, Calendar, ArrowRight, Sparkles, Star , Shield } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { trackEvent } from '../lib/analytics';
 
 export default function Contact({ isEmbedded = false }: { isEmbedded?: boolean }) {
   const [phoneError, setPhoneError] = React.useState("");
@@ -22,6 +23,7 @@ export default function Contact({ isEmbedded = false }: { isEmbedded?: boolean }
       setPhoneError(t('contact.phoneError'));
     } else {
       setPhoneError("");
+      trackEvent('generate_lead', { method: 'contact_form' });
     }
   };
 
@@ -115,13 +117,14 @@ export default function Contact({ isEmbedded = false }: { isEmbedded?: boolean }
 
                 {/* Phone Row */}
                 <div className="flex items-start group/row">
-                  <a href="tel:+917460088838" className="p-3 rounded-xl bg-gold/5 border border-gold/10 text-gold mr-4 group-hover/row:bg-gold/10 group-hover/row:border-gold/30 transition-all duration-300 flex-shrink-0 block cursor-pointer">
+                  <a href="tel:+917460088838" onClick={() => trackEvent('contact_click', { method: 'phone' })} className="p-3 rounded-xl bg-gold/5 border border-gold/10 text-gold mr-4 group-hover/row:bg-gold/10 group-hover/row:border-gold/30 transition-all duration-300 flex-shrink-0 block cursor-pointer">
                     <Phone className="h-5 w-5" />
                   </a>
                   <div>
                     <h3 className="font-bold text-navy text-sm tracking-wider uppercase mb-1">{t('contact.phoneTitle')}</h3>
                     <a 
                       href="tel:+917460088838" 
+                      onClick={() => trackEvent('contact_click', { method: 'phone' })}
                       className="text-navy/70 text-[15px] hover:text-gold block transition-colors font-medium"
                     >
                       {t('contact.phone')}
@@ -131,13 +134,14 @@ export default function Contact({ isEmbedded = false }: { isEmbedded?: boolean }
 
                 {/* Email Row */}
                 <div className="flex items-start group/row">
-                  <a href="mailto:contact@drsaumika.in" className="p-3 rounded-xl bg-gold/5 border border-gold/10 text-gold mr-4 group-hover/row:bg-gold/10 group-hover/row:border-gold/30 transition-all duration-300 flex-shrink-0 block cursor-pointer">
+                  <a href="mailto:contact@drsaumika.in" onClick={() => trackEvent('contact_click', { method: 'email' })} className="p-3 rounded-xl bg-gold/5 border border-gold/10 text-gold mr-4 group-hover/row:bg-gold/10 group-hover/row:border-gold/30 transition-all duration-300 flex-shrink-0 block cursor-pointer">
                     <Mail className="h-5 w-5" />
                   </a>
                   <div>
                     <h3 className="font-bold text-navy text-sm tracking-wider uppercase mb-1">{t('contact.emailTitle')}</h3>
                     <a 
                       href="mailto:contact@drsaumika.in" 
+                      onClick={() => trackEvent('contact_click', { method: 'email' })}
                       className="text-navy/70 text-[15px] hover:text-gold block transition-colors font-medium"
                     >
                       {t('contact.email')}
@@ -151,6 +155,7 @@ export default function Contact({ isEmbedded = false }: { isEmbedded?: boolean }
             <div className="grid grid-cols-2 gap-4">
               <a 
                 href="https://wa.me/917460088838" 
+                onClick={() => trackEvent('contact_click', { method: 'whatsapp' })}
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex flex-col sm:flex-row items-center gap-3 p-5 bg-[#25D366]/5 hover:bg-[#25D366]/10 border border-[#25D366]/20 hover:border-[#25D366]/40 rounded-xl transition-all duration-300 group justify-center text-center sm:text-left shadow-sm"

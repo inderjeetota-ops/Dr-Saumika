@@ -7,6 +7,7 @@ import { useLanguage } from '../context/LanguageContext';
 import Gallery from './Gallery';
 import Contact from './Contact';
 import SEO from '../components/SEO';
+import { trackEvent } from '../lib/analytics';
 
 
 const OrbitalIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -191,6 +192,7 @@ export default function Home() {
               </Link>
               <a 
                 href="tel:+917460088838" 
+                onClick={() => trackEvent('contact_click', { method: 'phone' })}
                 className="flex items-center justify-center gap-2 px-8 py-4 bg-white/95 border border-navy/10 hover:border-navy/20 text-navy font-bold uppercase tracking-widest text-xs sm:text-sm rounded-xl transition-all duration-300 hover:bg-navy/5 shadow-sm transform active:scale-[0.98] cursor-pointer text-center"
               >
                 <span>{t('home.callNow')}</span>
