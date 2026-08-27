@@ -80,6 +80,30 @@ export default function Home() {
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "Physician",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://drsaumika.in/"
+          },
+          "knowsAbout": [
+            "Oculoplasty",
+            "Ocular Oncology",
+            "Orbital Surgery",
+            "Eyelid Surgery",
+            "Lacrimal Surgery",
+            "Socket Reconstruction",
+            "Periocular Aesthetics",
+            "Retinoblastoma",
+            "Thyroid Eye Disease",
+            "Ptosis Surgery",
+            "Ectropion Correction",
+            "Entropion Correction",
+            "Dacryocystorhinostomy",
+            "Botulinum Toxin Injection"
+          ],
+          "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": ["h1", "h2", ".text-justify p"]
+          },
           "name": "Dr. Saumika Singh",
           "medicalSpecialty": "https://schema.org/Surgical",
           "description": "Oculoplasty, Orbit & Ocular Oncology Surgeon — MBBS, MS (Ophth), FICO (UK)",
