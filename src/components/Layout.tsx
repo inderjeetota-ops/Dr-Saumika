@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef } from 'react';
+import React, { useLayoutEffect, useRef, Suspense } from 'react';
 import { Outlet, useLocation, useNavigationType } from 'react-router-dom';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
@@ -98,7 +98,9 @@ export function Layout() {
           transition={{ duration: 0.25, ease: "easeOut" }}
           className="h-full"
         >
-          <Outlet />
+          <Suspense fallback={<div className="min-h-[60vh]" aria-hidden="true" />}>
+            <Outlet />
+          </Suspense>
         </motion.div>
       </main>
       <Footer />
