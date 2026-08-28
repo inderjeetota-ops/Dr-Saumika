@@ -21,7 +21,6 @@ export default defineConfig(({ command }) => {
         output: {
           manualChunks(id) {
             if (!id.includes('node_modules')) return;
-            if (id.includes('/motion/') || id.includes('framer-motion')) return 'dep-motion';
             if (id.includes('lucide-react')) return 'dep-lucide';
             if (id.includes('react-router') || id.includes('@remix-run')) return 'dep-router';
             if (id.includes('react-helmet')) return 'dep-helmet';
@@ -30,6 +29,8 @@ export default defineConfig(({ command }) => {
             if (id.includes('tailwind-merge')) return 'dep-tailwind-merge';
             if (id.includes('/react/')) return 'dep-react';
             if (id.includes('clsx')) return 'dep-clsx';
+            // All of Framer Motion in one chunk (motion + motion-dom + motion-utils):
+            if (id.includes('/motion/') || id.includes('/motion-dom/') || id.includes('/motion-utils/') || id.includes('framer-motion')) return 'dep-motion';
             return 'vendor-misc';
           },
         },

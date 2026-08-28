@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Menu, X, Globe } from 'lucide-react';
 import { cn } from '../lib/utils';
-import { AnimatePresence, motion } from 'motion/react';
+import { AnimatePresence, m } from 'motion/react';
 import { useLanguage, getLocalizedPath } from '../context/LanguageContext';
 
 export function Navbar() {
@@ -267,7 +267,7 @@ export function Navbar() {
       {/* Mobile Nav Menu */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
+          <m.div
             id="mobile-menu"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
@@ -300,7 +300,7 @@ export function Navbar() {
                 </a>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </nav>

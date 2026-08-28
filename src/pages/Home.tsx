@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'motion/react';
+import { m } from 'motion/react';
 import { Check, Droplets, Eye, Shield, Sparkles, Activity, PlusCircle, ArrowRight, Star, Award, Ribbon, Syringe } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
@@ -140,7 +140,7 @@ export default function Home() {
         <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-navy-light/5 rounded-full blur-3xl pointer-events-none" />
         
         <div className="relative z-10 grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          <motion.div 
+          <m.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -222,7 +222,7 @@ export default function Home() {
                 <span>{t('home.callNow')}</span>
               </a>
             </div>
-          </motion.div>
+          </m.div>
           
 
         </div>
@@ -242,7 +242,7 @@ export default function Home() {
             </h3>
           </div>
 
-          <motion.div 
+          <m.div 
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-100px" }}
@@ -267,7 +267,7 @@ export default function Home() {
               { icon: Syringe, title: t('home.botoxCosmetic'), desc: t('home.botoxCosmeticDesc'), slug: 'botox-eyelid-cosmetic-surgery-periocular-aesthetics' },
               { icon: Award, title: t('home.whyChoose'), desc: t('home.whyChooseDesc'), slug: 'why-choose-an-oculoplasty-ocular-oncology-specialist' }
             ].map((item, i) => (
-              <motion.div 
+              <m.div 
                 key={i}
                 variants={{
                   hidden: { opacity: 0, y: 30 },
@@ -280,7 +280,7 @@ export default function Home() {
                   {/* Decorative premium hover line */}
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gold scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
                   
-                  <motion.div
+                  <m.div
                     animate={{ y: [0, -5, 0] }}
                     transition={{ 
                       duration: 4, 
@@ -290,7 +290,7 @@ export default function Home() {
                     }}
                   >
                     <item.icon className="h-12 w-12 text-gold mb-4 stroke-[1.2] group-hover:scale-110 transition-transform duration-300" />
-                  </motion.div>
+                  </m.div>
                   <h3 className="text-sm sm:text-lg md:text-xl font-bold text-navy mb-3 group-hover:text-gold transition-colors duration-300 leading-tight w-full break-words hyphens-auto px-1">{item.title}</h3>
                   {item.desc && (
                     <p className="text-sm text-navy/70 leading-relaxed mb-4">
@@ -303,9 +303,9 @@ export default function Home() {
                     <ArrowRight className="h-3.5 w-3.5 transform group-hover:translate-x-1.5 transition-transform duration-300 flex-shrink-0" />
                   </div>
                 </Link>
-              </motion.div>
+              </m.div>
             ))}
-          </motion.div>
+          </m.div>
 
 
         </div>

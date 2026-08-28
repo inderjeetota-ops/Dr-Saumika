@@ -2,7 +2,7 @@ import React, { useLayoutEffect, useRef, Suspense } from 'react';
 import { Outlet, useLocation, useNavigationType } from 'react-router-dom';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
-import { AnimatePresence, motion } from 'motion/react';
+import { AnimatePresence, m } from 'motion/react';
 
 function PageScrollManager() {
   const location = useLocation();
@@ -91,7 +91,7 @@ export function Layout() {
       <Navbar />
       <main className="flex-grow relative">
         <PageScrollManager />
-        <motion.div
+        <m.div
           key={location.pathname}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -101,7 +101,7 @@ export function Layout() {
           <Suspense fallback={<div className="min-h-[60vh]" aria-hidden="true" />}>
             <Outlet />
           </Suspense>
-        </motion.div>
+        </m.div>
       </main>
       <Footer />
     </div>

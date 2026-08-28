@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { m, AnimatePresence } from 'motion/react';
 import { X, Image as ImageIcon, Sparkles, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -43,7 +43,7 @@ export default function Gallery({ isEmbedded = false }: { isEmbedded?: boolean }
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Header Block */}
-        <motion.div 
+        <m.div 
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -69,12 +69,12 @@ export default function Gallery({ isEmbedded = false }: { isEmbedded?: boolean }
               : 'Before and after visual evidence of our expert oculoplasty treatments and microscopic surgical care.'}
           </p>
           <div className="w-16 h-[3px] bg-gold mx-auto mt-6 rounded-full" />
-        </motion.div>
+        </m.div>
 
         {/* Comparison Sections */}
         <div className="space-y-24">
           {gallerySections.map((title, idx) => (
-            <motion.section 
+            <m.section 
               key={idx}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -137,7 +137,7 @@ export default function Gallery({ isEmbedded = false }: { isEmbedded?: boolean }
 
                 </div>
               </div>
-            </motion.section>
+            </m.section>
           ))}
         </div>
 
@@ -177,7 +177,7 @@ export default function Gallery({ isEmbedded = false }: { isEmbedded?: boolean }
       {/* Photo Gallery Modal */}
       <AnimatePresence>
         {isPhotoGalleryOpen && (
-          <motion.div 
+          <m.div 
             id="photo-gallery-modal"
             role="dialog"
             aria-modal="true"
@@ -203,7 +203,7 @@ export default function Gallery({ isEmbedded = false }: { isEmbedded?: boolean }
               </div>
               
               <div className="flex-1 overflow-y-auto p-6 sm:p-8">
-                <motion.div 
+                <m.div 
                   initial="hidden"
                   animate="show"
                   variants={{
@@ -216,7 +216,7 @@ export default function Gallery({ isEmbedded = false }: { isEmbedded?: boolean }
                   className="grid grid-cols-1 md:grid-cols-2 gap-8"
                 >
                   {photoGalleryImages.map((img, i) => (
-                    <motion.div 
+                    <m.div 
                       key={i} 
                       variants={{
                         hidden: { opacity: 0, y: 20 },
@@ -248,12 +248,12 @@ export default function Gallery({ isEmbedded = false }: { isEmbedded?: boolean }
                           {img.name}
                         </h3>
                       </div>
-                    </motion.div>
+                    </m.div>
                   ))}
-                </motion.div>
+                </m.div>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </div>

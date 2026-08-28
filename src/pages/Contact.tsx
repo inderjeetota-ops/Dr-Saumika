@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'motion/react';
+import { m } from 'motion/react';
 import {  MapPin, Phone, Mail, Clock, MessageCircle, Send, Calendar, ArrowRight, Sparkles, Star , Shield } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { trackEvent } from '../lib/analytics';
@@ -36,7 +36,7 @@ export default function Contact({ isEmbedded = false }: { isEmbedded?: boolean }
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Header Block */}
-        <motion.div 
+        <m.div 
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -60,12 +60,12 @@ export default function Contact({ isEmbedded = false }: { isEmbedded?: boolean }
             {t('contact.desc')}
           </p>
           <div className="w-16 h-[3px] bg-gold mx-auto mt-6 rounded-full" />
-        </motion.div>
+        </m.div>
 
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-stretch">
           
           {/* Info Panels (Grid Span 5) */}
-          <motion.div 
+          <m.div 
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -185,10 +185,10 @@ export default function Contact({ isEmbedded = false }: { isEmbedded?: boolean }
               </a>
             </div>
 
-          </motion.div>
+          </m.div>
 
           {/* Luxury Dark Form Panel (Grid Span 7) */}
-          <motion.div 
+          <m.div 
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -274,10 +274,10 @@ export default function Contact({ isEmbedded = false }: { isEmbedded?: boolean }
                 </button>
                             </form>
             </div>
-          </motion.div>
+          </m.div>
 
           {/* Commitment Card */}
-          <motion.div 
+          <m.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -303,8 +303,8 @@ export default function Contact({ isEmbedded = false }: { isEmbedded?: boolean }
             <p className="text-xs font-semibold text-gold uppercase tracking-widest">
               {t('home.location')}
             </p>
-          </motion.div>
-          <motion.div
+          </m.div>
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -325,7 +325,7 @@ export default function Contact({ isEmbedded = false }: { isEmbedded?: boolean }
                 <span className="text-xs text-navy/50 font-medium block uppercase tracking-wider mt-1">{language === 'en' ? 'Share your experience' : 'अपना अनुभव साझा करें'}</span>
               </div>
             </a>
-          </motion.div>
+          </m.div>
 
         </div>
       </div>

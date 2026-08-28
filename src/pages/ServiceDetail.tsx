@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
-import { motion } from 'motion/react';
+import { m } from 'motion/react';
 import { ArrowLeft, CheckCircle2, ArrowRight } from 'lucide-react';
 import SEO from '../components/SEO';
 
@@ -1567,7 +1567,7 @@ export default function ServiceDetail() {
           {t('nav.home')}
         </Link>
 
-        <motion.div
+        <m.div
           id="service-detail-card"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -1771,10 +1771,10 @@ export default function ServiceDetail() {
               </Link>
             </div>
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Cross-linking to other services */}
-        <motion.div 
+        <m.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
@@ -1787,7 +1787,7 @@ export default function ServiceDetail() {
             <div className="w-16 h-0.5 bg-gold/40 mx-auto mt-4" />
           </div>
           
-          <motion.div 
+          <m.div 
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-50px" }}
@@ -1803,7 +1803,7 @@ export default function ServiceDetail() {
             {Object.entries(serviceKeys)
               .filter(([key]) => key !== id) // Exclude current service
               .map(([key, item]) => (
-                <motion.div
+                <m.div
                   key={key}
                   variants={{
                     hidden: { opacity: 0, scale: 0.95 },
@@ -1823,10 +1823,10 @@ export default function ServiceDetail() {
                       <ArrowRight className="h-3.5 w-3.5 transform group-hover:translate-x-1.5 transition-transform duration-300" aria-hidden="true" />
                     </div>
                   </Link>
-                </motion.div>
+                </m.div>
             ))}
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
 
       </div>
     </div>

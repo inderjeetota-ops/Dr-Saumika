@@ -4,6 +4,7 @@
  */
 import React, { lazy } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { LazyMotion, domAnimation } from 'motion/react';
 import { Layout } from './components/Layout';
 import { LanguageProvider } from './context/LanguageContext';
 import ScrollToTop from './components/ScrollToTop';
@@ -19,22 +20,24 @@ export default function App() {
   return (
     <BrowserRouter>
       <LanguageProvider>
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="conditions" element={<Navigate to="/#conditions" replace />} />
-            <Route path="gallery" element={<GalleryPage />} />
-            <Route path="contact" element={<ContactPage />} />
-            <Route path="services/:id" element={<ServiceDetail />} />
+        <LazyMotion features={domAnimation} strict>
+          <ScrollToTop />
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Home />} />
+              <Route path="conditions" element={<Navigate to="/#conditions" replace />} />
+              <Route path="gallery" element={<GalleryPage />} />
+              <Route path="contact" element={<ContactPage />} />
+              <Route path="services/:id" element={<ServiceDetail />} />
 
-            <Route path="hi" element={<Home />} />
-            <Route path="hi/gallery" element={<GalleryPage />} />
-            <Route path="hi/contact" element={<ContactPage />} />
-            <Route path="hi/services/:id" element={<ServiceDetail />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Route>
-        </Routes>
+              <Route path="hi" element={<Home />} />
+              <Route path="hi/gallery" element={<GalleryPage />} />
+              <Route path="hi/contact" element={<ContactPage />} />
+              <Route path="hi/services/:id" element={<ServiceDetail />} />
+              <Route path="*" element={<NotFoundPage />} />
+            </Route>
+          </Routes>
+        </LazyMotion>
       </LanguageProvider>
     </BrowserRouter>
   );
