@@ -39,6 +39,7 @@ export function Navbar() {
   const navLinks = [
     { name: t('nav.home'), path: '#home' },
     { name: t('nav.conditions'), path: '#conditions' },
+    { name: t('nav.surgicalOutcomes'), path: '#surgical-outcomes' },
     { name: t('nav.gallery'), path: '#gallery' },
     { name: t('nav.contact'), path: '#contact' },
   ];
@@ -61,7 +62,7 @@ export function Navbar() {
     }
 
     // 3. Middle sections check
-    const sections = ['home', 'conditions', 'gallery', 'contact'];
+    const sections = ['home', 'conditions', 'surgical-outcomes', 'gallery', 'contact'];
     let currentSection = '#home';
     for (const id of sections) {
       const el = document.getElementById(id);
@@ -125,6 +126,12 @@ export function Navbar() {
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
     e.preventDefault();
     setIsOpen(false);
+
+    if (path.startsWith('/')) {
+      navigate(getLocalizedPath(path, language));
+      return;
+    }
+
     setActiveSection(path);
     
     isScrollingRef.current = true;
@@ -227,7 +234,7 @@ export function Navbar() {
             {navLinks.map((link) => (
               <a
                 key={link.path}
-                href={`/${link.path}`}
+                href={link.path.startsWith("/") ? getLocalizedPath(link.path, language) : `/${link.path}`}
                 onClick={(e) => handleLinkClick(e, link.path)}
                 className={cn(
                   "text-xs lg:text-sm uppercase tracking-wide font-medium transition-colors whitespace-nowrap hover:text-gold focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-ivory rounded-sm",
@@ -278,7 +285,7 @@ export function Navbar() {
               {navLinks.map((link) => (
                 <a
                   key={link.path}
-                  href={`/${link.path}`}
+                  href={link.path.startsWith("/") ? getLocalizedPath(link.path, language) : `/${link.path}`}
                   onClick={(e) => handleLinkClick(e, link.path)}
                   className={cn(
                     "block px-3 py-3 rounded-md text-base font-medium transition-colors",

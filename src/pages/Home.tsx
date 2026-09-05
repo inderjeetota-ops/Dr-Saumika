@@ -8,6 +8,8 @@ import Gallery from './Gallery';
 import Contact from './Contact';
 import SEO from '../components/SEO';
 import { trackEvent } from '../lib/analytics';
+import { surgicalCases } from '../data/surgicalOutcomes';
+import SurgicalCaseCard from '../components/SurgicalCaseCard';
 
 
 const OrbitalIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -312,9 +314,57 @@ export default function Home() {
       </section>
       </div>
       
+      {/* Surgical Outcomes teaser — links into the standalone case-study section */}
+      <section id="surgical-outcomes" className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-ivory to-white relative overflow-hidden">
+        {/* Subtle Background Accent Lighting */}
+        <div className="absolute top-1/3 right-10 w-80 h-80 bg-gold/5 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-1/3 left-10 w-96 h-96 bg-navy-light/5 rounded-full blur-[120px] pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <m.div 
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16 md:mb-20"
+          >
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold/10 border border-gold/20 text-gold text-xs font-semibold tracking-widest uppercase mb-4">
+              <Sparkles className="h-3 w-3 animate-pulse" />
+              <span>{language === 'hi' ? 'सर्जिकल परिणाम' : 'Surgical Results'}</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-navy mb-4 tracking-tight">
+              {t('nav.surgicalOutcomes')}
+            </h2>
+            <p className="text-sm sm:text-base text-navy/70 max-w-2xl mx-auto leading-relaxed">
+              {language === 'hi'
+                ? 'चयनित सर्जिकल केस — रोगी की सहमति से साझा किए गए। प्रत्येक केस की विस्तृत यात्रा देखें।'
+                : 'Selected surgical cases — shared with patient consent. Explore each case journey in detail.'}
+            </p>
+            <div className="w-16 h-[3px] bg-gold mx-auto mt-6 rounded-full" />
+          </m.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {surgicalCases.slice(0, 3).map((c) => (
+              <SurgicalCaseCard key={c.slug} c={c} />
+            ))}
+          </div>
+          
+          <div className="mt-12 flex justify-center">
+            <Link
+              to={`${language === 'hi' ? '/hi' : ''}/surgical-outcomes`}
+              className="inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-to-r from-navy to-[#001d3d] hover:from-[#0f2a4a] hover:to-navy text-ivory font-bold tracking-wider uppercase text-xs rounded-full transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:scale-95 group"
+            >
+              {language === 'hi' ? 'सभी सर्जिकल परिणाम देखें' : 'View all surgical outcomes'} 
+              <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <div id="gallery">
         <Gallery isEmbedded={true} />
       </div>
+
       <div id="contact">
         <Contact isEmbedded={true} />
       </div>

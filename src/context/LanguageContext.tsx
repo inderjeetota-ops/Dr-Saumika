@@ -15,6 +15,7 @@ const translations = {
     'nav.conditions': 'Conditions Treated',
     'nav.gallery': 'Gallery',
     'nav.contact': 'Contact',
+    'nav.surgicalOutcomes': 'Surgical Outcomes',
     'nav.bookNow': 'Book Now',
     
     // Home - Hero
@@ -126,6 +127,7 @@ const translations = {
     'nav.conditions': 'उपचार की जाने वाली स्थितियाँ',
     'nav.gallery': 'गैलरी',
     'nav.contact': 'संपर्क करें',
+    'nav.surgicalOutcomes': 'सर्जरी के परिणाम',
     'nav.bookNow': 'अपॉइंटमेंट बुक करें',
     
     // Home - Hero

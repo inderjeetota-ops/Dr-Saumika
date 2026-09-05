@@ -50,6 +50,16 @@ const routes = [
   '/hi/services/why-choose-an-oculoplasty-ocular-oncology-specialist',
 ];
 
+const surgicalCasesPath = path.resolve(__dirname, '../src/data/surgicalOutcomes.json');
+const surgicalCases = JSON.parse(fs.readFileSync(surgicalCasesPath, 'utf-8'));
+
+routes.push('/surgical-outcomes', '/hi/surgical-outcomes');
+surgicalCases
+  .filter((c) => c.consent)
+  .forEach((c) => {
+    routes.push(`/surgical-outcomes/${c.slug}`, `/hi/surgical-outcomes/${c.slug}`);
+  });
+
 const app = express();
 app.use(express.static(distDir, { index: false })); // Don't serve index.html automatically
 

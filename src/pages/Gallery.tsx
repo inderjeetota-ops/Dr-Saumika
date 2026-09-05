@@ -7,10 +7,6 @@ export default function Gallery({ isEmbedded = false }: { isEmbedded?: boolean }
   const [isPhotoGalleryOpen, setIsPhotoGalleryOpen] = useState(false);
   const { language, t } = useLanguage();
 
-  const gallerySections = language === 'hi' 
-    ? ["टोसिस (Ptosis) सुधार", "कृत्रिम आंख पुनर्वास"]
-    : ["Ptosis Correction", "Artificial Eye Rehabilitation"];
-
   // Localized static photo gallery data with names and descriptions (read-only)
   const photoGalleryImages = language === 'hi'
     ? [
@@ -35,114 +31,14 @@ export default function Gallery({ isEmbedded = false }: { isEmbedded?: boolean }
       ];
 
   return (
-    <div className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-ivory via-white to-ivory relative overflow-hidden">
+    <div className="py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-ivory via-white to-ivory relative overflow-hidden">
       {/* Subtle Background Accent Lighting */}
       <div className="absolute top-1/3 right-10 w-80 h-80 bg-gold/5 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-1/3 left-10 w-96 h-96 bg-navy-light/5 rounded-full blur-[120px] pointer-events-none" />
       
       <div className="max-w-7xl mx-auto relative z-10">
-        
-        {/* Header Block */}
-        <m.div 
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16 md:mb-20"
-        >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold/10 border border-gold/20 text-gold text-xs font-semibold tracking-widest uppercase mb-4">
-            <Sparkles className="h-3 w-3 animate-pulse" />
-            <span>{language === 'hi' ? 'क्लीनिकल परिणाम' : 'Visual Evidence'}</span>
-          </div>
-          {isEmbedded ? (
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-navy mb-4 tracking-tight">
-              {t('gallery.title')}
-            </h2>
-          ) : (
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-navy mb-4 tracking-tight">
-              {t('gallery.title')}
-            </h1>
-          )}
-          <p className="text-sm sm:text-base text-navy/70 max-w-2xl mx-auto leading-relaxed">
-            {language === 'hi' 
-              ? 'हमारे विशेषज्ञ ओकुलोप्लास्टी उपचारों और उत्कृष्ट माइक्रोसर्जिकल प्रक्रियाओं के वास्तविक परिणाम।'
-              : 'Before and after visual evidence of our expert oculoplasty treatments and microscopic surgical care.'}
-          </p>
-          <div className="w-16 h-[3px] bg-gold mx-auto mt-6 rounded-full" />
-        </m.div>
-
-        {/* Comparison Sections */}
-        <div className="space-y-24">
-          {gallerySections.map((title, idx) => (
-            <m.section 
-              key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
-              className="max-w-5xl mx-auto relative group"
-            >
-              <h2 className="text-2xl sm:text-3xl font-bold text-navy text-center mb-10 flex items-center justify-center gap-3">
-                <span className="w-8 h-[1px] bg-gold/50" />
-                <span>{title}</span>
-                <span className="w-8 h-[1px] bg-gold/50" />
-              </h2>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
-                {/* Before Image Card */}
-                <div className="bg-white/90 backdrop-blur-md p-5 border border-gold/15 shadow-xl hover:shadow-2xl hover:border-gold/30 rounded-2xl transition-all duration-300 relative overflow-hidden group">
-                  <div className="absolute top-0 left-0 right-0 h-[3px] bg-navy" />
-                  <div className="aspect-[16/10] w-full bg-navy/5 flex items-center justify-center overflow-hidden rounded-xl relative">
-                    {idx === 0 ? (
-                      <picture className="contents">
-                        <source srcSet="/ptosis-before.webp" type="image/webp" />
-                        <img src="/ptosis-before.jpg" alt="Severe Ptosis (Drooping Upper Eyelid) before surgical correction by Dr. Saumika Singh" width="2587" height="1600" loading="lazy" className="w-full h-full object-cover object-center hover:scale-[1.03] transition-transform duration-500" />
-                      </picture>
-                    ) : idx === 1 ? (
-                      <picture className="contents">
-                        <source srcSet="/Artificial-Eye-Rehabilitation-before.webp" type="image/webp" />
-                        <img src="/Artificial-Eye-Rehabilitation-before.jpg" alt="Anophthalmic socket volume loss before custom prosthesis fitting by Dr. Saumika Singh" width="3352" height="1977" loading="lazy" className="w-full h-full object-cover object-center hover:scale-[1.03] transition-transform duration-500" />
-                      </picture>
-                    ) : (
-                      <span className="text-navy/40 font-bold uppercase tracking-widest text-center px-4">[Clinical Photo Here]</span>
-                    )}
-                    <span className="absolute top-3 left-3 bg-navy/90 text-white font-bold uppercase tracking-widest text-xs px-3.5 py-1.5 rounded-full shadow-md">
-                      {language === 'hi' ? 'पहले' : 'Before'}
-                    </span>
-                  </div>
-
-                </div>
-
-                {/* After Image Card */}
-                <div className="bg-white/90 backdrop-blur-md p-5 border border-gold/25 shadow-xl hover:shadow-2xl hover:border-gold/40 rounded-2xl transition-all duration-300 relative overflow-hidden group">
-                  <div className="absolute top-0 left-0 right-0 h-[3px] bg-gold" />
-                  <div className="aspect-[16/10] w-full bg-navy/5 flex items-center justify-center overflow-hidden rounded-xl relative">
-                    {idx === 0 ? (
-                      <picture className="contents">
-                        <source srcSet="/ptosis-after.webp" type="image/webp" />
-                        <img src="/ptosis-after.jpg" alt="Successful Ptosis Correction (Eyelid Surgery) showing restored eyelid height and natural symmetry by Dr. Saumika Singh" width="1435" height="839" loading="lazy" className="w-full h-full object-cover object-center hover:scale-[1.03] transition-transform duration-500" />
-                      </picture>
-                    ) : idx === 1 ? (
-                      <picture className="contents">
-                        <source srcSet="/Artificial-Eye-Rehabilitation-after.webp" type="image/webp" />
-                        <img src="/Artificial-Eye-Rehabilitation-after.jpg" alt="Natural artificial eye prosthesis rehabilitation showing premium cosmetic matching by Dr. Saumika Singh" width="3027" height="1469" loading="lazy" className="w-full h-full object-cover object-center hover:scale-[1.03] transition-transform duration-500" />
-                      </picture>
-                    ) : (
-                      <span className="text-navy/40 font-bold uppercase tracking-widest">[Clinical Photo Here]</span>
-                    )}
-                    <span className="absolute top-3 right-3 bg-gradient-to-r from-gold to-gold-light text-navy font-black uppercase tracking-widest text-xs px-4 py-1.5 rounded-full shadow-lg border border-gold/30">
-                      {language === 'hi' ? 'बाद में' : 'After'}
-                    </span>
-                  </div>
-
-                </div>
-              </div>
-            </m.section>
-          ))}
-        </div>
-
         {/* Luxury Banner with Note & Extended Gallery Trigger */}
-        <div className="mt-24 max-w-5xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <div className="bg-gradient-to-br from-navy via-[#001d3d] to-[#000f24] p-8 md:p-10 shadow-2xl rounded-2xl border border-gold/15 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8">
             {/* Top Border Accent */}
             <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-gold via-gold-light to-gold" />
