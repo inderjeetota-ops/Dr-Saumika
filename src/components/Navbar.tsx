@@ -40,6 +40,7 @@ export function Navbar() {
     { name: t('nav.home'), path: '#home' },
     { name: t('nav.conditions'), path: '#conditions' },
     { name: t('nav.surgicalOutcomes'), path: '#surgical-outcomes' },
+    { name: t('nav.publications'), path: '#publications' },
     { name: t('nav.gallery'), path: '#gallery' },
     { name: t('nav.contact'), path: '#contact' },
   ];
@@ -62,7 +63,7 @@ export function Navbar() {
     }
 
     // 3. Middle sections check
-    const sections = ['home', 'conditions', 'surgical-outcomes', 'gallery', 'contact'];
+    const sections = ['home', 'conditions', 'surgical-outcomes', 'publications', 'gallery', 'contact'];
     let currentSection = '#home';
     for (const id of sections) {
       const el = document.getElementById(id);
@@ -230,7 +231,7 @@ export function Navbar() {
           </div>
           
           {/* Desktop Nav */}
-          <div className="hidden md:flex space-x-4 lg:space-x-8 items-center justify-end">
+          <div className="hidden lg:flex space-x-6 xl:space-x-8 items-center justify-end">
             {navLinks.map((link) => (
               <a
                 key={link.path}
@@ -257,7 +258,7 @@ export function Navbar() {
           </div>
 
           {/* Mobile Nav Button */}
-          <div className="md:hidden flex items-center gap-4">
+          <div className="lg:hidden flex items-center gap-4">
             <button
               onClick={() => setIsOpen(!isOpen)}
               aria-expanded={isOpen}
@@ -279,7 +280,7 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="absolute top-full left-0 right-0 md:hidden border-b border-t border-gold/20 bg-ivory/95 backdrop-blur-lg shadow-lg overflow-hidden z-40"
+            className="absolute top-full left-0 right-0 lg:hidden border-b border-t border-gold/20 bg-ivory/95 backdrop-blur-lg shadow-lg overflow-hidden z-40"
           >
             <div className="px-4 pt-2 pb-6 space-y-1">
               {navLinks.map((link) => (

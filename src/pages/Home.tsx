@@ -10,6 +10,8 @@ import SEO from '../components/SEO';
 import { trackEvent } from '../lib/analytics';
 import { surgicalCases } from '../data/surgicalOutcomes';
 import SurgicalCaseCard from '../components/SurgicalCaseCard';
+import { publications, isDoctorAuthor, formatRef } from '../data/publications';
+import { BookOpen } from 'lucide-react';
 
 
 const OrbitalIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -355,6 +357,73 @@ export default function Home() {
               className="inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-to-r from-navy to-[#001d3d] hover:from-[#0f2a4a] hover:to-navy text-ivory font-bold tracking-wider uppercase text-xs rounded-full transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:scale-95 group"
             >
               {language === 'hi' ? 'सभी सर्जिकल परिणाम देखें' : 'View all surgical outcomes'} 
+              <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Publications Teaser */}
+      <section id="publications" className="py-24 px-4 sm:px-6 lg:px-8 bg-ivory relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-gold/5 rounded-full blur-[80px] pointer-events-none" />
+        
+        <div className="max-w-7xl mx-auto relative z-10">
+          <m.div 
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16 md:mb-20"
+          >
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#002147]/10 border border-[#002147]/20 text-[#002147] text-xs font-semibold tracking-widest uppercase mb-4">
+              <BookOpen className="h-3 w-3" />
+              <span>{language === 'hi' ? 'शोध एवं प्रकाशन' : 'Research & Publications'}</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-navy mb-4 tracking-tight">
+              {t('nav.publications')}
+            </h2>
+            <p className="text-sm sm:text-base text-navy/70 max-w-2xl mx-auto leading-relaxed">
+              {language === 'hi'
+                ? 'राष्ट्रीय नेत्र-विज्ञान पत्रिकाओं में डॉ. सौमिका सिंह द्वारा प्रकाशित हालिया सहकर्मी-समीक्षित शोध।'
+                : 'Recent peer-reviewed research and case reports by Dr Saumika Singh in national ophthalmology journals.'}
+            </p>
+            <div className="w-16 h-[3px] bg-gold mx-auto mt-6 rounded-full" />
+          </m.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {publications.slice(0, 2).map((p) => (
+              <div key={p.slug} className="rounded-xl border border-gold/20 bg-white/70 backdrop-blur-sm p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
+                <div className="mb-4">
+                  <span className="inline-flex items-center rounded-full bg-navy px-3 py-1 text-xs font-bold text-white">
+                    {p.year}
+                  </span>
+                </div>
+                <h3 className="text-lg font-bold leading-snug text-navy mb-3 line-clamp-2">
+                  <a href={p.url} target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors">
+                    {p.title}
+                  </a>
+                </h3>
+                <p className="text-sm text-navy/80 mb-2 line-clamp-1">
+                  {p.authors.map((a, i) => (
+                    <React.Fragment key={a}>
+                      {i > 0 && ', '}
+                      {isDoctorAuthor(a) ? <strong className="font-bold text-navy">{a}</strong> : a}
+                    </React.Fragment>
+                  ))}
+                </p>
+                <p className="text-sm italic text-navy/60 mt-auto pt-4 border-t border-gold/10">
+                  {formatRef(p)}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 flex justify-center">
+            <Link
+              to={`${language === 'hi' ? '/hi' : ''}/publications`}
+              className="inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-to-r from-gold to-gold-light hover:from-gold-light hover:to-gold text-navy font-bold tracking-wider uppercase text-xs rounded-full transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:scale-95 group"
+            >
+              {language === 'hi' ? 'सभी प्रकाशन देखें' : 'View all publications'} 
               <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" aria-hidden="true" />
             </Link>
           </div>

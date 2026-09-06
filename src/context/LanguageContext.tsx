@@ -16,6 +16,7 @@ const translations = {
     'nav.gallery': 'Gallery',
     'nav.contact': 'Contact',
     'nav.surgicalOutcomes': 'Surgical Outcomes',
+    'nav.publications': 'Publications',
     'nav.bookNow': 'Book Now',
     
     // Home - Hero
@@ -128,6 +129,7 @@ const translations = {
     'nav.gallery': 'गैलरी',
     'nav.contact': 'संपर्क करें',
     'nav.surgicalOutcomes': 'सर्जरी के परिणाम',
+    'nav.publications': 'प्रकाशन',
     'nav.bookNow': 'अपॉइंटमेंट बुक करें',
     
     // Home - Hero

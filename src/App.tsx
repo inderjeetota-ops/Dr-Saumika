@@ -16,6 +16,7 @@ const ContactPage = lazy(() => import('./pages/ContactPage'));
 const ServiceDetail = lazy(() => import('./pages/ServiceDetail'));
 const SurgicalOutcomes = lazy(() => import('./pages/SurgicalOutcomes'));
 const SurgicalOutcomeDetail = lazy(() => import('./pages/SurgicalOutcomeDetail'));
+const Publications = lazy(() => import('./pages/Publications'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 export default function App() {
@@ -33,6 +34,7 @@ export default function App() {
               <Route path="services/:id" element={<ServiceDetail />} />
               <Route path="surgical-outcomes" element={<SurgicalOutcomes />} />
               <Route path="surgical-outcomes/:slug" element={<SurgicalOutcomeDetail />} />
+              <Route path="publications" element={<Publications />} />
 
               <Route path="hi" element={<Home />} />
               <Route path="hi/gallery" element={<GalleryPage />} />
@@ -40,6 +42,7 @@ export default function App() {
               <Route path="hi/services/:id" element={<ServiceDetail />} />
               <Route path="hi/surgical-outcomes" element={<SurgicalOutcomes />} />
               <Route path="hi/surgical-outcomes/:slug" element={<SurgicalOutcomeDetail />} />
+              <Route path="hi/publications" element={<Publications />} />
               <Route path="*" element={<NotFoundPage />} />
             </Route>
           </Routes>
