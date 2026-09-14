@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail, ArrowUp, Sparkles } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -18,6 +19,8 @@ export function Footer() {
   const disclaimerText = language === 'en'
     ? 'The information on this website is for general educational purposes only and does not constitute medical advice, nor is it a substitute for consultation with a qualified doctor. Treatment and surgical outcomes vary from person to person; any results shown are specific to those individuals and are not a guarantee of similar results. Always consult a qualified physician about your own condition, and in a medical emergency contact your nearest hospital immediately.'
     : 'इस वेबसाइट की जानकारी केवल सामान्य शैक्षिक उद्देश्यों के लिए है। यह चिकित्सा सलाह नहीं है और न ही किसी योग्य चिकित्सक से परामर्श का विकल्प है। उपचार एवं शल्य चिकित्सा के परिणाम हर व्यक्ति में भिन्न होते हैं; दिखाए गए परिणाम संबंधित व्यक्तियों तक सीमित हैं और समान परिणाम की गारंटी नहीं हैं। अपनी स्थिति के बारे में हमेशा किसी योग्य चिकित्सक से परामर्श करें, और चिकित्सा आपात स्थिति में तुरंत अपने निकटतम अस्पताल से संपर्क करें।';
+
+  const privacyPath = language === 'en' ? '/privacy' : '/hi/privacy';
 
   return (
     <footer className="relative bg-gradient-to-b from-navy via-[#001d3d] to-[#000f24] text-ivory pt-20 pb-8 border-t border-gold/30 overflow-hidden">
@@ -77,7 +80,12 @@ export function Footer() {
           </p>
 
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-ivory-dark/50">
-            <p>&copy; {new Date().getFullYear()} {t('home.drName').replace('\n', ' ')}. All rights reserved.</p>
+            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
+              <p>&copy; {new Date().getFullYear()} {t('home.drName').replace('\n', ' ')}. All rights reserved.</p>
+              <Link to={privacyPath} className="hover:text-gold transition-colors underline-offset-4 hover:underline">
+                {language === 'en' ? 'Privacy Policy' : 'गोपनीयता नीति'}
+              </Link>
+            </div>
 
             <button
               onClick={scrollToTop}
