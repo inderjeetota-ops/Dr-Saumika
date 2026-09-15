@@ -38,6 +38,7 @@ export function Navbar() {
 
   const navLinks = [
     { name: t('nav.home'), path: '#home' },
+    { name: language === 'hi' ? 'परिचय' : 'About', path: '/about' },
     { name: t('nav.conditions'), path: '#conditions' },
     { name: t('nav.surgicalOutcomes'), path: '#surgical-outcomes' },
     { name: t('nav.publications'), path: '#publications' },

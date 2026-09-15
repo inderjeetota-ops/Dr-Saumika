@@ -151,9 +151,10 @@ export default function Home() {
           "telephone": "+91-7460088838",
           "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Alyantra Medicity, Vibhuti Khand, Gomti Nagar",
+            "streetAddress": "Alyantra Medicity Superspeciality Hospital, Plot No. TC-49, V-XIII, Vibhuti Khand, Gomti Nagar",
             "addressLocality": "Lucknow",
             "addressRegion": "Uttar Pradesh",
+            "postalCode": "226010",
             "addressCountry": "IN"
           },
           "openingHoursSpecification": {

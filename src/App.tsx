@@ -18,6 +18,7 @@ const SurgicalOutcomes = lazy(() => import('./pages/SurgicalOutcomes'));
 const SurgicalOutcomeDetail = lazy(() => import('./pages/SurgicalOutcomeDetail'));
 const Publications = lazy(() => import('./pages/Publications'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
+const About = lazy(() => import('./pages/About'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 export default function App() {
@@ -37,6 +38,7 @@ export default function App() {
               <Route path="surgical-outcomes/:slug" element={<SurgicalOutcomeDetail />} />
               <Route path="publications" element={<Publications />} />
               <Route path="privacy" element={<PrivacyPolicy />} />
+              <Route path="about" element={<About />} />
 
               <Route path="hi" element={<Home />} />
               <Route path="hi/gallery" element={<GalleryPage />} />
@@ -46,6 +48,7 @@ export default function App() {
               <Route path="hi/surgical-outcomes/:slug" element={<SurgicalOutcomeDetail />} />
               <Route path="hi/publications" element={<Publications />} />
               <Route path="hi/privacy" element={<PrivacyPolicy />} />
+              <Route path="hi/about" element={<About />} />
               <Route path="*" element={<NotFoundPage />} />
             </Route>
           </Routes>

@@ -1557,7 +1557,17 @@ export default function ServiceDetail() {
                 { "@type": "ListItem", "position": 2, "name": t('nav.conditions'), "item": `https://drsaumika.in${language === 'hi' ? '/hi' : '/'}#conditions` },
                 { "@type": "ListItem", "position": 3, "name": t(service.titleKey), "item": `https://drsaumika.in${language === 'hi' ? `/hi/services/${id}` : `/services/${id}`}` }
               ]
-            }
+            },
+            ...(isRichService && richData && Array.isArray(richData.faqs) && richData.faqs.length
+              ? [{
+                  "@type": "FAQPage",
+                  "mainEntity": richData.faqs.map((faq: { q: string; a: string }) => ({
+                    "@type": "Question",
+                    "name": faq.q,
+                    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+                  }))
+                }]
+              : [])
           ]
         }}
       />
