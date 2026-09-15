@@ -1567,7 +1567,20 @@ export default function ServiceDetail() {
                     "acceptedAnswer": { "@type": "Answer", "text": faq.a }
                   }))
                 }]
-              : [])
+              : []),
+            {
+              "@type": "MedicalWebPage",
+              "url": `https://drsaumika.in${language === 'hi' ? `/hi/services/${id}` : `/services/${id}`}`,
+              "name": t(service.titleKey),
+              "inLanguage": language === 'hi' ? 'hi-IN' : 'en-IN',
+              "specialty": "https://schema.org/Surgical",
+              "lastReviewed": "2026-09-01",
+              "reviewedBy": {
+                "@type": "Physician",
+                "name": "Dr. Saumika Singh",
+                "url": `https://drsaumika.in${language === 'hi' ? '/hi/about' : '/about'}`
+              }
+            }
           ]
         }}
       />
@@ -1600,6 +1613,29 @@ export default function ServiceDetail() {
                 {t(service.descKey)}
               </p>
             )}
+
+            {/* Medical review byline — E-E-A-T: verifiable reviewer + review date */}
+            <div id="service-detail-reviewed-by" className="flex flex-wrap items-center gap-x-2 gap-y-1.5 mb-10 py-3 px-4 bg-ivory-dark/20 border border-gold/15 rounded-sm text-sm text-navy/70">
+              <CheckCircle2 className="w-4 h-4 text-gold flex-shrink-0" aria-hidden="true" />
+              <span>
+                {language === 'hi' ? 'चिकित्सकीय समीक्षा: ' : 'Medically reviewed by '}
+                <Link
+                  to={language === 'hi' ? '/hi/about' : '/about'}
+                  className="font-semibold text-navy hover:text-gold underline underline-offset-2 transition-colors focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 rounded-sm"
+                >
+                  {language === 'hi' ? 'डॉ. सौमिका सिंह' : 'Dr. Saumika Singh'}
+                </Link>
+                {language === 'hi' ? ' · अंतिम समीक्षा 1 सितंबर 2026' : ' · Last reviewed 1 September 2026'}
+              </span>
+              <span className="hidden sm:inline text-gold/40" aria-hidden="true">|</span>
+              <Link
+                to={language === 'hi' ? '/hi/about' : '/about'}
+                className="inline-flex items-center gap-1 font-semibold text-gold hover:text-navy transition-colors focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 rounded-sm"
+              >
+                {language === 'hi' ? 'सर्जन के बारे में' : 'About the surgeon'}
+                <ArrowRight className="w-3.5 h-3.5 flex-shrink-0" aria-hidden="true" />
+              </Link>
+            </div>
 
             {isRichService && richData ? (
               // Custom Rich structured content

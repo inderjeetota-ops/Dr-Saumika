@@ -241,6 +241,13 @@ export default function Home() {
                     <span className="font-semibold text-navy/80">{language === 'hi' ? 'चिकित्सा योग्यताएँ एवं पंजीकरण: ' : 'Medical qualifications & registration: '}</span>
                     {language === 'hi' ? 'एमबीबीएस • एमएस (नेत्र विज्ञान) • एफआईसीओ (यूके)। उत्तर प्रदेश मेडिकल काउंसिल में पंजीकृत — पंजीकरण संख्या 137106।' : 'MBBS • MS (Ophthalmology) • FICO (UK). Registered with the Uttar Pradesh Medical Council — Reg. No. 137106.'}
                   </p>
+                  <Link
+                    to={language === 'hi' ? '/hi/about' : '/about'}
+                    className="inline-flex items-center gap-1.5 text-sm font-bold text-gold hover:text-navy transition-colors group/readmore focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 rounded-sm"
+                  >
+                    <span>{language === 'hi' ? 'डॉ. सिंह के बारे में और पढ़ें' : 'Read more about Dr. Singh'}</span>
+                    <ArrowRight className="h-4 w-4 transform group-hover/readmore:translate-x-1 transition-transform duration-300" aria-hidden="true" />
+                  </Link>
                 </div>
               </div>
               

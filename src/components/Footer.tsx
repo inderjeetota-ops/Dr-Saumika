@@ -21,6 +21,7 @@ export function Footer() {
     : 'इस वेबसाइट की जानकारी केवल सामान्य शैक्षिक उद्देश्यों के लिए है। यह चिकित्सा सलाह नहीं है और न ही किसी योग्य चिकित्सक से परामर्श का विकल्प है। उपचार एवं शल्य चिकित्सा के परिणाम हर व्यक्ति में भिन्न होते हैं; दिखाए गए परिणाम संबंधित व्यक्तियों तक सीमित हैं और समान परिणाम की गारंटी नहीं हैं। अपनी स्थिति के बारे में हमेशा किसी योग्य चिकित्सक से परामर्श करें, और चिकित्सा आपात स्थिति में तुरंत अपने निकटतम अस्पताल से संपर्क करें।';
 
   const privacyPath = language === 'en' ? '/privacy' : '/hi/privacy';
+  const aboutPath = language === 'en' ? '/about' : '/hi/about';
 
   return (
     <footer className="relative bg-gradient-to-b from-navy via-[#001d3d] to-[#000f24] text-ivory pt-20 pb-8 border-t border-gold/30 overflow-hidden">
@@ -82,6 +83,9 @@ export function Footer() {
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-ivory-dark/50">
             <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
               <p>&copy; {new Date().getFullYear()} {t('home.drName').replace('\n', ' ')}. All rights reserved.</p>
+              <Link to={aboutPath} className="hover:text-gold transition-colors underline-offset-4 hover:underline">
+                {language === 'en' ? 'About Dr. Singh' : 'डॉ. सिंह के बारे में'}
+              </Link>
               <Link to={privacyPath} className="hover:text-gold transition-colors underline-offset-4 hover:underline">
                 {language === 'en' ? 'Privacy Policy' : 'गोपनीयता नीति'}
               </Link>
