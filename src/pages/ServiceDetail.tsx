@@ -5,6 +5,44 @@ import { m } from 'motion/react';
 import { ArrowLeft, CheckCircle2, ArrowRight } from 'lucide-react';
 import SEO from '../components/SEO';
 
+// Authoritative external references per service (E-E-A-T). Every URL verified 2026-09-15
+// (HTTP 200 + topic-specific page) against AAO / NEI (NIH) / NHS / NCI / MedlinePlus /
+// StatPearls-NCBI / American Society of Ocularists. Keyed by the route :id param.
+const serviceReferences: Record<string, { label: string; source: string; url: string }[]> = {
+  'eyelid-disorders-eyelid-surgery': [
+    { label: 'What is ptosis (drooping eyelid)?', source: 'American Academy of Ophthalmology', url: 'https://www.aao.org/eye-health/diseases/what-is-ptosis' },
+    { label: 'Eyelid disorders — overview', source: 'MedlinePlus · U.S. National Library of Medicine (NIH)', url: 'https://medlineplus.gov/eyeliddisorders.html' },
+  ],
+  'watering-eyes-tear-drainage-disorders': [
+    { label: 'What is a blocked tear duct?', source: 'American Academy of Ophthalmology', url: 'https://www.aao.org/eye-health/diseases/what-is-blocked-tear-duct' },
+    { label: 'Watering eyes (epiphora)', source: 'NHS · UK National Health Service', url: 'https://www.nhs.uk/symptoms/watering-eyes/' },
+  ],
+  'orbital-disorders-orbital-surgery': [
+    { label: "Graves' (thyroid) eye disease", source: 'National Eye Institute · U.S. NIH', url: 'https://www.nei.nih.gov/eye-health-information/eye-conditions-and-diseases/graves-eye-disease' },
+    { label: 'What is an orbital fracture?', source: 'American Academy of Ophthalmology', url: 'https://www.aao.org/eye-health/diseases/what-is-orbital-fracture' },
+  ],
+  'eye-tumours-ocular-oncology': [
+    { label: 'What is ocular melanoma?', source: 'American Academy of Ophthalmology', url: 'https://www.aao.org/eye-health/diseases/what-is-ocular-melanoma' },
+    { label: 'What is retinoblastoma?', source: 'American Academy of Ophthalmology', url: 'https://www.aao.org/eye-health/diseases/what-is-retinoblastoma' },
+  ],
+  'socket-reconstruction-artificial-eye-rehabilitation': [
+    { label: 'Anophthalmic socket — clinical reference', source: 'StatPearls · NCBI Bookshelf (U.S. NIH)', url: 'https://www.ncbi.nlm.nih.gov/books/NBK606099/' },
+    { label: 'American Society of Ocularists (artificial-eye specialists)', source: 'American Society of Ocularists', url: 'https://www.ocularist.org/' },
+  ],
+  'eye-trauma-eyelid-orbital-reconstruction': [
+    { label: 'What is an orbital fracture?', source: 'American Academy of Ophthalmology', url: 'https://www.aao.org/eye-health/diseases/what-is-orbital-fracture' },
+    { label: 'Eye injuries — overview', source: 'MedlinePlus · U.S. National Library of Medicine (NIH)', url: 'https://medlineplus.gov/eyeinjuries.html' },
+  ],
+  'botox-eyelid-cosmetic-surgery-periocular-aesthetics': [
+    { label: 'Blepharospasm (eyelid spasm) & botulinum toxin', source: 'National Eye Institute · U.S. NIH', url: 'https://www.nei.nih.gov/eye-health-information/eye-conditions-and-diseases/blepharospasm' },
+    { label: 'Benign essential blepharospasm', source: 'MedlinePlus Genetics · U.S. NIH', url: 'https://medlineplus.gov/genetics/condition/benign-essential-blepharospasm/' },
+  ],
+  'why-choose-an-oculoplasty-ocular-oncology-specialist': [
+    { label: 'What is an ophthalmologist? (vs optometrist / optician)', source: 'American Academy of Ophthalmology', url: 'https://www.aao.org/eye-health/tips-prevention/what-is-ophthalmologist' },
+    { label: 'Eye care — choosing the right eye professional', source: 'MedlinePlus · U.S. National Library of Medicine (NIH)', url: 'https://medlineplus.gov/eyecare.html' },
+  ],
+};
+
 const serviceKeys: Record<string, { titleKey: string; descKey: string; subKey?: string; features: string[] }> = {
   'eyelid-disorders-eyelid-surgery': {
     titleKey: 'home.drooping',
@@ -1788,6 +1826,43 @@ export default function ServiceDetail() {
                     </h2>
                     <p className="text-navy/80 leading-relaxed whitespace-pre-line">
                       {richData.consultationSection.text}
+                    </p>
+                  </section>
+                )}
+
+                {/* References & further reading — authoritative external sources (E-E-A-T) */}
+                {id && serviceReferences[id] && serviceReferences[id].length > 0 && (
+                  <section id="service-references" className="border border-gold/15 bg-white/40 p-6 rounded-sm">
+                    <h2 className="text-xl md:text-2xl font-bold text-navy mb-1">
+                      {language === 'hi' ? 'संदर्भ एवं अधिक जानकारी' : 'References & further reading'}
+                    </h2>
+                    <p className="text-sm text-navy/60 mb-4">
+                      {language === 'hi'
+                        ? 'मान्यता प्राप्त चिकित्सा संस्थानों के रोगी-शिक्षा संसाधन (नई विंडो में खुलते हैं)।'
+                        : 'Patient-education resources from recognised medical authorities (open in a new tab).'}
+                    </p>
+                    <ul className="space-y-3">
+                      {serviceReferences[id].map((ref, idx) => (
+                        <li key={idx} className="flex items-start gap-2.5">
+                          <ArrowRight className="w-4 h-4 text-gold flex-shrink-0 mt-1" aria-hidden="true" />
+                          <span className="leading-relaxed">
+                            <a
+                              href={ref.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="font-semibold text-navy hover:text-gold underline underline-offset-2 transition-colors focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 rounded-sm"
+                            >
+                              {ref.label}
+                            </a>
+                            <span className="block text-xs text-navy/50 mt-0.5">{ref.source}</span>
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                    <p className="text-xs text-navy/40 mt-4 italic">
+                      {language === 'hi'
+                        ? 'ये बाहरी लिंक केवल सामान्य जानकारी के लिए हैं और व्यक्तिगत चिकित्सकीय सलाह का विकल्प नहीं हैं।'
+                        : 'These external links are for general information only and are not a substitute for personalised medical advice.'}
                     </p>
                   </section>
                 )}
