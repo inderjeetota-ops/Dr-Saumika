@@ -116,6 +116,38 @@ export default function Home() {
           "sameAs": [
             "https://share.google/Giu91wM7buG8pRTa2"
           ],
+          "hasCredential": [
+            {
+              "@type": "EducationalOccupationalCredential",
+              "credentialCategory": "degree",
+              "educationalLevel": "MBBS",
+              "name": "Bachelor of Medicine, Bachelor of Surgery (MBBS)",
+              "recognizedBy": {
+                "@type": "CollegeOrUniversity",
+                "name": "Calcutta National Medical College, Kolkata"
+              }
+            },
+            {
+              "@type": "EducationalOccupationalCredential",
+              "credentialCategory": "degree",
+              "educationalLevel": "MS (Ophthalmology)",
+              "name": "Master of Surgery in Ophthalmology (MS)",
+              "recognizedBy": {
+                "@type": "CollegeOrUniversity",
+                "name": "Regional Institute of Ophthalmology, The West Bengal University of Health Sciences, Kolkata"
+              }
+            },
+            {
+              "@type": "EducationalOccupationalCredential",
+              "credentialCategory": "license",
+              "name": "Registered Medical Practitioner",
+              "identifier": "137106",
+              "recognizedBy": {
+                "@type": "GovernmentOrganization",
+                "name": "Uttar Pradesh Medical Council"
+              }
+            }
+          ],
           "telephone": "+91-7460088838",
           "address": {
             "@type": "PostalAddress",
@@ -203,6 +235,10 @@ export default function Home() {
                   </p>
                   <p>
                     {language === 'hi' ? 'अपने पेशेवर करियर के दौरान, डॉ. सिंह ने हैदराबाद में एक तृतीयक नेत्र देखभाल केंद्र में एक सलाहकार के रूप में, चंद्रा सुपर स्पेशलिटी आई हॉस्पिटल, लखनऊ में एक सलाहकार के रूप में, और डॉ. अग्रवाल आई हॉस्पिटल, लखनऊ में एक विजिटिंग कंसल्टेंट ओकुलोप्लास्टी सर्जन के रूप में अपने काम के माध्यम से जटिल ओकुलोप्लास्टिक विकारों के निदान और सर्जिकल प्रबंधन में व्यापक अनुभव प्राप्त किया है। वह वर्तमान में लखनऊ में एक समर्पित स्वतंत्र ओकुलोप्लास्टी, ऑर्बिट और ओकुलर ऑन्कोलॉजी अभ्यास का नेतृत्व करती हैं।' : 'Over the course of her professional career, Dr. Singh has gained extensive experience in the diagnosis and surgical management of complex oculoplastic disorders through her work as a consultant at a tertiary eye care centre in Hyderabad, as a Consultant at Chandra Super Speciality Eye Hospital, Lucknow, and as a Visiting Consultant Oculoplasty Surgeon at Dr Agarwals Eye Hospital, Lucknow. She currently leads a dedicated independent Oculoplasty, Orbit and Ocular Oncology practice in Lucknow.'}
+                  </p>
+                  <p className="text-xs text-navy/70 border-t border-gold/15 pt-3 text-left">
+                    <span className="font-semibold text-navy/80">{language === 'hi' ? 'चिकित्सा योग्यताएँ एवं पंजीकरण: ' : 'Medical qualifications & registration: '}</span>
+                    {language === 'hi' ? 'एमबीबीएस • एमएस (नेत्र विज्ञान) • एफआईसीओ (यूके)। उत्तर प्रदेश मेडिकल काउंसिल में पंजीकृत — पंजीकरण संख्या 137106।' : 'MBBS • MS (Ophthalmology) • FICO (UK). Registered with the Uttar Pradesh Medical Council — Reg. No. 137106.'}
                   </p>
                 </div>
               </div>
